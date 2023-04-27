@@ -9,21 +9,43 @@
 /* Begin PBXBuildFile section */
 		3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF1A29F8214B00D08641 /* AppDelegate.swift */; };
 		3619DF1D29F8214B00D08641 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF1C29F8214B00D08641 /* SceneDelegate.swift */; };
-		3619DF1F29F8214B00D08641 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF1E29F8214B00D08641 /* ViewController.swift */; };
-		3619DF2229F8214B00D08641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3619DF2029F8214B00D08641 /* Main.storyboard */; };
+		3619DF1F29F8214B00D08641 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF1E29F8214B00D08641 /* AuthViewController.swift */; };
 		3619DF2429F8214C00D08641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3619DF2329F8214C00D08641 /* Assets.xcassets */; };
 		3619DF2729F8214C00D08641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3619DF2529F8214C00D08641 /* LaunchScreen.storyboard */; };
+		3619DF2F29F98E1A00D08641 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF2E29F98E1A00D08641 /* AuthView.swift */; };
+		3619DF3229F98E8F00D08641 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF3129F98E8F00D08641 /* AuthCoordinator.swift */; };
+		3619DF3729F98EFD00D08641 /* AuthFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF3629F98EFD00D08641 /* AuthFactory.swift */; };
+		3619DF3A29F98F5B00D08641 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF3929F98F5B00D08641 /* AuthViewModel.swift */; };
+		3619DF3E29F9960200D08641 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF3D29F9960200D08641 /* CustomButton.swift */; };
+		3619DF4129F9962A00D08641 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4029F9962A00D08641 /* View.swift */; };
+		3619DF4329F99FB200D08641 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4229F99FB200D08641 /* Colors.swift */; };
+		3619DF4529F9A82300D08641 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4429F9A82300D08641 /* StackView.swift */; };
+		3619DF4A29F9D7A500D08641 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4929F9D7A500D08641 /* HomeViewController.swift */; };
+		3619DF4C29F9D81000D08641 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4B29F9D81000D08641 /* ProfileViewController.swift */; };
+		3619DF4E29F9D83A00D08641 /* LikedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4D29F9D83A00D08641 /* LikedViewController.swift */; };
+		3619DF5029F9D86B00D08641 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF4F29F9D86B00D08641 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3619DF1729F8214B00D08641 /* MyPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3619DF1A29F8214B00D08641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3619DF1C29F8214B00D08641 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3619DF1E29F8214B00D08641 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3619DF2129F8214B00D08641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3619DF1E29F8214B00D08641 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3619DF2329F8214C00D08641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3619DF2629F8214C00D08641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3619DF2829F8214C00D08641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3619DF2E29F98E1A00D08641 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		3619DF3129F98E8F00D08641 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		3619DF3629F98EFD00D08641 /* AuthFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFactory.swift; sourceTree = "<group>"; };
+		3619DF3929F98F5B00D08641 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		3619DF3D29F9960200D08641 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		3619DF4029F9962A00D08641 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		3619DF4229F99FB200D08641 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3619DF4429F9A82300D08641 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		3619DF4929F9D7A500D08641 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3619DF4B29F9D81000D08641 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3619DF4D29F9D83A00D08641 /* LikedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewController.swift; sourceTree = "<group>"; };
+		3619DF4F29F9D86B00D08641 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +80,88 @@
 			children = (
 				3619DF1A29F8214B00D08641 /* AppDelegate.swift */,
 				3619DF1C29F8214B00D08641 /* SceneDelegate.swift */,
-				3619DF1E29F8214B00D08641 /* ViewController.swift */,
-				3619DF2029F8214B00D08641 /* Main.storyboard */,
+				3619DF3B29F995CF00D08641 /* Helpers */,
+				3619DF3029F98E6C00D08641 /* Auth */,
+				3619DF4829F9D77F00D08641 /* ViewControllers */,
 				3619DF2329F8214C00D08641 /* Assets.xcassets */,
 				3619DF2529F8214C00D08641 /* LaunchScreen.storyboard */,
 				3619DF2829F8214C00D08641 /* Info.plist */,
 			);
 			path = MyPet;
+			sourceTree = "<group>";
+		};
+		3619DF3029F98E6C00D08641 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF3329F98EB300D08641 /* Coordinator */,
+				3619DF3429F98ED200D08641 /* Factory */,
+				3619DF3829F98F3000D08641 /* ViewModel */,
+				3619DF3529F98EDD00D08641 /* View */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3619DF3329F98EB300D08641 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF3129F98E8F00D08641 /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3619DF3429F98ED200D08641 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF3629F98EFD00D08641 /* AuthFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		3619DF3529F98EDD00D08641 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF1E29F8214B00D08641 /* AuthViewController.swift */,
+				3619DF2E29F98E1A00D08641 /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3619DF3829F98F3000D08641 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF3929F98F5B00D08641 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3619DF3B29F995CF00D08641 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF3C29F995E600D08641 /* Ui */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3619DF3C29F995E600D08641 /* Ui */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF3D29F9960200D08641 /* CustomButton.swift */,
+				3619DF4029F9962A00D08641 /* View.swift */,
+				3619DF4429F9A82300D08641 /* StackView.swift */,
+				3619DF4229F99FB200D08641 /* Colors.swift */,
+			);
+			path = Ui;
+			sourceTree = "<group>";
+		};
+		3619DF4829F9D77F00D08641 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3619DF4929F9D7A500D08641 /* HomeViewController.swift */,
+				3619DF4B29F9D81000D08641 /* ProfileViewController.swift */,
+				3619DF4D29F9D83A00D08641 /* LikedViewController.swift */,
+				3619DF4F29F9D86B00D08641 /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +224,6 @@
 			files = (
 				3619DF2729F8214C00D08641 /* LaunchScreen.storyboard in Resources */,
 				3619DF2429F8214C00D08641 /* Assets.xcassets in Resources */,
-				3619DF2229F8214B00D08641 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +234,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3619DF1F29F8214B00D08641 /* ViewController.swift in Sources */,
+				3619DF3729F98EFD00D08641 /* AuthFactory.swift in Sources */,
+				3619DF4529F9A82300D08641 /* StackView.swift in Sources */,
+				3619DF4329F99FB200D08641 /* Colors.swift in Sources */,
+				3619DF3229F98E8F00D08641 /* AuthCoordinator.swift in Sources */,
+				3619DF4E29F9D83A00D08641 /* LikedViewController.swift in Sources */,
+				3619DF4C29F9D81000D08641 /* ProfileViewController.swift in Sources */,
+				3619DF1F29F8214B00D08641 /* AuthViewController.swift in Sources */,
+				3619DF5029F9D86B00D08641 /* SettingsViewController.swift in Sources */,
+				3619DF3A29F98F5B00D08641 /* AuthViewModel.swift in Sources */,
+				3619DF3E29F9960200D08641 /* CustomButton.swift in Sources */,
+				3619DF4129F9962A00D08641 /* View.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
+				3619DF2F29F98E1A00D08641 /* AuthView.swift in Sources */,
+				3619DF4A29F9D7A500D08641 /* HomeViewController.swift in Sources */,
 				3619DF1D29F8214B00D08641 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +255,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3619DF2029F8214B00D08641 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3619DF2129F8214B00D08641 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3619DF2529F8214C00D08641 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +392,9 @@
 				INFOPLIST_FILE = MyPet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +420,9 @@
 				INFOPLIST_FILE = MyPet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
