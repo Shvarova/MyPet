@@ -14,5 +14,6 @@ extension UIColor {
         static let like = UIColor(named: "Like") ?? .systemOrange
         static let backgroundDark = UIColor(named: "BackgroundDark") ?? .black
         static let backgroundLight = UIColor(named: "BackgroundLight") ?? .darkGray
+        static let neon = UIColor(named: "Neon") ?? .systemGreen
     }
 }
