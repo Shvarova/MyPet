@@ -26,7 +26,7 @@ class ProfileViewController : UIViewController {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = .CustomColor.backgroundDark
     }
     
     override func viewDidLoad() {

@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate {
+    
+    func setTitleFilter(title: String)
+}
+
 class HomeViewController : UIViewController, UITabBarControllerDelegate {
+    
     private let mainView: HomeView
     private var viewModel: HomeViewModel?
     
@@ -22,7 +28,7 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = .CustomColor.backgroundDark
     }
     
     override func viewDidLoad() {
@@ -31,5 +37,26 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
     
     func setViewModel (viewModel: HomeViewModel) {
         self.viewModel = viewModel
+        self.viewModel?.update = mainView.setPosts(posts:)
+        mainView.searchAction = {
+            self.viewModel?.presentSearchController(delegate: self)
+        }
+        mainView.resetAction = {
+            self.viewModel?.startUpdate(state: .willAppear)
+            self.mainView.showSearchButton()
+        }
+        self.viewModel?.startUpdate(state: .willAppear)
+    }
+}
+
+extension HomeViewController: HomeViewControllerDelegate {
+    func setTitleFilter(title: String) {
+        self.viewModel?.startUpdate(state: .filter(title))
+        if !title.isEmpty {
+            mainView.showResetButton()
+        } else {
+            mainView.showSearchButton()
+            self.viewModel?.startUpdate(state: .willAppear)
+        }
     }
 }

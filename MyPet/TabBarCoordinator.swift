@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class TabBarCoordinator {
     
     private let navigationController: UINavigationController
@@ -15,6 +14,7 @@ final class TabBarCoordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.navigationBar.isHidden = true
 
         let homeNC = HomeCoordinator().getNavigationController()
         let profileNC = ProfileCoordinator().getNavigationController()

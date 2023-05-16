@@ -8,12 +8,14 @@
 import UIKit
 
 enum HomeFactory {
-    static func getNavigationControlller () -> UINavigationController {
+    static func getNavigationControlller (output: HomeOutput) -> UINavigationController {
         let mainView = HomeView()
         let vc = HomeViewController(mainView: mainView)
         let viewModel = HomeViewModel()
+        viewModel.output = output
         vc.setViewModel(viewModel: viewModel)
         let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.isHidden = true
         return nc
     }
 }

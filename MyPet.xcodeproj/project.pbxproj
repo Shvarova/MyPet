@@ -52,6 +52,14 @@
 		3619DFA52A0D2BD100D08641 /* SettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFA42A0D2BD100D08641 /* SettingsFactory.swift */; };
 		3619DFA72A0D2BE500D08641 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFA62A0D2BE500D08641 /* SettingsViewModel.swift */; };
 		3619DFA92A0D2BFE00D08641 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFA82A0D2BFE00D08641 /* SettingsView.swift */; };
+		3619DFAB2A0E921300D08641 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFAA2A0E921300D08641 /* PostCell.swift */; };
+		3619DFAD2A0E975A00D08641 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFAC2A0E975A00D08641 /* PostButton.swift */; };
+		3619DFAF2A0F913200D08641 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFAE2A0F913200D08641 /* SearchViewController.swift */; };
+		3619DFB12A0FB9D300D08641 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB02A0FB9D300D08641 /* Post.swift */; };
+		3619DFB32A12E87B00D08641 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB22A12E87B00D08641 /* PetView.swift */; };
+		3619DFB62A13826E00D08641 /* PhotoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB52A13826E00D08641 /* PhotoCoordinator.swift */; };
+		3619DFB82A13828200D08641 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB72A13828200D08641 /* PhotoViewController.swift */; };
+		3619DFBA2A1382BF00D08641 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB92A1382BF00D08641 /* PhotosCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +112,14 @@
 		3619DFA42A0D2BD100D08641 /* SettingsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFactory.swift; sourceTree = "<group>"; };
 		3619DFA62A0D2BE500D08641 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3619DFA82A0D2BFE00D08641 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3619DFAA2A0E921300D08641 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		3619DFAC2A0E975A00D08641 /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
+		3619DFAE2A0F913200D08641 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3619DFB02A0FB9D300D08641 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3619DFB22A12E87B00D08641 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
+		3619DFB52A13826E00D08641 /* PhotoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCoordinator.swift; sourceTree = "<group>"; };
+		3619DFB72A13828200D08641 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		3619DFB92A1382BF00D08641 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +162,7 @@
 				3619DF8129FD674600D08641 /* Home */,
 				3619DF7329FBFF8900D08641 /* Liked */,
 				3619DF4829F9D77F00D08641 /* Profile */,
+				3619DFB42A13824200D08641 /* Photo */,
 				3619DF972A0D294400D08641 /* Settings */,
 				3619DF6E29FBE2F000D08641 /* Manifesto */,
 				3619DF2329F8214C00D08641 /* Assets.xcassets */,
@@ -204,6 +221,7 @@
 		3619DF3B29F995CF00D08641 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3619DFB02A0FB9D300D08641 /* Post.swift */,
 				3619DF3C29F995E600D08641 /* Ui */,
 			);
 			path = Helpers;
@@ -217,6 +235,8 @@
 				3619DF4429F9A82300D08641 /* StackView.swift */,
 				3619DF4229F99FB200D08641 /* Colors.swift */,
 				3619DF7929FD5D1C00D08641 /* CustomTextField.swift */,
+				3619DFAA2A0E921300D08641 /* PostCell.swift */,
+				3619DFAC2A0E975A00D08641 /* PostButton.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -301,6 +321,7 @@
 			children = (
 				3619DF4B29F9D81000D08641 /* ProfileViewController.swift */,
 				3619DF7629FC484200D08641 /* ProfileView.swift */,
+				3619DFB22A12E87B00D08641 /* PetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +358,7 @@
 			children = (
 				3619DF4929F9D7A500D08641 /* HomeViewController.swift */,
 				3619DF8529FD682400D08641 /* HomeView.swift */,
+				3619DFAE2A0F913200D08641 /* SearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +472,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		3619DFB42A13824200D08641 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				3619DFB52A13826E00D08641 /* PhotoCoordinator.swift */,
+				3619DFB72A13828200D08641 /* PhotoViewController.swift */,
+				3619DFB92A1382BF00D08641 /* PhotosCollectionViewCell.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -544,15 +576,22 @@
 				3619DF5D29FACF2400D08641 /* EntryViewController.swift in Sources */,
 				3619DF8B29FD731A00D08641 /* LikedCoordinator.swift in Sources */,
 				3619DF6129FACF5E00D08641 /* EntryFactory.swift in Sources */,
+				3619DFB82A13828200D08641 /* PhotoViewController.swift in Sources */,
+				3619DFAF2A0F913200D08641 /* SearchViewController.swift in Sources */,
 				3619DF8029FD673000D08641 /* HomeFactory.swift in Sources */,
 				3619DF7A29FD5D1C00D08641 /* CustomTextField.swift in Sources */,
+				3619DFAB2A0E921300D08641 /* PostCell.swift in Sources */,
 				3619DF4C29F9D81000D08641 /* ProfileViewController.swift in Sources */,
 				3619DF8629FD682400D08641 /* HomeView.swift in Sources */,
 				3619DF8D29FD733200D08641 /* LikedFactory.swift in Sources */,
 				3619DF8929FD686000D08641 /* HomeViewModel.swift in Sources */,
+				3619DFB12A0FB9D300D08641 /* Post.swift in Sources */,
 				3619DF1F29F8214B00D08641 /* WelcomeViewController.swift in Sources */,
 				3619DFA52A0D2BD100D08641 /* SettingsFactory.swift in Sources */,
 				3619DF5829FACD8200D08641 /* EntryCoordinator.swift in Sources */,
+				3619DFB62A13826E00D08641 /* PhotoCoordinator.swift in Sources */,
+				3619DFBA2A1382BF00D08641 /* PhotosCollectionViewCell.swift in Sources */,
+				3619DFAD2A0E975A00D08641 /* PostButton.swift in Sources */,
 				3619DF5029F9D86B00D08641 /* SettingsViewController.swift in Sources */,
 				3619DFA92A0D2BFE00D08641 /* SettingsView.swift in Sources */,
 				3619DF3A29F98F5B00D08641 /* WelcomeViewModel.swift in Sources */,
@@ -564,6 +603,7 @@
 				3619DF7E29FD66BB00D08641 /* HomeCoordinator.swift in Sources */,
 				3619DF4A29F9D7A500D08641 /* HomeViewController.swift in Sources */,
 				3619DF9F2A0D2A3100D08641 /* ProfileViewModel.swift in Sources */,
+				3619DFB32A12E87B00D08641 /* PetView.swift in Sources */,
 				3619DF7529FBFFB500D08641 /* LikedView.swift in Sources */,
 				3619DF5B29FACF0D00D08641 /* EntryView.swift in Sources */,
 				3619DF6D29FBE28A00D08641 /* ManifestoViewController.swift in Sources */,
