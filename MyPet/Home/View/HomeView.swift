@@ -56,7 +56,7 @@ class HomeView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.sectionInset = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 24, left: 0, bottom: 24, right: 0)
         return layout
     }()
     
