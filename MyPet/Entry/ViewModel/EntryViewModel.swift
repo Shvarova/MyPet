@@ -19,9 +19,9 @@ class EntryViewModel {
     func updateModel () {
         switch entryChoosen {
         case .logIn:
-          updateView?("Log In", logIn)
+          updateView?(NSLocalizedString("Log In", comment: ""), logIn)
         case .signUp:
-            updateView?("Sign Up", signUp)
+            updateView?(NSLocalizedString("Sign Up", comment: ""), signUp)
         }
     }
     

@@ -9,4 +9,5 @@ import UIKit
 
 class ProfileViewModel {
     
+   var posts = Posts().posts
 }
