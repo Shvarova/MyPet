@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol ProfileOutput {
-    func photosCellSelected()
-}
-
 class ProfileViewController : UIViewController {
-
-    var output: ProfileOutput?
     
     private let mainView: ProfileView
     private var viewModel: ProfileViewModel?
@@ -38,6 +32,9 @@ class ProfileViewController : UIViewController {
     
     func setViewModel (viewModel: ProfileViewModel) {
         self.viewModel = viewModel
+        mainView.editPetAction = viewModel.editPet
+        mainView.openPhotoGalleryAction = viewModel.openPhotoGallery
+        mainView.addPostAction = viewModel.addPost
         mainView.setPosts(posts: viewModel.posts)
     }
 }

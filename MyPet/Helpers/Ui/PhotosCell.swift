@@ -1,15 +1,15 @@
 //
-//  PhotosCollectionViewCell.swift
+//  PhotosCell.swift
 //  MyPet
 //
-//  Created by Дина Шварова on 16.05.2023.
+//  Created by Дина Шварова on 05.06.2023.
 //
 
 import UIKit
 
-class PhotosCollectionViewCell : UICollectionViewCell {
+class PhotosCell : UICollectionViewCell {
 
-    private lazy var photo : UIImageView = {
+    private lazy var photo: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
@@ -43,3 +43,4 @@ class PhotosCollectionViewCell : UICollectionViewCell {
         ])
     }
 }
+

@@ -7,10 +7,27 @@
 
 import UIKit
 
-class ProfileCoordinator {
+protocol ProfileOutput {
+    func editPet()
+    func openPhotoGallery()
+    func addPost()
+}
 
+class ProfileCoordinator: ProfileOutput {
+    func editPet() {
+
+    }
+    
+    func openPhotoGallery() {
+        
+    }
+    
+    func addPost() {
+        print()
+    }
+    
     func getNavigationController () -> UINavigationController {
-        let nc = ProfileFactory.getNavigationControlller()
+        let nc = ProfileFactory.getNavigationControlller(output: self)
         return nc
     }
 }

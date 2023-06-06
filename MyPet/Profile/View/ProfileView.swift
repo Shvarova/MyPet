@@ -10,18 +10,33 @@ import UIKit
 class ProfileView: UIView {
     
     private var posts: [Post] = []
-    private var cellsCount = 2
+    private var cellsCount = 4
+    var editPetAction: (() -> ())?
+    var openPhotoGalleryAction: (() -> ())?
+    var addPostAction: (() -> ())?
+    
+    private lazy var titleLabel: UILabel = {
+        let title = UILabel ()
+        title.text = "Profile"
+        title.font = .boldSystemFont(ofSize: 24)
+        title.textColor = .white
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
+    }()
     
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
         view.register(UserCollectionCell.self, forCellWithReuseIdentifier: UserCollectionCell.id)
         view.register(PetCollectionCell.self, forCellWithReuseIdentifier: PetCollectionCell.id)
+        view.register(MyPhotosCollectionCell.self, forCellWithReuseIdentifier: MyPhotosCollectionCell.id)
+        view.register(MyPostsCollectionCell.self, forCellWithReuseIdentifier: MyPostsCollectionCell.id)
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
         view.backgroundColor = .CustomColor.backgroundDark
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.dataSource = self
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -35,7 +50,7 @@ class ProfileView: UIView {
     
     func setPosts (posts: [Post]) {
         self.posts = posts
-        cellsCount = 2 + posts.count
+        cellsCount = 4 + posts.count
         collectionView.reloadData()
     }
 
@@ -49,10 +64,13 @@ class ProfileView: UIView {
     }
     
     private func setupView() {
-        addSubviews(collectionView)
+        addSubviews(titleLabel, collectionView)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            
+            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
@@ -70,13 +88,26 @@ extension ProfileView: UICollectionViewDataSource {
         switch indexPath.row {
         case 0: cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.id, for: indexPath)
         case 1: cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath)
+        case 2: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPhotosCollectionCell.id, for: indexPath)
+        case 3: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPostsCollectionCell.id, for: indexPath)
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.id, for: indexPath) as? PostCell  else {
                 return cell
             }
-            cell.setPost(post: posts [indexPath.row - 2])
+            cell.setPost(post: posts [indexPath.row - 4])
             return cell
         }
         return cell
+    }
+}
+
+extension ProfileView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 1: editPetAction?()
+        case 2: openPhotoGalleryAction?()
+        case 3: addPostAction?()
+        default: break
+        }
     }
 }

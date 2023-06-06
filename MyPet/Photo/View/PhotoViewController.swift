@@ -9,7 +9,7 @@ import UIKit
 
 class PhotosViewController: UIViewController {
     
-    private let model = PhotoViewModel()
+    private var photos: [Photos] = []
     
     private lazy var layout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
@@ -21,7 +21,7 @@ class PhotosViewController: UIViewController {
         private lazy var collectionView: UICollectionView = {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-            collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "CustomCell")
+            collectionView.register(PhotosCell.self, forCellWithReuseIdentifier: "CustomCell")
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,11 +56,11 @@ class PhotosViewController: UIViewController {
             return 20
         }
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? PhotosCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? PhotosCell else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
                 return cell
             }
-            cell.setup(with: "\(model.photos[indexPath.row])")
+            cell.setup(with: "\(photos[indexPath.row])")
             return cell
         }
     }
