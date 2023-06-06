@@ -7,10 +7,7 @@
 
 import UIKit
 
-
 class ProfileViewController : UIViewController {
-    
-    
     
     private let mainView: ProfileView
     private var viewModel: ProfileViewModel?
@@ -33,14 +30,20 @@ class ProfileViewController : UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //        mainView.setPosts(posts: CoreDataService.shared.postEntities)
-    }
-    
     func setViewModel (viewModel: ProfileViewModel) {
         self.viewModel = viewModel
+        mainView.editPetAction = viewModel.editPet
+        mainView.openPhotoGalleryAction = viewModel.openPhotoGallery
+        mainView.addPostAction = viewModel.addPost
+        mainView.setPosts(posts: viewModel.posts)
     }
 }
 
-
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let vc = PhotosViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}

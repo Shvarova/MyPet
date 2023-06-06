@@ -9,7 +9,9 @@ import UIKit
 
 class PostCell: UICollectionViewCell {
     
-    private lazy var authorAvatar: UIImageView = {
+    static let id = "PostCell"
+    
+    lazy var authorAvatar: UIImageView = {
         let img = UIImageView()
         img.layer.cornerRadius = 16
         img.layer.borderWidth = 0.5
@@ -20,7 +22,7 @@ class PostCell: UICollectionViewCell {
         return img
     }()
     
-    private lazy var name: UILabel = {
+    lazy var name: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 12)
@@ -28,7 +30,7 @@ class PostCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var date: UILabel = {
+    lazy var date: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
         label.font = .systemFont(ofSize: 12)
@@ -36,13 +38,13 @@ class PostCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var dateFormatter: DateFormatter = {
+    lazy var dateFormatter: DateFormatter = {
         let date = DateFormatter()
         date.dateFormat = "dd.MM.yy"
         return date
     }()
     
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .white
@@ -51,7 +53,7 @@ class PostCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var subtitleLabel: UILabel = {
+    lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .white
@@ -60,7 +62,7 @@ class PostCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var image: UIImageView = {
+    lazy var image: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
@@ -68,13 +70,13 @@ class PostCell: UICollectionViewCell {
         return img
     }()
     
-    private lazy var likeButton: PostButton = {
+    lazy var likeButton: PostButton = {
         let button = PostButton(image: .like)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private lazy var commentButton: PostButton = {
+    lazy var commentButton: PostButton = {
         let button = PostButton(image: .comment)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
