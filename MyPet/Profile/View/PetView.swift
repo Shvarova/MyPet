@@ -9,6 +9,8 @@ import UIKit
 
 class PetView: UIView {
     
+//    var editPetAction: (() -> ())?
+    
     private let petAvatar: UIImageView = {
         let avatar = UIImageView ()
         avatar.layer.cornerRadius = 20
@@ -49,9 +51,14 @@ class PetView: UIView {
         button.clipsToBounds = true
         button.backgroundColor = .CustomColor.buttonBlue
         button.setImage(UIImage(named: "Edit"), for: .normal)
+//        button.addTarget(self, action: #selector(editPetClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+//    @objc func editPetClicked() {
+//        editPetAction?()
+//        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,7 +85,7 @@ class PetView: UIView {
             breedLabel.leadingAnchor.constraint(equalTo: petAvatar.trailingAnchor, constant: 16),
             breedLabel.topAnchor.constraint(equalTo: petNameLabel.bottomAnchor, constant: 4),
             breedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -64),
-            
+        
             petButton.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             petButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             petButton.heightAnchor.constraint(equalToConstant: 40),

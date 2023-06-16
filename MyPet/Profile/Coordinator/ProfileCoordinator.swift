@@ -14,20 +14,22 @@ protocol ProfileOutput {
 }
 
 class ProfileCoordinator: ProfileOutput {
+    private lazy var navigation = ProfileFactory.getNavigationControlller(output: self)
+        
     func editPet() {
-
-    }
-    
-    func openPhotoGallery() {
         
     }
     
+    func openPhotoGallery() {
+        let coordinator = PhotoCoordinator(navigation: navigation)
+        coordinator.show()
+    }
+    
     func addPost() {
-        print()
+        
     }
     
     func getNavigationController () -> UINavigationController {
-        let nc = ProfileFactory.getNavigationControlller(output: self)
-        return nc
+        return navigation
     }
 }

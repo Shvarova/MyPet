@@ -38,12 +38,3 @@ class ProfileViewController : UIViewController {
         mainView.setPosts(posts: viewModel.posts)
     }
 }
-
-extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            let vc = PhotosViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-}

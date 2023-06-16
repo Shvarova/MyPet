@@ -8,6 +8,7 @@
 import UIKit
 
 class WelcomeView: UIView {
+    
     var logIn: (() -> ())? {
         willSet (newValue) {
             logInButton.action = newValue

@@ -9,11 +9,12 @@ import UIKit
 
 class ProfileView: UIView {
     
-    private var posts: [Post] = []
-    private var cellsCount = 4
     var editPetAction: (() -> ())?
     var openPhotoGalleryAction: (() -> ())?
     var addPostAction: (() -> ())?
+    
+    private var posts: [Post] = []
+    private var cellsCount = 4
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()

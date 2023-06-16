@@ -9,12 +9,11 @@ import UIKit
 
 class ProfileViewModel {
     
-   var posts = Posts().posts
-    
+    var posts = Posts().posts
     var output: ProfileOutput?
     
     func editPet() {
-        
+        output?.editPet()
     }
     
     func openPhotoGallery() {

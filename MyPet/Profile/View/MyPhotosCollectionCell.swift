@@ -10,7 +10,7 @@ import UIKit
 class MyPhotosCollectionCell: UICollectionViewCell {
     
     static let id = "MyPhotosCollectionCell"
-    private var photos: [Photos] = []
+    private var photos = Photos.photos
     private var cellsCount = 2
     
     
@@ -53,7 +53,6 @@ class MyPhotosCollectionCell: UICollectionViewCell {
         view.backgroundColor = .CustomColor.backgroundDark
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
-        view.delegate = self
         view.dataSource = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -69,12 +68,7 @@ class MyPhotosCollectionCell: UICollectionViewCell {
 //    @objc private func presentPhotosViewController() {
 //        openPhotoGalleryAction?()
 //    }
-    
-    func setPhotos (photos: [Photos]) {
-        self.photos = photos
-        cellsCount = photos.count
-        collectionView.reloadData()
-    }
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,24 +83,19 @@ class MyPhotosCollectionCell: UICollectionViewCell {
         addSubviews(photoLabel, arrowImageView, bottomLine, collectionView)
         
         NSLayoutConstraint.activate([
+            photoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             photoLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            photoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            photoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
-            photoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
             
-            arrowImageView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            arrowImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            arrowImageView.leadingAnchor.constraint(equalTo: photoLabel.trailingAnchor, constant: 8),
             arrowImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            arrowImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            arrowImageView.widthAnchor.constraint(equalToConstant: 24),
-            arrowImageView.heightAnchor.constraint(equalToConstant: 24),
             
-            bottomLine.topAnchor.constraint(equalTo: photoLabel.bottomAnchor, constant: 8),
-            bottomLine.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32),
+            bottomLine.topAnchor.constraint(equalTo: photoLabel.bottomAnchor, constant: 12),
             bottomLine.heightAnchor.constraint(equalToConstant: 1),
             bottomLine.leadingAnchor.constraint(equalTo: leadingAnchor),
             bottomLine.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            collectionView.topAnchor.constraint(equalTo: photoLabel.bottomAnchor, constant: 16),
+            collectionView.topAnchor.constraint(equalTo: bottomLine.bottomAnchor, constant: 16),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 140),
@@ -118,7 +107,7 @@ class MyPhotosCollectionCell: UICollectionViewCell {
 
 extension MyPhotosCollectionCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,10 +118,4 @@ extension MyPhotosCollectionCell: UICollectionViewDataSource {
         cell.setup(with: "\(photos[indexPath.row])")
         return cell
     }
-}
-
-extension MyPhotosCollectionCell: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (UIScreen.main.bounds.width - 48) / 2, height: 140)
-//    }
 }
