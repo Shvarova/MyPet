@@ -9,7 +9,10 @@ import UIKit
 
 class ProfileViewModel {
     
-    var posts = Posts().posts
+    var posts: [Post] {
+        Posts.shared.posts
+    }
+    
     var output: ProfileOutput?
     
     func editPet() {

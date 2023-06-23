@@ -74,6 +74,7 @@
 		362C04742A33B7E200118971 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04732A33B7E200118971 /* PostViewController.swift */; };
 		362C04792A33BC8000118971 /* AddPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04782A33BC8000118971 /* AddPostViewModel.swift */; };
 		362C047C2A3CAD9E00118971 /* PhotoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C047B2A3CAD9E00118971 /* PhotoFactory.swift */; };
+		362C047F2A45ECBF00118971 /* AddPostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C047E2A45ECBF00118971 /* AddPostFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,7 @@
 		362C04732A33B7E200118971 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		362C04782A33BC8000118971 /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
 		362C047B2A3CAD9E00118971 /* PhotoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFactory.swift; sourceTree = "<group>"; };
+		362C047E2A45ECBF00118971 /* AddPostFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +575,7 @@
 		362C04752A33B93A00118971 /* AddPost */ = {
 			isa = PBXGroup;
 			children = (
+				362C047D2A45EC8F00118971 /* Factory */,
 				362C04772A33BC6B00118971 /* ViewModel */,
 				362C04762A33B95900118971 /* View */,
 			);
@@ -600,6 +603,14 @@
 			isa = PBXGroup;
 			children = (
 				362C047B2A3CAD9E00118971 /* PhotoFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		362C047D2A45EC8F00118971 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				362C047E2A45ECBF00118971 /* AddPostFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -741,6 +752,7 @@
 				362C046C2A3359EA00118971 /* PostCoordinator.swift in Sources */,
 				3619DFB32A12E87B00D08641 /* PetView.swift in Sources */,
 				3619DF7529FBFFB500D08641 /* LikedView.swift in Sources */,
+				362C047F2A45ECBF00118971 /* AddPostFactory.swift in Sources */,
 				3619DF5B29FACF0D00D08641 /* EntryView.swift in Sources */,
 				3619DF6D29FBE28A00D08641 /* ManifestoViewController.swift in Sources */,
 				3619DF7C29FD654200D08641 /* TabBarCoordinator.swift in Sources */,

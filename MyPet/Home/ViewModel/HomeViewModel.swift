@@ -17,7 +17,7 @@ class HomeViewModel {
     
     var update: (([Post]) -> ())?
     
-    private var posts = Posts().posts
+    private var posts = Posts.shared.posts
     
     func startUpdate (state: HomeState) {
         switch state {

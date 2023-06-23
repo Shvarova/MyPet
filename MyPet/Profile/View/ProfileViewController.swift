@@ -30,6 +30,11 @@ class ProfileViewController : UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.setPosts(posts: viewModel?.posts ?? [])
+    }
+    
     func setViewModel (viewModel: ProfileViewModel) {
         self.viewModel = viewModel
         mainView.editPetAction = viewModel.editPet

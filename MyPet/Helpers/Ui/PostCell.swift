@@ -53,7 +53,7 @@ class PostCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var subtitleLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .white
@@ -96,14 +96,14 @@ class PostCell: UICollectionViewCell {
         name.text = post.authorName
         date.text = dateFormatter.string(from: post.date)
         titleLabel.text = post.title
-        subtitleLabel.text = post.subtitle
+        descriptionLabel.text = post.description
         image.image = UIImage(named: post.image)
         likeButton.setTitle(title: String(post.like))
         commentButton.setTitle(title: String(post.comment))
     }
     
     private func setupView() {
-        addSubviews(authorAvatar, name, date, titleLabel, subtitleLabel, image, likeButton, commentButton)
+        addSubviews(authorAvatar, name, date, titleLabel, descriptionLabel, image, likeButton, commentButton)
         
         NSLayoutConstraint.activate([
             authorAvatar.topAnchor.constraint(equalTo: topAnchor, constant: 24),
@@ -122,11 +122,11 @@ class PostCell: UICollectionViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            image.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 8),
+            image.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             image.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             image.trailingAnchor.constraint(equalTo: trailingAnchor),
             image.leadingAnchor.constraint(equalTo: leadingAnchor),

@@ -26,7 +26,8 @@ class ProfileCoordinator: ProfileOutput {
     }
     
     func addPost() {
-        
+        let vc = AddPostFactory.getViewControlller(navigation: navigation)
+        navigation.pushViewController(vc, animated: true)
     }
     
     func getNavigationController () -> UINavigationController {
