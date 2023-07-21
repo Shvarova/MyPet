@@ -22,37 +22,45 @@ class AddPostView: UIView {
         return img
     }()
     
-    private lazy var titleTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        textField.textColor = .white
-        textField.autocapitalizationType = .none
-        textField.layer.borderColor = UIColor.white.cgColor
-        textField.layer.borderWidth = 1
-//        textField.delegate = self
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .darkGray
+        label.text = NSLocalizedString("Title", comment: "")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var titleTextField: CustomTextField = {
+        let textField = CustomTextField(text: "", placeholder: "")
+//        textField.leftView = UIView(frame: CGRect(x: 8, y: 0, width: 8, height: textField.frame.height))
+//        textField.leftViewMode = .always
+//        textField.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+//        textField.textColor = .white
+//        textField.autocapitalizationType = .none
+//        textField.layer.borderColor = UIColor.darkGray.cgColor
+//        textField.layer.borderWidth = 1
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-//    private lazy var descriptionTextField: UITextField = {
-//        let textField = UITextField()
-//        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-//        textField.textColor = .white
-//        textField.autocapitalizationType = .none
-//        textField.layer.borderColor = UIColor.white.cgColor
-//        textField.layer.borderWidth = 1
-//       textField.delegate = self
-//        textField.translatesAutoresizingMaskIntoConstraints = false
-//        return textField
-//    }()
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .darkGray
+        label.text = NSLocalizedString("Description", comment: "")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private lazy var descriptionText: UITextView = {
         let text = UITextView()
         text.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         text.textColor = .white
         text.backgroundColor = .clear
-        text.layer.borderColor = UIColor.white.cgColor
+        text.layer.borderColor = UIColor.darkGray.cgColor
         text.layer.borderWidth = 1
+        text.textContainerInset = UIEdgeInsets(top: 8, left: 4, bottom: 8, right: 4)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
@@ -88,7 +96,7 @@ class AddPostView: UIView {
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))
         image.addGestureRecognizer(tap)
-        addSubviews(image, titleTextField, descriptionText, publishButton)
+        addSubviews(image, titleLabel, titleTextField, descriptionLabel, descriptionText, publishButton)
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -96,11 +104,21 @@ class AddPostView: UIView {
             image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             image.heightAnchor.constraint(equalToConstant: 200),
             
-            titleTextField.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            titleTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             titleTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            titleTextField.heightAnchor.constraint(equalToConstant: 32),
+            titleTextField.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -16),
             
-            descriptionText.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 16),
+            descriptionLabel.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 16),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+                        
+            descriptionText.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             descriptionText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             descriptionText.bottomAnchor.constraint(equalTo: publishButton.topAnchor, constant: -16),

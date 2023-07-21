@@ -10,8 +10,8 @@
 "social network for pet owners, vets, breeders and clubs" = "социальная сеть для владельцев питомцев, ветеринаров, заводчиков и клубов";
 "Log In" = "Войти";
 "Sign Up" = "Зарегистрироваться";
-"your email" = "ваша эл.почта";
-"your password" = "ваш пароль";
+"Your email" = "ваша эл.почта";
+"Your password" = "ваш пароль";
 "Manifesto" = "Манифест";
 "Our manifesto" = "Наш манифест";
 "We believe that pets are an integral part of our lives, and they deserve the best care and attention.
@@ -43,3 +43,11 @@ Join us on this journey and be part of a community that celebrates the love and 
 "My pet" = "Мой питомец";
 "My post" = "Мои посты";
 "My photos" = "Мои фото";
+"Title" = "Заголовок";
+"Description" = "Текст";
+"Publish" = "Опубликовать";
+"Pet name" = "Кличка питомца";
+"Breed" = "Порода";
+"Save" = "Сохранить";
+"Your name" = "Ваше имя";
+"Role" = "Роль";

@@ -1,22 +1,18 @@
 //
-//  AddPostViewController.swift
+//  EditUserViewController.swift
 //  MyPet
 //
-//  Created by Дина Шварова on 09.06.2023.
+//  Created by Дина Шварова on 18.07.2023.
 //
 
 import UIKit
 
-protocol AddPostViewControllerDelegate {
-    func setTitleFilter(title: String)
-}
-
-class AddPostViewController : UIViewController {
+class EditUserViewController : UIViewController {
     
-    private let mainView: AddPostView
-    private var viewModel: AddPostViewModel?
+    private let mainView: EditUserView
+    private var viewModel: EditUserViewModel?
     
-    init(mainView: AddPostView) {
+    init(mainView: EditUserView) {
         self.mainView = mainView
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,9 +32,9 @@ class AddPostViewController : UIViewController {
         setNavigationBar()
     }
     
-    func setViewModel (viewModel: AddPostViewModel) {
+    func setViewModel (viewModel: EditUserViewModel) {
         self.viewModel = viewModel
-        mainView.publishAction = viewModel.publish(image:title:description:)
+        mainView.saveAction = viewModel.save(photo:name:breed:)
     }
     
     @objc func backButtonTouched() {
@@ -69,7 +65,7 @@ class AddPostViewController : UIViewController {
     }
 }
 
-extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
@@ -80,3 +76,4 @@ extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         mainView.setImage(image: image)
     }
 }
+

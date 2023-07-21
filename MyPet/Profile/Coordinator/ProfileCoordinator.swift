@@ -17,7 +17,8 @@ class ProfileCoordinator: ProfileOutput {
     private lazy var navigation = ProfileFactory.getNavigationControlller(output: self)
         
     func editPet() {
-        
+        let vc = EditPetFactory.getViewControlller(navigation: navigation)
+        navigation.pushViewController(vc, animated: true)
     }
     
     func openPhotoGallery() {

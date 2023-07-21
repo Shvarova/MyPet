@@ -10,8 +10,8 @@
 "social network for pet owners, vets, breeders and clubs" = "social network for pet owners, vets, breeders and clubs";
 "Log In" = "Log In";
 "Sign Up" = "Sign Up";
-"your email" = "your email";
-"your password" = "your password";
+"Your email" = "Your email";
+"Your password" = "Your password";
 "Manifesto" = "Manifesto";
 "Our manifesto" = "Our manifesto";
 "We believe that pets are an integral part of our lives, and they deserve the best care and attention.
@@ -43,3 +43,11 @@ Join us on this journey and be part of a community that celebrates the love and 
 "My pet" = "My pet";
 "My post" = "My post";
 "My photos" = "My photos";
+"Title" = "Title";
+"Description" = "Description";
+"Publish" = "Publish";
+"Pet name" = "Pet name";
+"Breed" = "Breed";
+"Save" = "Save";
+"Your name" = "Your name";
+"Role" = "Role";

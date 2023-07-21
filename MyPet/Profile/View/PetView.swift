@@ -51,7 +51,7 @@ class PetView: UIView {
         button.clipsToBounds = true
         button.backgroundColor = .CustomColor.buttonBlue
         button.setImage(UIImage(named: "Edit"), for: .normal)
-//        button.addTarget(self, action: #selector(editPetClicked), for: .touchUpInside)
+ //       button.addTarget(self, action: #selector(editPetClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

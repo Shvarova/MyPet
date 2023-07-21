@@ -75,6 +75,14 @@
 		362C04792A33BC8000118971 /* AddPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04782A33BC8000118971 /* AddPostViewModel.swift */; };
 		362C047C2A3CAD9E00118971 /* PhotoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C047B2A3CAD9E00118971 /* PhotoFactory.swift */; };
 		362C047F2A45ECBF00118971 /* AddPostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C047E2A45ECBF00118971 /* AddPostFactory.swift */; };
+		3650400E2A4B92170099DC96 /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650400D2A4B92170099DC96 /* EditPetView.swift */; };
+		365040102A4B94510099DC96 /* EditPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650400F2A4B94510099DC96 /* EditPetViewModel.swift */; };
+		365040122A4B96E70099DC96 /* EditPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365040112A4B96E70099DC96 /* EditPetViewController.swift */; };
+		365040152A4B98040099DC96 /* EditPetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365040142A4B98040099DC96 /* EditPetFactory.swift */; };
+		3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650401C2A66ED980099DC96 /* EditUserFactory.swift */; };
+		3650401F2A66EFA20099DC96 /* EditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650401E2A66EFA20099DC96 /* EditUserViewModel.swift */; };
+		365040212A66F0060099DC96 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365040202A66F0060099DC96 /* EditUserViewController.swift */; };
+		365040232A66F0850099DC96 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365040222A66F0850099DC96 /* EditUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +158,14 @@
 		362C04782A33BC8000118971 /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
 		362C047B2A3CAD9E00118971 /* PhotoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFactory.swift; sourceTree = "<group>"; };
 		362C047E2A45ECBF00118971 /* AddPostFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostFactory.swift; sourceTree = "<group>"; };
+		3650400D2A4B92170099DC96 /* EditPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetView.swift; sourceTree = "<group>"; };
+		3650400F2A4B94510099DC96 /* EditPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetViewModel.swift; sourceTree = "<group>"; };
+		365040112A4B96E70099DC96 /* EditPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetViewController.swift; sourceTree = "<group>"; };
+		365040142A4B98040099DC96 /* EditPetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetFactory.swift; sourceTree = "<group>"; };
+		3650401C2A66ED980099DC96 /* EditUserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserFactory.swift; sourceTree = "<group>"; };
+		3650401E2A66EFA20099DC96 /* EditUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewModel.swift; sourceTree = "<group>"; };
+		365040202A66F0060099DC96 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		365040222A66F0850099DC96 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +209,8 @@
 				3619DF7329FBFF8900D08641 /* Liked */,
 				3619DF4829F9D77F00D08641 /* Profile */,
 				3619DFB42A13824200D08641 /* Photo */,
+				365040182A66ED170099DC96 /* EditUser */,
+				3650400C2A4B8DCE0099DC96 /* EditPet */,
 				362C04752A33B93A00118971 /* AddPost */,
 				362C04672A33572800118971 /* Post */,
 				3619DF972A0D294400D08641 /* Settings */,
@@ -615,6 +633,76 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		3650400C2A4B8DCE0099DC96 /* EditPet */ = {
+			isa = PBXGroup;
+			children = (
+				365040162A4B98290099DC96 /* Factory */,
+				365040172A4B98370099DC96 /* ViewModel */,
+				365040132A4B96F50099DC96 /* View */,
+			);
+			path = EditPet;
+			sourceTree = "<group>";
+		};
+		365040132A4B96F50099DC96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				365040112A4B96E70099DC96 /* EditPetViewController.swift */,
+				3650400D2A4B92170099DC96 /* EditPetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		365040162A4B98290099DC96 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				365040142A4B98040099DC96 /* EditPetFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		365040172A4B98370099DC96 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3650400F2A4B94510099DC96 /* EditPetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		365040182A66ED170099DC96 /* EditUser */ = {
+			isa = PBXGroup;
+			children = (
+				365040192A66ED370099DC96 /* Factory */,
+				3650401A2A66ED440099DC96 /* ViewModel */,
+				3650401B2A66ED5B0099DC96 /* View */,
+			);
+			path = EditUser;
+			sourceTree = "<group>";
+		};
+		365040192A66ED370099DC96 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				3650401C2A66ED980099DC96 /* EditUserFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		3650401A2A66ED440099DC96 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3650401E2A66EFA20099DC96 /* EditUserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3650401B2A66ED5B0099DC96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				365040202A66F0060099DC96 /* EditUserViewController.swift */,
+				365040222A66F0850099DC96 /* EditUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -699,6 +787,7 @@
 				362C04662A2E810600118971 /* PhotosCell.swift in Sources */,
 				3619DF3729F98EFD00D08641 /* WelcomeFactory.swift in Sources */,
 				3619DF9C2A0D29D400D08641 /* ProfileFactory.swift in Sources */,
+				365040152A4B98040099DC96 /* EditPetFactory.swift in Sources */,
 				3619DF7029FBE31300D08641 /* TextModel.swift in Sources */,
 				3619DF4529F9A82300D08641 /* StackView.swift in Sources */,
 				3619DF962A0D291500D08641 /* ProfileCoordinator.swift in Sources */,
@@ -708,6 +797,7 @@
 				3619DFA32A0D2BBB00D08641 /* SettingsCoordinator.swift in Sources */,
 				3619DF3229F98E8F00D08641 /* WelcomeCoordinator.swift in Sources */,
 				3619DF4E29F9D83A00D08641 /* LikedViewController.swift in Sources */,
+				365040232A66F0850099DC96 /* EditUserView.swift in Sources */,
 				3619DF5D29FACF2400D08641 /* EntryViewController.swift in Sources */,
 				362C047C2A3CAD9E00118971 /* PhotoFactory.swift in Sources */,
 				3619DF8B29FD731A00D08641 /* LikedCoordinator.swift in Sources */,
@@ -722,6 +812,7 @@
 				3619DFAB2A0E921300D08641 /* PostCell.swift in Sources */,
 				362C04642A2E7FE300118971 /* Photos.swift in Sources */,
 				3619DF4C29F9D81000D08641 /* ProfileViewController.swift in Sources */,
+				365040122A4B96E70099DC96 /* EditPetViewController.swift in Sources */,
 				3619DF8629FD682400D08641 /* HomeView.swift in Sources */,
 				3619DF8D29FD733200D08641 /* LikedFactory.swift in Sources */,
 				3619DF8929FD686000D08641 /* HomeViewModel.swift in Sources */,
@@ -738,16 +829,21 @@
 				362C04622A2E731600118971 /* MyPhotosCollectionCell.swift in Sources */,
 				3619DF5029F9D86B00D08641 /* SettingsViewController.swift in Sources */,
 				3619DFA92A0D2BFE00D08641 /* SettingsView.swift in Sources */,
+				365040212A66F0060099DC96 /* EditUserViewController.swift in Sources */,
 				3619DF3A29F98F5B00D08641 /* WelcomeViewModel.swift in Sources */,
 				3619DF3E29F9960200D08641 /* CustomButton.swift in Sources */,
+				365040102A4B94510099DC96 /* EditPetViewModel.swift in Sources */,
 				3619DF4129F9962A00D08641 /* View.swift in Sources */,
 				362C04742A33B7E200118971 /* PostViewController.swift in Sources */,
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
+				3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */,
 				3619DF2F29F98E1A00D08641 /* WelcomeView.swift in Sources */,
 				362C046E2A335A0600118971 /* AddPostViewController.swift in Sources */,
+				3650401F2A66EFA20099DC96 /* EditUserViewModel.swift in Sources */,
 				3619DF7E29FD66BB00D08641 /* HomeCoordinator.swift in Sources */,
 				3619DF4A29F9D7A500D08641 /* HomeViewController.swift in Sources */,
+				3650400E2A4B92170099DC96 /* EditPetView.swift in Sources */,
 				3619DF9F2A0D2A3100D08641 /* ProfileViewModel.swift in Sources */,
 				362C046C2A3359EA00118971 /* PostCoordinator.swift in Sources */,
 				3619DFB32A12E87B00D08641 /* PetView.swift in Sources */,
