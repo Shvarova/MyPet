@@ -25,6 +25,10 @@ class LikedViewController : UIViewController {
         mainView.backgroundColor = .white
     }
     
+    override func viewDidLoad() {
+            super.viewDidLoad()
+        }
+    
     func setViewModel (viewModel: LikedViewModel) {
         self.viewModel = viewModel
     }

@@ -14,6 +14,7 @@ enum LikedFactory {
         let viewModel = LikedViewModel()
         vc.setViewModel(viewModel: viewModel)
         let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.isHidden = true
         return nc
     }
 }

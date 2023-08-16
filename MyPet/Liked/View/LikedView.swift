@@ -6,18 +6,33 @@
 //
 
 import UIKit
-import CoreData
 
-final class LikedView: UIView {
-//    private var posts: [PostEntity] = []
+class LikedView: UIView {
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView ()
-//        tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
-        return tableView
+    private lazy var titleLabel: UILabel = {
+        let title = UILabel ()
+        title.text = "Liked"
+        title.font = .boldSystemFont(ofSize: 24)
+        title.textColor = .white
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
+        view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
+        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
+        view.backgroundColor = .CustomColor.backgroundDark
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.sectionInset = UIEdgeInsets(top: 24, left: 0, bottom: 24, right: 0)
+        return layout
     }()
     
     override init(frame: CGRect) {
@@ -29,39 +44,17 @@ final class LikedView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func setPosts(posts: [PostEntity]) {
-//        self.posts = posts
-//        tableView.reloadData()
-//    }
-    
     private func setupView() {
-        addSubview(tableView)
+        addSubviews(titleLabel, collectionView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            
+            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
-
-
-//extension LikedView: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        posts.count
-//    }
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else { return tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) }
-//        let row = indexPath.row
-//        cell.selectionStyle = .none
-//        cell.authorLabel.text = posts[row].author
-//        cell.setupImage(name: posts[row].image ?? "")
-//        cell.descriptionLabel.text = posts[row].descript
-//        cell.likesLabel.text = "Likes: \(posts[row].likes)"
-//        cell.viewsLabel.text = "Views: \(posts[row].views)"
-//        return cell
-//    }
-//}
-
