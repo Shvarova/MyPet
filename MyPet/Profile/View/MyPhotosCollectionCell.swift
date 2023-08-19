@@ -85,10 +85,11 @@ class MyPhotosCollectionCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             photoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             photoLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            photoLabel.bottomAnchor.constraint(equalTo: bottomLine.topAnchor, constant: -8),
             
             arrowImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            arrowImageView.leadingAnchor.constraint(equalTo: photoLabel.trailingAnchor, constant: 8),
             arrowImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            arrowImageView.bottomAnchor.constraint(equalTo: bottomLine.topAnchor, constant: -8),
             
             bottomLine.topAnchor.constraint(equalTo: photoLabel.bottomAnchor, constant: 12),
             bottomLine.heightAnchor.constraint(equalToConstant: 1),

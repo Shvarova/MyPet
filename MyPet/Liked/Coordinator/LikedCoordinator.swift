@@ -8,9 +8,10 @@
 import UIKit
 
 class LikedCoordinator {
-
+    
+    private lazy var navigation = LikedFactory.getNavigationControlller()
+    
     func getNavigationController () -> UINavigationController {
-        let nc = LikedFactory.getNavigationControlller()
-        return nc
+        return navigation
     }
 }

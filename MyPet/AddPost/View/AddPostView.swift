@@ -82,7 +82,7 @@ class AddPostView: UIView {
     }
     
     @objc func publish () {
-        publishAction?(image.image, titleTextField.text!, descriptionText.text!)
+        publishAction?(image.image, titleTextField.getText(), descriptionText.text ?? "")
     }
     
     @objc func openGallery () {

@@ -108,7 +108,7 @@ class SettingsView: UIView {
             nameLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            nameLabel.heightAnchor.constraint(equalToConstant: 32),
+            nameLabel.heightAnchor.constraint(equalToConstant: 40),
             
             emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
