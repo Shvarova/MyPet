@@ -32,7 +32,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var searchButton: CustomButton = {
-        let button = CustomButton(title: "Search", titleColor: .white, backgroundColor: .CustomColor.buttonBlue, cornerRadius: 12)
+        let button = CustomButton(title: NSLocalizedString("Search", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue, cornerRadius: 12)
         button.action = searchButtonTouched
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

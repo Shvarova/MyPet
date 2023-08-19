@@ -8,6 +8,9 @@
 import UIKit
 
 final class CustomTextField: UIView {
+    
+    var text: String?
+    
     var isSecureTextEntry: Bool = false {
         willSet(newValue) {
             textField.isSecureTextEntry = newValue

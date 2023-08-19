@@ -7,8 +7,7 @@
 
 import UIKit
 
-protocol HomeViewControllerDelegate {
-    
+protocol HomeViewControllerDelegate {    
     func setTitleFilter(title: String)
 }
 

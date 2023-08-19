@@ -7,10 +7,31 @@
 
 import UIKit
 
-class ProfileCoordinator {
+protocol ProfileOutput {
+    func editPet()
+    func openPhotoGallery()
+    func addPost()
+}
 
+class ProfileCoordinator: ProfileOutput {
+    private lazy var navigation = ProfileFactory.getNavigationControlller(output: self)
+        
+    func editPet() {
+        let vc = EditPetFactory.getViewControlller(navigation: navigation)
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    func openPhotoGallery() {
+        let coordinator = PhotoCoordinator(navigation: navigation)
+        coordinator.show()
+    }
+    
+    func addPost() {
+        let vc = AddPostFactory.getViewControlller(navigation: navigation)
+        navigation.pushViewController(vc, animated: true)
+    }
+    
     func getNavigationController () -> UINavigationController {
-        let nc = ProfileFactory.getNavigationControlller()
-        return nc
+        return navigation
     }
 }

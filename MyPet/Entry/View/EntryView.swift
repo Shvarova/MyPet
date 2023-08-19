@@ -21,7 +21,7 @@ class EntryView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("your email", comment: "")
+        label.text = NSLocalizedString("Your email", comment: "")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,7 +36,7 @@ class EntryView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("your password", comment: "")
+        label.text = NSLocalizedString("Your password", comment: "")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

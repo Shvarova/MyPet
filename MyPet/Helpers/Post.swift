@@ -12,7 +12,7 @@ struct Post {
     let authorName: String
     let date: Date
     let title: String
-    let subtitle: String
+    let description: String
     let image: String
     var like: Int
     var comment: Int

@@ -9,59 +9,52 @@ import UIKit
 
 class ProfileView: UIView {
     
-    private let userAvatar: UIImageView = {
-        let avatar = UIImageView ()
-        avatar.layer.cornerRadius = 70
-        avatar.clipsToBounds = true
-        avatar.layer.borderWidth = 0.5
-        avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
-        avatar.image = UIImage(named: "Admin avatar")
-        avatar.layer.masksToBounds = true
-        avatar.contentMode = .scaleAspectFill
-        avatar.translatesAutoresizingMaskIntoConstraints = false
-        return avatar
+    var editPetAction: (() -> ())?
+    var openPhotoGalleryAction: (() -> ())?
+    var addPostAction: (() -> ())?
+    
+    private var posts: [Post] = []
+    private var cellsCount = 4
+    
+    private lazy var titleLabel: UILabel = {
+        let title = UILabel ()
+        title.text = "Profile"
+        title.font = .boldSystemFont(ofSize: 24)
+        title.textColor = .white
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
     }()
     
-    private let nameLabel: UILabel = {
-        let name = UILabel()
-        name.textAlignment = .center
-        name.text = "Admin's very long name"
-        name.textColor = .white
-        name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
-        name.translatesAutoresizingMaskIntoConstraints = false
-        return name
+    private lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
+        view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
+        view.register(UserCollectionCell.self, forCellWithReuseIdentifier: UserCollectionCell.id)
+        view.register(PetCollectionCell.self, forCellWithReuseIdentifier: PetCollectionCell.id)
+        view.register(MyPhotosCollectionCell.self, forCellWithReuseIdentifier: MyPhotosCollectionCell.id)
+        view.register(MyPostsCollectionCell.self, forCellWithReuseIdentifier: MyPostsCollectionCell.id)
+        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
+        view.backgroundColor = .CustomColor.backgroundDark
+        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = false
+        view.dataSource = self
+        view.delegate = self
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        return layout
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let email = UILabel ()
-        email.textAlignment = .center
-        email.textColor = .CustomColor.neon
-        email.text = "admin@mail.com"
-        email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        email.translatesAutoresizingMaskIntoConstraints = false
-        return email
-    }()
-    
-    private let petLabel: UILabel = {
-        let name = UILabel()
-        name.textAlignment = .left
-        name.text = "My pet"
-        name.textColor = .lightGray
-        name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        name.translatesAutoresizingMaskIntoConstraints = false
-        return name
-    }()
-    
-    private lazy var petView: PetView = {
-        let pet = PetView()
-        pet.layer.cornerRadius = 16
-        pet.clipsToBounds = true
-        pet.backgroundColor = .CustomColor.backgroundLight
-        pet.translatesAutoresizingMaskIntoConstraints = false
-        return pet
-    }()
-    
+    func setPosts (posts: [Post]) {
+        self.posts = posts
+        cellsCount = 4 + posts.count
+        collectionView.reloadData()
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -71,39 +64,51 @@ class ProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func addInfoUser (user: User) {
-//        nameLabel.text = user.name
-//        userAvatar.image = user.avatar
-//        statusLabel.text = user.status
-//    }
-    
-    func setupView() {
-        addSubviews(userAvatar, nameLabel, emailLabel, petLabel, petView)
+    private func setupView() {
+        addSubviews(titleLabel, collectionView)
         
         NSLayoutConstraint.activate([
-            userAvatar.widthAnchor.constraint(equalToConstant: 140),
-            userAvatar.heightAnchor.constraint(equalToConstant: 140),
-            userAvatar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            userAvatar.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             
-            nameLabel.topAnchor.constraint(equalTo: userAvatar.bottomAnchor, constant: 16),
-            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            emailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            petLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            petLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            petLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 24),
-            
-            petView.topAnchor.constraint(equalTo: petLabel.bottomAnchor, constant: 8),
-            petView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            petView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            petView.heightAnchor.constraint(equalToConstant: 72)
+            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])        
+    }
+}
+
+extension ProfileView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        cellsCount
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
+        switch indexPath.row {
+        case 0: cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.id, for: indexPath)
+        case 1: cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath)
+        case 2: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPhotosCollectionCell.id, for: indexPath)
+        case 3: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPostsCollectionCell.id, for: indexPath)
+        default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.id, for: indexPath) as? PostCell  else {
+                return cell
+            }
+            cell.setPost(post: posts [indexPath.row - 4])
+            return cell
+        }
+        return cell
+    }
+}
+
+extension ProfileView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 1: editPetAction?()
+        case 2: openPhotoGalleryAction?()
+        case 3: addPostAction?()
+        default: break
+        }
     }
 }

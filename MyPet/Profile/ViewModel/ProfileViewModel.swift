@@ -9,4 +9,21 @@ import UIKit
 
 class ProfileViewModel {
     
+    var posts: [Post] {
+        Posts.shared.posts
+    }
+    
+    var output: ProfileOutput?
+    
+    func editPet() {
+        output?.editPet()
+    }
+    
+    func openPhotoGallery() {
+        output?.openPhotoGallery()
+    }
+    
+    func addPost() {
+        output?.addPost()
+    }
 }
