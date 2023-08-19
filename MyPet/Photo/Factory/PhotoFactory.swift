@@ -8,7 +8,7 @@
 import UIKit
 
 enum PhotoFactory {
-    static func getViewControlller () -> UIViewController {
+    static func getViewControlller (navigation: UINavigationController) -> UIViewController {
         let vc = PhotoViewController()
         return vc
     }

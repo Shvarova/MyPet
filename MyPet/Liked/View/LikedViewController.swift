@@ -8,6 +8,7 @@
 import UIKit
 
 class LikedViewController : UIViewController {
+    
     private let mainView: LikedView
     private var viewModel: LikedViewModel?
     
@@ -24,6 +25,10 @@ class LikedViewController : UIViewController {
         view = mainView
         mainView.backgroundColor = .white
     }
+    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+        }
     
     func setViewModel (viewModel: LikedViewModel) {
         self.viewModel = viewModel

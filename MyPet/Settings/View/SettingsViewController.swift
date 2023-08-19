@@ -23,8 +23,12 @@ class SettingsViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = .CustomColor.backgroundDark
     }
+    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+        }
     
     func setViewModel (viewModel: SettingsViewModel) {
         self.viewModel = viewModel

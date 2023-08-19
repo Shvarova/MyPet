@@ -14,6 +14,7 @@ protocol ProfileOutput {
 }
 
 class ProfileCoordinator: ProfileOutput {
+    
     private lazy var navigation = ProfileFactory.getNavigationControlller(output: self)
         
     func editPet() {
@@ -22,9 +23,9 @@ class ProfileCoordinator: ProfileOutput {
     }
     
     func openPhotoGallery() {
-        let coordinator = PhotoCoordinator(navigation: navigation)
-        coordinator.show()
-    }
+            let coordinator = PhotoCoordinator(navigation: navigation)
+            coordinator.show()
+        }
     
     func addPost() {
         let vc = AddPostFactory.getViewControlller(navigation: navigation)

@@ -9,4 +9,15 @@ import UIKit
 
 class SettingsViewModel {
     
+    var output: SettingsOutput?
+    
+    func edit () {
+        output?.goToEditUser()
+    }
+    func logOut () {
+        output?.logOut()
+    }
+    func readManifesto () {
+        output?.readManifesto()
+    }
 }
