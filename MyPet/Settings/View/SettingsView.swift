@@ -22,7 +22,7 @@ class SettingsView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Settings"
+        title.text = NSLocalizedString("Settings", comment: "")
         title.font = .boldSystemFont(ofSize: 24)
         title.textColor = .white
         title.translatesAutoresizingMaskIntoConstraints = false

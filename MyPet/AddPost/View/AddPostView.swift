@@ -33,13 +33,6 @@ class AddPostView: UIView {
     
     private lazy var titleTextField: CustomTextField = {
         let textField = CustomTextField(text: "", placeholder: "")
-//        textField.leftView = UIView(frame: CGRect(x: 8, y: 0, width: 8, height: textField.frame.height))
-//        textField.leftViewMode = .always
-//        textField.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-//        textField.textColor = .white
-//        textField.autocapitalizationType = .none
-//        textField.layer.borderColor = UIColor.darkGray.cgColor
-//        textField.layer.borderWidth = 1
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

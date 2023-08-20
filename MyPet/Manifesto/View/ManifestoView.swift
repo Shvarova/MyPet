@@ -21,7 +21,7 @@ class ManifestoView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = .black
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,6 +33,7 @@ class ManifestoView: UIView {
         text.textColor = .white
         text.contentMode = .center
         text.showsVerticalScrollIndicator = false
+        text.showsHorizontalScrollIndicator = false
         text.translatesAutoresizingMaskIntoConstraints = false
         text.isEditable = false
         return text
@@ -49,7 +50,7 @@ class ManifestoView: UIView {
     }
     
     private func setupUI() {
-        titleLabel.text = "Our manifesto"
+        titleLabel.text = NSLocalizedString("Our manifesto", comment: "")
         textView.text = dataSourse.manifestoText
     }
     
