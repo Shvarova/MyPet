@@ -3,4 +3,54 @@
    uuid = "FB5C845F-CB49-41FF-B1E6-37A610510891"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DE585DA-E185-440B-AED9-127D894B1EDA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPet/Profile/View/PetView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "editPetClicked()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DE585DA-E185-440B-AED9-127D894B1EDA - 6f621a75c3f94548"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyPet.PetView.editPetClicked() -&gt; ()"
+                  moduleName = "MyPet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dina/Desktop/MyPet/MyPet/Profile/View/PetView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "4DE585DA-E185-440B-AED9-127D894B1EDA - 6f621a75c3f9456b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyPet.PetView.editPetClicked() -&gt; ()"
+                  moduleName = "MyPet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dina/Desktop/MyPet/MyPet/Profile/View/PetView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

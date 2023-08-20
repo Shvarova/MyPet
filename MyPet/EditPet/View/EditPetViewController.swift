@@ -38,6 +38,8 @@ class EditPetViewController : UIViewController {
     }
     
     @objc func backButtonTouched() {
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
     

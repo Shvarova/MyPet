@@ -9,7 +9,7 @@ import UIKit
 
 class PetView: UIView {
     
-//    var editPetAction: (() -> ())?
+    var editPetAction: (() -> ())?
     
     private let petAvatar: UIImageView = {
         let avatar = UIImageView ()
@@ -45,20 +45,19 @@ class PetView: UIView {
         return breed
     }()
     
-    private lazy var petButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
+    private lazy var petButton: UIImageView = {
+        let button = UIImageView()
         button.clipsToBounds = true
-        button.backgroundColor = .CustomColor.buttonBlue
-        button.setImage(UIImage(named: "Edit"), for: .normal)
- //       button.addTarget(self, action: #selector(editPetClicked), for: .touchUpInside)
+        button.backgroundColor = .clear
+        button.image = UIImage(named: "Edit")
+//        button.addTarget(self, action: #selector(editPetClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-//    @objc func editPetClicked() {
-//        editPetAction?()
-//        }
+    @objc func editPetClicked() {
+        editPetAction?()
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,10 +85,10 @@ class PetView: UIView {
             breedLabel.topAnchor.constraint(equalTo: petNameLabel.bottomAnchor, constant: 4),
             breedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -64),
         
-            petButton.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            petButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             petButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            petButton.heightAnchor.constraint(equalToConstant: 40),
-            petButton.widthAnchor.constraint(equalToConstant: 40)
+            petButton.heightAnchor.constraint(equalToConstant: 20),
+            petButton.widthAnchor.constraint(equalToConstant: 20)
         ])
     }
 }

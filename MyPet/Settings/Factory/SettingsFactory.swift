@@ -8,10 +8,11 @@
 import UIKit
 
 enum SettingsFactory {
-    static func getNavigationControlller () -> UINavigationController {
+    static func getNavigationControlller (output: SettingsOutput) -> UINavigationController {
         let mainView = SettingsView()
-        let vc = SettingsViewController(mainView: mainView)
         let viewModel = SettingsViewModel()
+        viewModel.output = output
+        let vc = SettingsViewController(mainView: mainView)
         vc.setViewModel(viewModel: viewModel)
         let nc = UINavigationController(rootViewController: vc)
         nc.navigationBar.isHidden = true

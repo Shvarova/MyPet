@@ -1,13 +1,13 @@
 //
-//  ManifestoViewController.swift
+//  ManifestoView.swift
 //  MyPet
 //
-//  Created by Дина Шварова on 28.04.2023.
+//  Created by Дина Шварова on 20.08.2023.
 //
 
 import UIKit
 
-final class ManifestoViewController: UIViewController {
+class ManifestoView: UIView {
     
     let dataSourse = TextModel()
     
@@ -38,49 +38,37 @@ final class ManifestoViewController: UIViewController {
         return text
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUI()
-        view.backgroundColor = .CustomColor.backgroundDark
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupUI() {
-        setupNavBar()
-        setupViews()
-        setupConstraints()
         titleLabel.text = "Our manifesto"
         textView.text = dataSourse.manifestoText
     }
     
-    private func setupNavBar() {
+    private func setupView() {
         
-        navigationController?.navigationBar.backgroundColor = .CustomColor.backgroundDark
-        
-        let appearance = UINavigationBarAppearance()
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationItem.title = "Manifesto"
-    }
-    
-    private func setupViews() {
-        view.addSubviews(topImageView, titleLabel, textView)
-    }
-    
-    private func setupConstraints() {
+        addSubviews(topImageView, titleLabel, textView)
         
         NSLayoutConstraint.activate([
-            topImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            topImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            topImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
+            topImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: topImageView.bottomAnchor, constant: 24),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             
             textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
-            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            textView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
         ])
     }
 }
-
-

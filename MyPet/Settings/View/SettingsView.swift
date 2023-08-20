@@ -9,6 +9,17 @@ import UIKit
 
 class SettingsView: UIView {
     
+    var editProfile: (() -> ())? {
+        willSet (newValue) {
+            editButton.action = newValue
+        }
+    }
+    var readManifesto: (() -> ())? {
+        willSet (newValue) {
+            manifestoButton.action = newValue
+        }
+    }
+    
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
         title.text = "Settings"
@@ -123,5 +134,10 @@ class SettingsView: UIView {
             manifestoButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
+    
+    func addManifestoAction (action: @escaping () -> ()) {
+        manifestoButton.action = action
+    }
+    
 }
 

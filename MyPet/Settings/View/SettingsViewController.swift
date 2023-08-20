@@ -32,6 +32,8 @@ class SettingsViewController: UIViewController {
     
     func setViewModel (viewModel: SettingsViewModel) {
         self.viewModel = viewModel
+        mainView.editProfile = viewModel.edit
+        mainView.readManifesto = viewModel.readManifesto
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -13,8 +13,8 @@ protocol WelcomeOutput {
 }
 
 class WelcomeCoordinator {
-    lazy var nc = WelcomeFactory.getNavigationController(output: self)
     
+    lazy var nc = WelcomeFactory.getNavigationController(output: self)
 }
 
 extension WelcomeCoordinator: WelcomeOutput {

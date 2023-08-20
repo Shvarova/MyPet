@@ -1,17 +1,17 @@
 //
-//  EditUserFactory.swift
+//  ManifestoFactory.swift
 //  MyPet
 //
-//  Created by Дина Шварова on 18.07.2023.
+//  Created by Дина Шварова on 20.08.2023.
 //
 
 import UIKit
 
-enum EditUserFactory {
+enum ManifestoFactory {
     static func getViewControlller (navigation: UINavigationController) -> UIViewController {
-        let mainView = EditUserView()
-        let vc = EditUserViewController(mainView: mainView)
-        let viewModel = EditUserViewModel(nc: navigation)
+        let mainView = ManifestoView()
+        let vc = ManifestoViewController(mainView: mainView)
+        let viewModel = ManifestoViewModel(nc: navigation)
         vc.setViewModel(viewModel: viewModel)
         navigation.navigationBar.isHidden = false
         navigation.tabBarController?.tabBar.isHidden = true

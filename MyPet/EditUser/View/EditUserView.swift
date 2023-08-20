@@ -89,7 +89,7 @@ class EditUserView: UIView {
     
     private lazy var saveButton: CustomButton = {
         let button = CustomButton (title: NSLocalizedString("Save", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
-//        button.addTarget(self, action: #selector(save), for: .touchUpInside)
+        button.addTarget(self, action: #selector(save), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -113,9 +113,9 @@ class EditUserView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    @objc func save () {
-//        saveAction?(petAvatar.image, nameTextField.text!, breedTextField.text!)
-//    }
+    @objc func save () {
+//        saveAction?(userAvatar.image, nameTextField.)
+    }
     
     @objc func openGallery () {
         openGalleryAction?()

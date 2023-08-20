@@ -1,13 +1,13 @@
 //
-//  PhotoCoordinator.swift
+//  ManifestoCoordinator.swift
 //  MyPet
 //
-//  Created by Дина Шварова on 16.05.2023.
+//  Created by Дина Шварова on 20.08.2023.
 //
 
 import UIKit
 
-class PhotoCoordinator {
+class ManifestoCoordinator {
     private let navigation: UINavigationController
     
     init(navigation: UINavigationController) {
@@ -15,7 +15,7 @@ class PhotoCoordinator {
     }
     
     func show() {
-        let vc = PhotoFactory.getViewControlller(navigation: navigation)
+        let vc = ManifestoFactory.getViewControlller(navigation: navigation)
         navigation.pushViewController(vc, animated: true)
-    }    
+    }
 }
