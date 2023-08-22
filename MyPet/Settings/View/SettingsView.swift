@@ -14,6 +14,13 @@ class SettingsView: UIView {
             editButton.action = newValue
         }
     }
+    
+    var logOut: (() -> ())? {
+        willSet (newValue) {
+            exitButton.action = newValue
+        }
+    }
+    
     var readManifesto: (() -> ())? {
         willSet (newValue) {
             manifestoButton.action = newValue

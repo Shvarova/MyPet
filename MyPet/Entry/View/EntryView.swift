@@ -9,6 +9,8 @@ import UIKit
 
 class EntryView: UIView {
     
+    var setCredentials: ((String, String) ->())?
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
@@ -27,7 +29,7 @@ class EntryView: UIView {
     }()
     
     private lazy var emailTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin@mail.ru", placeholder: "example@mail.com")
+        let textField = CustomTextField(text: "test@test.ru", placeholder: "example@mail.com")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -50,6 +52,7 @@ class EntryView: UIView {
     
     private lazy var entryButton: CustomButton = {
         let button = CustomButton (title: NSLocalizedString("", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        button.addTarget(self, action: #selector(credentials), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -74,13 +77,17 @@ class EntryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func credentials () {
+        setCredentials?(emailTextField.getText(), passwordTextField.getText())
+    }
+    
     func setTitle (title: String) {
         titleLabel.text = title
         entryButton.setTitle(title, for: .normal)
     }
     
-    func addAction (action: @escaping () -> ()) {
-        entryButton.action = action
+    func addAction (action: @escaping (String, String) -> ()) {
+        setCredentials = action
     }
     
     private func setupView() {

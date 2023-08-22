@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class EntryViewModel {
+protocol EntryViewModelProtocol {
+    func checkCredentionalsToLogIn(email: String, password: String)
+    func checkCredentionalsForRegistration(email: String, password: String)
+}
+
+class EntryViewModel: EntryViewModelProtocol {
+    
     let entryChoosen: EntryChoosen
-    var updateView: ((String, @escaping () -> ()) -> ())?
+    var updateView: ((String, @escaping (String, String) -> ()) -> ())?
     var output: EntryOutput?
+    let credentionals = LoginInspector()
+    var errorAction: ((String, String) -> ())?
     
     init(entryChoosen: EntryChoosen) {
         self.entryChoosen = entryChoosen
@@ -25,10 +34,32 @@ class EntryViewModel {
         }
     }
     
-    private func logIn () {
-        output?.goToHome()
+    func checkCredentionalsToLogIn(email: String, password: String) {
+        credentionals.checkCredentials(withEmail: email, password: password, checkCredentionalsCompletion)
     }
-    private func signUp () {
-        output?.goToHome()
+        
+    func checkCredentionalsForRegistration(email: String, password: String) {
+//        if email.emailIsValid() && password.passwordIsValid() {
+            print ("ok")
+        credentionals.signUp(withEmail: email, password: password, checkCredentionalsCompletion)
+//        } else {
+//            print ("not ok")
+//        }
+    }
+
+    private func logIn (email: String, password: String) {
+        credentionals.checkCredentials(withEmail: email, password: password, checkCredentionalsCompletion)
+        
+    }
+    private func signUp (email: String, password: String) {
+        checkCredentionalsForRegistration(email: email, password: password)
+    }
+    
+    private func checkCredentionalsCompletion (authDataResult: AuthDataResult?, error: Error?) {
+        if let _ = authDataResult {
+            output?.goToHome()
+        } else {
+            errorAction?("Error", error?.localizedDescription ?? "")
+        }
     }
 }

@@ -49,7 +49,7 @@ final class TabBarCoordinator {
         controller.tabBar.backgroundColor = .CustomColor.backgroundLight
         controller.tabBar.tintColor = .white
         controller.tabBar.unselectedItemTintColor = .darkGray
-        controller.hidesBottomBarWhenPushed = true
- //       controller.tabBar.isTranslucent = true
+//        controller.hidesBottomBarWhenPushed = true
+       controller.tabBar.isTranslucent = true
     }
 }

@@ -32,15 +32,22 @@ class EntryViewController: UIViewController {
     func setViewModel (viewModel: EntryViewModel) {
         self.viewModel = viewModel
         viewModel.updateView = { title, action in
-            print(title)
             self.mainView.setTitle(title: title)
             self.mainView.addAction(action: action)
         }
         viewModel.updateModel()
+        viewModel.errorAction = showAlert(title:message:)
     }
     
     @objc func backButtonTouched() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func showAlert (title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction (title: "ok", style: .cancel)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
     private func setNavigationBar() {

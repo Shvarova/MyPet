@@ -22,6 +22,7 @@ class EditUserView: UIView {
         avatar.image = UIImage(named: "Photo")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
+        avatar.isUserInteractionEnabled = true
         avatar.translatesAutoresizingMaskIntoConstraints = false
         return avatar
     }()

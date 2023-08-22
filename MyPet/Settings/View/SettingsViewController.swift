@@ -33,6 +33,7 @@ class SettingsViewController: UIViewController {
     func setViewModel (viewModel: SettingsViewModel) {
         self.viewModel = viewModel
         mainView.editProfile = viewModel.edit
+        mainView.logOut = viewModel.logOut
         mainView.readManifesto = viewModel.readManifesto
     }
     

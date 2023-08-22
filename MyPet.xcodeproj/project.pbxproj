@@ -89,6 +89,9 @@
 		36EEE4FE2A92375F00F9AAFB /* ManifestoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE4FD2A92375F00F9AAFB /* ManifestoViewModel.swift */; };
 		36EEE5012A92386200F9AAFB /* ManifestoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5002A92386200F9AAFB /* ManifestoView.swift */; };
 		36EEE5032A923C5900F9AAFB /* ManifestoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5022A923C5900F9AAFB /* ManifestoCoordinator.swift */; };
+		36EEE5062A9255B600F9AAFB /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5052A9255B600F9AAFB /* LoginInspector.swift */; };
+		36EEE5092A92561400F9AAFB /* CheckerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5082A92561400F9AAFB /* CheckerService.swift */; };
+		36EEE50B2A92684B00F9AAFB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE50A2A92684B00F9AAFB /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +181,9 @@
 		36EEE4FD2A92375F00F9AAFB /* ManifestoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestoViewModel.swift; sourceTree = "<group>"; };
 		36EEE5002A92386200F9AAFB /* ManifestoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestoView.swift; sourceTree = "<group>"; };
 		36EEE5022A923C5900F9AAFB /* ManifestoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestoCoordinator.swift; sourceTree = "<group>"; };
+		36EEE5052A9255B600F9AAFB /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		36EEE5082A92561400F9AAFB /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
+		36EEE50A2A92684B00F9AAFB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				3619DFB02A0FB9D300D08641 /* Post.swift */,
+				36EEE50A2A92684B00F9AAFB /* String.swift */,
 				3619DF3C29F995E600D08641 /* Ui */,
 			);
 			path = Helpers;
@@ -321,6 +328,8 @@
 		3619DF5629FAC76500D08641 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
+				36EEE5072A9255F600F9AAFB /* Service */,
+				36EEE5042A92558F00F9AAFB /* Inspector */,
 				3619DF5929FACD8E00D08641 /* Coordinator */,
 				3619DF6229FACF6B00D08641 /* Factory */,
 				3619DF6329FACF7900D08641 /* ViewModel */,
@@ -769,6 +778,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		36EEE5042A92558F00F9AAFB /* Inspector */ = {
+			isa = PBXGroup;
+			children = (
+				36EEE5052A9255B600F9AAFB /* LoginInspector.swift */,
+			);
+			path = Inspector;
+			sourceTree = "<group>";
+		};
+		36EEE5072A9255F600F9AAFB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				36EEE5082A92561400F9AAFB /* CheckerService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -872,6 +897,7 @@
 				3619DF8B29FD731A00D08641 /* LikedCoordinator.swift in Sources */,
 				3619DF6129FACF5E00D08641 /* EntryFactory.swift in Sources */,
 				3619DFB82A13828200D08641 /* PhotoViewController.swift in Sources */,
+				36EEE5092A92561400F9AAFB /* CheckerService.swift in Sources */,
 				362C045E2A2E281700118971 /* Posts.swift in Sources */,
 				362C045C2A2E1DC000118971 /* PetCollectionCell.swift in Sources */,
 				3619DFC72A167B9300D08641 /* PhotoConstans.swift in Sources */,
@@ -899,6 +925,7 @@
 				362C04622A2E731600118971 /* MyPhotosCollectionCell.swift in Sources */,
 				3619DF5029F9D86B00D08641 /* SettingsViewController.swift in Sources */,
 				3619DFA92A0D2BFE00D08641 /* SettingsView.swift in Sources */,
+				36EEE5062A9255B600F9AAFB /* LoginInspector.swift in Sources */,
 				365040212A66F0060099DC96 /* EditUserViewController.swift in Sources */,
 				3619DF3A29F98F5B00D08641 /* WelcomeViewModel.swift in Sources */,
 				3619DF3E29F9960200D08641 /* CustomButton.swift in Sources */,
@@ -908,6 +935,7 @@
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
 				3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */,
+				36EEE50B2A92684B00F9AAFB /* String.swift in Sources */,
 				3619DF2F29F98E1A00D08641 /* WelcomeView.swift in Sources */,
 				36EEE5032A923C5900F9AAFB /* ManifestoCoordinator.swift in Sources */,
 				362C046E2A335A0600118971 /* AddPostViewController.swift in Sources */,
