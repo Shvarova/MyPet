@@ -11,15 +11,16 @@ import FirebaseCore
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
+    var coordinator: MainCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         FirebaseApp.configure()
-        window = UIWindow (windowScene: windowScene)
-        window?.rootViewController = WelcomeCoordinator().nc
-        window?.makeKeyAndVisible()
+        self.window = UIWindow (windowScene: windowScene)
+        coordinator = MainCoordinator.setMainCoordinator(window: window, navigationController: UINavigationController())
+        coordinator?.showWelcomeScreen()
+        
         
         if #available(iOS 15, *) {
             let navigationBarAppearance = UINavigationBarAppearance()

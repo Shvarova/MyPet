@@ -26,9 +26,8 @@ extension SettingsCoordinator: SettingsOutput {
     }
 
     func logOut() {
-//        let coordinator = WelcomeCoordinator()
-//        let nc = WelcomeFactory.getNavigationController(output: WelcomeCoordinator())
-//        navigation = nc
+        let coordinator = MainCoordinator.shared
+        coordinator?.showWelcomeScreen()
     }
 
     func readManifesto() {

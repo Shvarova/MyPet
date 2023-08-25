@@ -8,6 +8,14 @@
 import UIKit
 
 enum WelcomeFactory {
+    
+    static func getViewControlller (navigation: UINavigationController) -> UIViewController {
+        let vc = WelcomeViewController(mainView: WelcomeView())
+        let viewModel = WelcomeViewModel()
+        vc.setViewModel(viewModel: viewModel)
+        return vc
+    }
+    
     static func getNavigationController (output: WelcomeOutput) -> UINavigationController {
         let mainView = WelcomeView()
         let viewModel = WelcomeViewModel()

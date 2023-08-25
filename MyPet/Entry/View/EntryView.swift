@@ -44,7 +44,7 @@ class EntryView: UIView {
     }()
     
     private lazy var passwordTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin123", placeholder: "Password")
+        let textField = CustomTextField(text: "", placeholder: "Password")
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
