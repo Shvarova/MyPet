@@ -9,7 +9,7 @@ import UIKit
 
 class EditUserView: UIView {
     
-    var saveAction: ((UIImage?, String, String) ->())?
+    var saveAction: ((UIImage?, String, String, String) ->())?
     var openGalleryAction: (() -> ())?
     
     private let userAvatar: UIImageView = {
@@ -52,7 +52,7 @@ class EditUserView: UIView {
     }()
     
     private lazy var emailTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin@mail.ru", placeholder: "example@mail.com")
+        let textField = CustomTextField(text: "", placeholder: "example@mail.com")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -67,8 +67,9 @@ class EditUserView: UIView {
     }()
     
     private lazy var passwordTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin123", placeholder: "Password")
+        let textField = CustomTextField(text: "", placeholder: "Password")
         textField.isSecureTextEntry = true
+        textField.isUserInteractionEnabled = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -83,7 +84,7 @@ class EditUserView: UIView {
     }()
     
     private lazy var roleTextField: CustomTextField = {
-        let textField = CustomTextField(text: "pet owner", placeholder: "")
+        let textField = CustomTextField(text: "", placeholder: "")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -115,7 +116,7 @@ class EditUserView: UIView {
     }
     
     @objc func save () {
-//        saveAction?(userAvatar.image, nameTextField.)
+        saveAction?(userAvatar.image, nameTextField.getText(), emailTextField.getText(), roleTextField.getText())
     }
     
     @objc func openGallery () {

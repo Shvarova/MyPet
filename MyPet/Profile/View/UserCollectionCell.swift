@@ -28,7 +28,7 @@ class UserCollectionCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-        name.text = "Admin's very long name"
+//        name.text = "Admin's very long name"
         name.textColor = .white
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class UserCollectionCell: UICollectionViewCell {
         let email = UILabel ()
         email.textAlignment = .center
         email.textColor = .CustomColor.neon
-        email.text = "admin@mail.com"
+//        email.text = "admin@mail.com"
         email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         email.translatesAutoresizingMaskIntoConstraints = false
         return email
@@ -52,6 +52,12 @@ class UserCollectionCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUser (user: UserData) {
+        userAvatar.image = UIImage(named: user.userAvatar)
+        nameLabel.text = user.userName
+        emailLabel.text = user.email
     }
     
     private func setupView() {

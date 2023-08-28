@@ -14,8 +14,11 @@ class EditUserViewModel {
         self.nc = nc
     }
     
-    func save (photo: UIImage?, name: String, breed: String) {
-        
+    func save (userAvatar: UIImage?, name: String, email: String, role: String) {
+//        CoreDataManager.shared.currentUser?.userAvatar = userAvatar
+        CoreDataManager.shared.currentUser.userName = name
+        CoreDataManager.shared.currentUser.email = email
+        CoreDataManager.shared.currentUser.role = role
         nc.popViewController(animated: true)
     }
 }

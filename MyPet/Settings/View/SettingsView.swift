@@ -53,7 +53,7 @@ class SettingsView: UIView {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-        name.text = "Admin's very long name"
+//        name.text = "Admin's very long name"
         name.textColor = .white
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,7 @@ class SettingsView: UIView {
         let email = UILabel ()
         email.textAlignment = .center
         email.textColor = .CustomColor.neon
-        email.text = "admin@mail.com"
+//        email.text = "admin@mail.com"
         email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         email.translatesAutoresizingMaskIntoConstraints = false
         return email

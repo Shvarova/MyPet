@@ -91,12 +91,12 @@ class PostCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPost (post: Post) {
+    func setPost (post: PostData) {
         authorAvatar.image = UIImage(named: post.authorAvatar)
         name.text = post.authorName
         date.text = dateFormatter.string(from: post.date)
         titleLabel.text = post.title
-        descriptionLabel.text = post.description
+        descriptionLabel.text = post.postDescription
         image.image = UIImage(named: post.image)
         likeButton.setTitle(title: String(post.like))
         commentButton.setTitle(title: String(post.comment))

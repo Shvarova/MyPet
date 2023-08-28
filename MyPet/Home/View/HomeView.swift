@@ -12,7 +12,7 @@ class HomeView: UIView {
     var searchAction: (() -> ())?
     var resetAction: (() -> ())?
     
-    private var posts = [Post]()
+    private var posts = [PostData]()
     
     private lazy var searchButton: UIButton = {
         let button = UIButton ()
@@ -101,7 +101,7 @@ class HomeView: UIView {
         ])
     }
     
-    func setPosts (posts: [Post]) {
+    func setPosts (posts: [PostData]) {
         self.posts = posts
         collectionView.reloadData()
     }

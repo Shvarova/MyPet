@@ -59,7 +59,7 @@ class ManifestoView: UIView {
         addSubviews(topImageView, titleLabel, textView)
         
         NSLayoutConstraint.activate([
-            topImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
+            topImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             topImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: topImageView.bottomAnchor, constant: 24),

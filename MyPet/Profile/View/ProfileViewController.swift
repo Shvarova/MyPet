@@ -33,6 +33,8 @@ class ProfileViewController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mainView.setPosts(posts: viewModel?.posts ?? [])
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.tabBarController?.tabBar.isHidden = false
     }
     
     func setViewModel (viewModel: ProfileViewModel) {
@@ -41,5 +43,6 @@ class ProfileViewController : UIViewController {
         mainView.openPhotoGalleryAction = viewModel.openPhotoGallery
         mainView.addPostAction = viewModel.addPost
         mainView.setPosts(posts: viewModel.posts)
+        mainView.setUser(user: viewModel.currentUser)
     }
 }

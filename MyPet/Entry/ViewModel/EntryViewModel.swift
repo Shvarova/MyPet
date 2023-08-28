@@ -39,24 +39,22 @@ class EntryViewModel: EntryViewModelProtocol {
     }
         
     func checkCredentionalsForRegistration(email: String, password: String) {
-//        if email.emailIsValid() && password.passwordIsValid() {
-            print ("ok")
         credentionals.signUp(withEmail: email, password: password, checkCredentionalsCompletion)
-//        } else {
-//            print ("not ok")
-//        }
     }
 
     private func logIn (email: String, password: String) {
+       
         credentionals.checkCredentials(withEmail: email, password: password, checkCredentionalsCompletion)
         
     }
+    
     private func signUp (email: String, password: String) {
         checkCredentionalsForRegistration(email: email, password: password)
     }
     
     private func checkCredentionalsCompletion (authDataResult: AuthDataResult?, error: Error?) {
-        if let _ = authDataResult {
+        if let authDataResult = authDataResult {
+            CoreDataManager.shared.currentUser = UserData(id: authDataResult.user.uid, userAvatar: "", userName: "", petID: "", email: authDataResult.user.email ?? "", role: "")
             output?.goToHome()
         } else {
             errorAction?("Error", error?.localizedDescription ?? "")

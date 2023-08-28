@@ -16,7 +16,5 @@ class EditPetViewModel {
     
     func save (photo: UIImage?, name: String, breed: String) {
         nc.popViewController(animated: true)
-//        nc.navigationBar.isHidden = false
-//        nc.tabBarController?.tabBar.isHidden = true
     }
 }

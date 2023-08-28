@@ -30,6 +30,7 @@ class EditPetViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        addTapToHideKeyboard()
     }
     
     func setViewModel (viewModel: EditPetViewModel) {

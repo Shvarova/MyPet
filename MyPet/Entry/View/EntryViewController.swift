@@ -27,6 +27,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        addTapToHideKeyboard()
     }
     
     func setViewModel (viewModel: EntryViewModel) {
@@ -41,6 +42,15 @@ class EntryViewController: UIViewController {
     
     @objc func backButtonTouched() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func addTapToHideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        mainView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func hideKeyboard() {
+        mainView.endEditing(true)
     }
     
     private func showAlert (title: String, message: String) {

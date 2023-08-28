@@ -34,6 +34,7 @@ class AddPostViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        addTapToHideKeyboard()
     }
     
     func setViewModel (viewModel: AddPostViewModel) {

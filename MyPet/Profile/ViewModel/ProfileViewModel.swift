@@ -9,8 +9,12 @@ import UIKit
 
 class ProfileViewModel {
     
-    var posts: [Post] {
-        Posts.shared.posts
+    var posts: [PostData] {
+        CoreDataManager.shared.getAllPosts(userID: "2")
+    }
+    
+    var currentUser: UserData {
+        CoreDataManager.shared.currentUser
     }
     
     var output: ProfileOutput?

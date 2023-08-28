@@ -13,7 +13,8 @@ class ProfileView: UIView {
     var openPhotoGalleryAction: (() -> ())?
     var addPostAction: (() -> ())?
     
-    private var posts: [Post] = []
+    private var user = UserData(id: "", userAvatar: "", userName: "", petID: "", email: "", role: "")
+    private var posts: [PostData] = []
     private var cellsCount = 4
     
     private lazy var titleLabel: UILabel = {
@@ -49,9 +50,14 @@ class ProfileView: UIView {
         return layout
     }()
     
-    func setPosts (posts: [Post]) {
+    func setPosts (posts: [PostData]) {
         self.posts = posts
         cellsCount = 4 + posts.count
+        collectionView.reloadData()
+    }
+    
+    func setUser (user: UserData) {
+        self.user = user
         collectionView.reloadData()
     }
 
@@ -87,7 +93,11 @@ extension ProfileView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
         switch indexPath.row {
-        case 0: cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.id, for: indexPath)
+        case 0: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.id, for: indexPath) as? UserCollectionCell else {
+            return cell
+        }
+            cell.setUser(user: user)
+            return cell
         case 1: cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath)
         case 2: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPhotosCollectionCell.id, for: indexPath)
         case 3: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPostsCollectionCell.id, for: indexPath)

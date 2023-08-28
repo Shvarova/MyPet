@@ -30,11 +30,12 @@ class EditUserViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        addTapToHideKeyboard()
     }
     
     func setViewModel (viewModel: EditUserViewModel) {
         self.viewModel = viewModel
-        mainView.saveAction = viewModel.save(photo:name:breed:)
+        mainView.saveAction = viewModel.save
     }
     
     @objc func backButtonTouched() {

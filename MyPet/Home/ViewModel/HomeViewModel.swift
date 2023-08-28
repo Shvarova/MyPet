@@ -15,7 +15,7 @@ enum HomeState {
 class HomeViewModel {
     var output: HomeOutput?
     
-    var update: (([Post]) -> ())?
+    var update: (([PostData]) -> ())?
     
     private var posts = Posts.shared.posts
     
@@ -30,7 +30,7 @@ class HomeViewModel {
         output?.presentSearchController(delegate: delegate)
     }
     
-    private func getPosts(with title: String) -> [Post] {
+    private func getPosts(with title: String) -> [PostData] {
         if title.isEmpty {return posts}
         return posts.filter { post in
             return post.title.lowercased().contains(title.lowercased())

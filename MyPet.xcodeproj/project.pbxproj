@@ -54,7 +54,7 @@
 		3619DFAB2A0E921300D08641 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFAA2A0E921300D08641 /* PostCell.swift */; };
 		3619DFAD2A0E975A00D08641 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFAC2A0E975A00D08641 /* PostButton.swift */; };
 		3619DFAF2A0F913200D08641 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFAE2A0F913200D08641 /* SearchViewController.swift */; };
-		3619DFB12A0FB9D300D08641 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB02A0FB9D300D08641 /* Post.swift */; };
+		3619DFB12A0FB9D300D08641 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB02A0FB9D300D08641 /* PostData.swift */; };
 		3619DFB32A12E87B00D08641 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB22A12E87B00D08641 /* PetView.swift */; };
 		3619DFB62A13826E00D08641 /* PhotoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB52A13826E00D08641 /* PhotoCoordinator.swift */; };
 		3619DFB82A13828200D08641 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFB72A13828200D08641 /* PhotoViewController.swift */; };
@@ -105,6 +105,10 @@
 		36EEE5242A97739C00F9AAFB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5232A97739C00F9AAFB /* FirebaseStorage */; };
 		36EEE5262A97739C00F9AAFB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5252A97739C00F9AAFB /* FirebaseStorageCombine-Community */; };
 		36EEE5282A97AB3E00F9AAFB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */; };
+		36EEE52B2A9CEA5B00F9AAFB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5292A9CEA5B00F9AAFB /* CoreData.xcdatamodeld */; };
+		36EEE52D2A9CEADD00F9AAFB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE52C2A9CEADD00F9AAFB /* UserData.swift */; };
+		36EEE52F2A9CECEE00F9AAFB /* PetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE52E2A9CECEE00F9AAFB /* PetData.swift */; };
+		36EEE5562A9CF8BB00F9AAFB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5552A9CF8BB00F9AAFB /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,7 +164,7 @@
 		3619DFAA2A0E921300D08641 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		3619DFAC2A0E975A00D08641 /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
 		3619DFAE2A0F913200D08641 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		3619DFB02A0FB9D300D08641 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3619DFB02A0FB9D300D08641 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		3619DFB22A12E87B00D08641 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		3619DFB52A13826E00D08641 /* PhotoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCoordinator.swift; sourceTree = "<group>"; };
 		3619DFB72A13828200D08641 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,10 @@
 		36EEE5082A92561400F9AAFB /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
 		36EEE50A2A92684B00F9AAFB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		36EEE52A2A9CEA5B00F9AAFB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		36EEE52C2A9CEADD00F9AAFB /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		36EEE52E2A9CECEE00F9AAFB /* PetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetData.swift; sourceTree = "<group>"; };
+		36EEE5552A9CF8BB00F9AAFB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +251,7 @@
 		3619DF1929F8214B00D08641 /* MyPet */ = {
 			isa = PBXGroup;
 			children = (
+				36EEE5482A9CF5C700F9AAFB /* CoreData */,
 				3619DF1A29F8214B00D08641 /* AppDelegate.swift */,
 				3619DF1C29F8214B00D08641 /* SceneDelegate.swift */,
 				3619DF7B29FD654200D08641 /* TabBarCoordinator.swift */,
@@ -318,7 +327,9 @@
 		3619DF3B29F995CF00D08641 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3619DFB02A0FB9D300D08641 /* Post.swift */,
+				36EEE52C2A9CEADD00F9AAFB /* UserData.swift */,
+				36EEE52E2A9CECEE00F9AAFB /* PetData.swift */,
+				3619DFB02A0FB9D300D08641 /* PostData.swift */,
 				36EEE50A2A92684B00F9AAFB /* String.swift */,
 				3619DF3C29F995E600D08641 /* Ui */,
 			);
@@ -821,6 +832,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		36EEE5482A9CF5C700F9AAFB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				36EEE5292A9CEA5B00F9AAFB /* CoreData.xcdatamodeld */,
+				36EEE5552A9CF8BB00F9AAFB /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -950,9 +970,10 @@
 				365040122A4B96E70099DC96 /* EditPetViewController.swift in Sources */,
 				3619DF8629FD682400D08641 /* HomeView.swift in Sources */,
 				3619DF8D29FD733200D08641 /* LikedFactory.swift in Sources */,
+				36EEE5562A9CF8BB00F9AAFB /* CoreDataManager.swift in Sources */,
 				3619DF8929FD686000D08641 /* HomeViewModel.swift in Sources */,
 				362C04722A33B7C200118971 /* PostView.swift in Sources */,
-				3619DFB12A0FB9D300D08641 /* Post.swift in Sources */,
+				3619DFB12A0FB9D300D08641 /* PostData.swift in Sources */,
 				3619DF1F29F8214B00D08641 /* WelcomeViewController.swift in Sources */,
 				362C045A2A2E1CD800118971 /* UserCollectionCell.swift in Sources */,
 				362C04792A33BC8000118971 /* AddPostViewModel.swift in Sources */,
@@ -963,6 +984,7 @@
 				3619DFAD2A0E975A00D08641 /* PostButton.swift in Sources */,
 				362C04622A2E731600118971 /* MyPhotosCollectionCell.swift in Sources */,
 				3619DF5029F9D86B00D08641 /* SettingsViewController.swift in Sources */,
+				36EEE52F2A9CECEE00F9AAFB /* PetData.swift in Sources */,
 				3619DFA92A0D2BFE00D08641 /* SettingsView.swift in Sources */,
 				36EEE5282A97AB3E00F9AAFB /* MainCoordinator.swift in Sources */,
 				36EEE5062A9255B600F9AAFB /* LoginInspector.swift in Sources */,
@@ -974,6 +996,7 @@
 				362C04742A33B7E200118971 /* PostViewController.swift in Sources */,
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
+				36EEE52B2A9CEA5B00F9AAFB /* CoreData.xcdatamodeld in Sources */,
 				3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */,
 				36EEE50B2A92684B00F9AAFB /* String.swift in Sources */,
 				3619DF2F29F98E1A00D08641 /* WelcomeView.swift in Sources */,
@@ -986,6 +1009,7 @@
 				3619DF9F2A0D2A3100D08641 /* ProfileViewModel.swift in Sources */,
 				362C046C2A3359EA00118971 /* PostCoordinator.swift in Sources */,
 				3619DFB32A12E87B00D08641 /* PetView.swift in Sources */,
+				36EEE52D2A9CEADD00F9AAFB /* UserData.swift in Sources */,
 				3619DF7529FBFFB500D08641 /* LikedView.swift in Sources */,
 				362C047F2A45ECBF00118971 /* AddPostFactory.swift in Sources */,
 				3619DF5B29FACF0D00D08641 /* EntryView.swift in Sources */,
@@ -1294,6 +1318,19 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		36EEE5292A9CEA5B00F9AAFB /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				36EEE52A2A9CEA5B00F9AAFB /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 36EEE52A2A9CEA5B00F9AAFB /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3619DF0F29F8214B00D08641 /* Project object */;
 }
