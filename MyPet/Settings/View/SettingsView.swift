@@ -53,7 +53,6 @@ class SettingsView: UIView {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-        name.text = ""
         name.textColor = .white
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +63,6 @@ class SettingsView: UIView {
         let email = UILabel ()
         email.textAlignment = .center
         email.textColor = .CustomColor.neon
-        email.text = ""
         email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         email.translatesAutoresizingMaskIntoConstraints = false
         return email
@@ -106,6 +104,17 @@ class SettingsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUserData(userData: UserData) {
+        let userAvatarURL = URL(string: userData.userAvatar)
+        if let userAvatarURL = userAvatarURL {
+            userAvatar.load(url: userAvatarURL)
+        } else {
+            userAvatar.image = UIImage(named: "Photo")
+        }
+        nameLabel.text = userData.userName
+        emailLabel.text = userData.email
     }
     
     private func setupView() {

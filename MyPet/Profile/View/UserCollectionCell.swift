@@ -55,7 +55,12 @@ class UserCollectionCell: UICollectionViewCell {
     }
     
     func setUser (user: UserData) {
-        userAvatar.image = UIImage(named: user.userAvatar)
+        let userAvatarURL = URL(string: user.userAvatar)
+        if let userAvatarURL = userAvatarURL {
+            userAvatar.load(url: userAvatarURL)
+        } else {
+            userAvatar.image = UIImage(named: "User avatar")
+        }
         nameLabel.text = user.userName
         emailLabel.text = user.email
     }

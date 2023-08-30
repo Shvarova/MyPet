@@ -33,8 +33,16 @@ class EditUserViewController : UIViewController {
         addTapToHideKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let currentUser = viewModel?.currentUser {
+            mainView.setUserData(userData: currentUser)
+        }
+    }
+    
     func setViewModel (viewModel: EditUserViewModel) {
         self.viewModel = viewModel
+        mainView.setUserData(userData: viewModel.currentUser)
         mainView.saveAction = viewModel.save
     }
     

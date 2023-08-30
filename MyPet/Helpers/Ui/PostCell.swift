@@ -76,11 +76,11 @@ class PostCell: UICollectionViewCell {
         return button
     }()
     
-    lazy var commentButton: PostButton = {
-        let button = PostButton(image: .comment)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    lazy var commentButton: PostButton = {
+//        let button = PostButton(image: .comment)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,19 +91,41 @@ class PostCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cleanData()
+    }
+    
     func setPost (post: PostData) {
-        authorAvatar.image = UIImage(named: post.authorAvatar)
+         if let imageURL = URL(string: post.authorAvatar) {
+            self.authorAvatar.load(url: imageURL)
+        } else {
+            authorAvatar.image = UIImage(named: "User avatar")
+        }
         name.text = post.authorName
         date.text = dateFormatter.string(from: post.date)
         titleLabel.text = post.title
         descriptionLabel.text = post.postDescription
-        image.image = UIImage(named: post.image)
+        if let image = post.image,
+           let imageURL = URL(string: image) {
+            self.image.load(url: imageURL)
+        }
         likeButton.setTitle(title: String(post.like))
-        commentButton.setTitle(title: String(post.comment))
+//        commentButton.setTitle(title: String(post.comment))
+    }
+    
+    private func cleanData() {
+        authorAvatar.image = nil
+        name.text = ""
+        date.text = ""
+        titleLabel.text = ""
+        descriptionLabel.text = ""
+        likeButton.setTitle(title: "0")
+        image.image = nil
     }
     
     private func setupView() {
-        addSubviews(authorAvatar, name, date, titleLabel, descriptionLabel, image, likeButton, commentButton)
+        addSubviews(authorAvatar, name, date, titleLabel, descriptionLabel, image, likeButton)
         
         NSLayoutConstraint.activate([
             authorAvatar.topAnchor.constraint(equalTo: topAnchor, constant: 24),
@@ -135,11 +157,12 @@ class PostCell: UICollectionViewCell {
             likeButton.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 16),
             likeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             likeButton.heightAnchor.constraint(equalToConstant: 32),
+            likeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
             
-            commentButton.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 16),
-            commentButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 8),
-            commentButton.heightAnchor.constraint(equalToConstant: 32),
-            commentButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
+//            commentButton.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 16),
+//            commentButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 8),
+//            commentButton.heightAnchor.constraint(equalToConstant: 32),
+//            commentButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
         ])
     }
 }

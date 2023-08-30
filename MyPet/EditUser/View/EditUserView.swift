@@ -9,7 +9,7 @@ import UIKit
 
 class EditUserView: UIView {
     
-    var saveAction: ((UIImage?, String, String, String) ->())?
+    var saveAction: ((UIImage?, String, String) ->())?
     var openGalleryAction: (() -> ())?
     
     private let userAvatar: UIImageView = {
@@ -42,37 +42,39 @@ class EditUserView: UIView {
         return textField
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your email", comment: "")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    //MARK: пока не умею менять учетку пользователя в firebase
     
-    private lazy var emailTextField: CustomTextField = {
-        let textField = CustomTextField(text: "", placeholder: "example@mail.com")
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private lazy var passwordLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your password", comment: "")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var passwordTextField: CustomTextField = {
-        let textField = CustomTextField(text: "", placeholder: "Password")
-        textField.isSecureTextEntry = true
-        textField.isUserInteractionEnabled = false
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
+//    private lazy var emailLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 16)
+//        label.textColor = .darkGray
+//        label.text = NSLocalizedString("Your email", comment: "")
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//    private lazy var emailTextField: CustomTextField = {
+//        let textField = CustomTextField(text: "", placeholder: "example@mail.com")
+//        textField.translatesAutoresizingMaskIntoConstraints = false
+//        return textField
+//    }()
+//
+//    private lazy var passwordLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 16)
+//        label.textColor = .darkGray
+//        label.text = NSLocalizedString("Your password", comment: "")
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//    private lazy var passwordTextField: CustomTextField = {
+//        let textField = CustomTextField(text: "", placeholder: "Password")
+//        textField.isSecureTextEntry = true
+//        textField.isUserInteractionEnabled = false
+//        textField.translatesAutoresizingMaskIntoConstraints = false
+//        return textField
+//    }()
     
     private lazy var roleLabel: UILabel = {
         let label = UILabel()
@@ -100,7 +102,7 @@ class EditUserView: UIView {
         let stackView = UIStackView()
         stackView.clipsToBounds = true
         stackView.axis = .vertical
-        stackView.addArrangedSubviews(nameLabel, nameTextField, emailLabel, emailTextField, passwordLabel, passwordTextField, roleLabel, roleTextField)
+        stackView.addArrangedSubviews(nameLabel, nameTextField, roleLabel, roleTextField)
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -116,7 +118,7 @@ class EditUserView: UIView {
     }
     
     @objc func save () {
-        saveAction?(userAvatar.image, nameTextField.getText(), emailTextField.getText(), roleTextField.getText())
+        saveAction?(userAvatar.image, nameTextField.getText(), roleTextField.getText())
     }
     
     @objc func openGallery () {
@@ -127,7 +129,16 @@ class EditUserView: UIView {
         self.userAvatar.image = image
     }
     
-    
+    func setUserData(userData: UserData) {
+        let userAvatarURL = URL(string: userData.userAvatar)
+        if let userAvatarURL = userAvatarURL {
+            userAvatar.load(url: userAvatarURL)
+        } else {
+            userAvatar.image = UIImage(named: "Photo")
+        }
+        nameTextField.setText(text: userData.userName)
+        roleTextField.setText(text: userData.role)
+    }
     
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))

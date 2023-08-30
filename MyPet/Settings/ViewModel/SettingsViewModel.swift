@@ -11,6 +11,10 @@ class SettingsViewModel {
     
     var output: SettingsOutput?
     
+    var currentUser: UserData {
+        DataManager.shared.currentUser
+    }
+    
     func edit () {
         output?.goToEditUser()
     }

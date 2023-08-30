@@ -15,7 +15,7 @@ struct PostData {
     let date: Date
     let title: String
     let postDescription: String
-    let image: String
+    let image: String?
     var like: Int
     var comment: Int
 }

@@ -16,8 +16,7 @@ class AddPostViewModel {
     }
     
     func publish (image: UIImage?, title: String, description: String) {
-        coreDataManager.savePostData(title: title, description: description)
-//        Posts.shared.posts.append(PostData(authorAvatar: "Admin avatar", authorName: "my pet", date: Date(), title: title, description: description, image: "", like: 0, comment: 0))
+        coreDataManager.savePostData(title: title, description: description, image: image)
         nc.popViewController(animated: true)
     }
 }

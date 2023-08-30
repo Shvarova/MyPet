@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController {
     
     func setViewModel (viewModel: SettingsViewModel) {
         self.viewModel = viewModel
+        mainView.setUserData(userData: viewModel.currentUser)
         mainView.editProfile = viewModel.edit
         mainView.logOut = viewModel.logOut
         mainView.readManifesto = viewModel.readManifesto
@@ -39,6 +40,9 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let currentUser = viewModel?.currentUser {
+            mainView.setUserData(userData: currentUser)
+        }
         navigationController?.navigationBar.isHidden = true
         navigationController?.tabBarController?.tabBar.isHidden = false
     }

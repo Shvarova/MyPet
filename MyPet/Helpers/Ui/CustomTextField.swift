@@ -51,6 +51,10 @@ final class CustomTextField: UIView {
         textField.text ?? ""
     }
     
+    func setText(text: String) {
+        textField.text = text
+    }
+    
     private func setupView() {
         addSubviews(bottomLine, textField)
         
