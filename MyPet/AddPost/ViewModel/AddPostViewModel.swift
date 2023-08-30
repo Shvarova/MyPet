@@ -9,7 +9,7 @@ import UIKit
 
 class AddPostViewModel {
    private let nc: UINavigationController
-    let coreDataManager = CoreDataManager.shared
+    let coreDataManager = DataManager.shared
     
     init(nc: UINavigationController) {
         self.nc = nc

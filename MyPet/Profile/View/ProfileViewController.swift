@@ -33,6 +33,9 @@ class ProfileViewController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mainView.setPosts(posts: viewModel?.posts ?? [])
+        if let currentUser = viewModel?.currentUser {
+            mainView.setUser(user: currentUser)
+        }
         navigationController?.navigationBar.isHidden = true
         navigationController?.tabBarController?.tabBar.isHidden = false
     }

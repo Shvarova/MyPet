@@ -15,6 +15,8 @@ class EditPetViewModel {
     }
     
     func save (photo: UIImage?, name: String, breed: String) {
+        let pet = PetData(id: DataManager.shared.currentUser.id + "_pet", petAvatar: "Pet avatar", petName: name, breed: breed)
+        DataManager.shared.savePetData(pet: pet)
         nc.popViewController(animated: true)
     }
 }

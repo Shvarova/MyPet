@@ -127,6 +127,8 @@ class EditUserView: UIView {
         self.userAvatar.image = image
     }
     
+    
+    
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))
         userAvatar.addGestureRecognizer(tap)

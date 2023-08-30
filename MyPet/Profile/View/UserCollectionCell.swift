@@ -18,7 +18,7 @@ class UserCollectionCell: UICollectionViewCell {
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
         avatar.layer.borderColor = UIColor.white.cgColor
-        avatar.image = UIImage(named: "Admin avatar")
+        avatar.image = UIImage(named: "User avatar")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
         avatar.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ class UserCollectionCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-//        name.text = "Admin's very long name"
+//        name.text = ""
         name.textColor = .white
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class UserCollectionCell: UICollectionViewCell {
         let email = UILabel ()
         email.textAlignment = .center
         email.textColor = .CustomColor.neon
-//        email.text = "admin@mail.com"
+//        email.text = ""
         email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         email.translatesAutoresizingMaskIntoConstraints = false
         return email

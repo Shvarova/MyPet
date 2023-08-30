@@ -28,6 +28,7 @@ extension SettingsCoordinator: SettingsOutput {
     func logOut() {
         let coordinator = MainCoordinator.shared
         coordinator?.showWelcomeScreen()
+        DataManager.shared.cleanData()
     }
 
     func readManifesto() {

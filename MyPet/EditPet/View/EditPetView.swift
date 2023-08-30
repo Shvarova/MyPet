@@ -74,7 +74,7 @@ class EditPetView: UIView {
     }
     
     @objc func save () {
-        saveAction?(petAvatar.image, nameTextField.getText(), breedTextField.text ?? "")
+        saveAction?(petAvatar.image, nameTextField.getText(), breedTextField.getText())
     }
     
     @objc func openGallery () {

@@ -43,9 +43,7 @@ class EntryViewModel: EntryViewModelProtocol {
     }
 
     private func logIn (email: String, password: String) {
-       
         credentionals.checkCredentials(withEmail: email, password: password, checkCredentionalsCompletion)
-        
     }
     
     private func signUp (email: String, password: String) {
@@ -54,7 +52,7 @@ class EntryViewModel: EntryViewModelProtocol {
     
     private func checkCredentionalsCompletion (authDataResult: AuthDataResult?, error: Error?) {
         if let authDataResult = authDataResult {
-            CoreDataManager.shared.currentUser = UserData(id: authDataResult.user.uid, userAvatar: "", userName: "", petID: "", email: authDataResult.user.email ?? "", role: "")
+            DataManager.shared.chekUser(userID: authDataResult.user.uid, email: authDataResult.user.email ?? "")
             output?.goToHome()
         } else {
             errorAction?("Error", error?.localizedDescription ?? "")

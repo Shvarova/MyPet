@@ -50,17 +50,17 @@ class ProfileView: UIView {
         return layout
     }()
     
+    func setUser (user: UserData) {
+        self.user = user
+        collectionView.reloadData()
+    }
+    
     func setPosts (posts: [PostData]) {
         self.posts = posts
         cellsCount = 4 + posts.count
         collectionView.reloadData()
     }
     
-    func setUser (user: UserData) {
-        self.user = user
-        collectionView.reloadData()
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()

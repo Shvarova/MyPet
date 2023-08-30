@@ -105,10 +105,9 @@
 		36EEE5242A97739C00F9AAFB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5232A97739C00F9AAFB /* FirebaseStorage */; };
 		36EEE5262A97739C00F9AAFB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5252A97739C00F9AAFB /* FirebaseStorageCombine-Community */; };
 		36EEE5282A97AB3E00F9AAFB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */; };
-		36EEE52B2A9CEA5B00F9AAFB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5292A9CEA5B00F9AAFB /* CoreData.xcdatamodeld */; };
 		36EEE52D2A9CEADD00F9AAFB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE52C2A9CEADD00F9AAFB /* UserData.swift */; };
 		36EEE52F2A9CECEE00F9AAFB /* PetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE52E2A9CECEE00F9AAFB /* PetData.swift */; };
-		36EEE5562A9CF8BB00F9AAFB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5552A9CF8BB00F9AAFB /* CoreDataManager.swift */; };
+		36EEE5562A9CF8BB00F9AAFB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5552A9CF8BB00F9AAFB /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,10 +201,9 @@
 		36EEE5082A92561400F9AAFB /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
 		36EEE50A2A92684B00F9AAFB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		36EEE52A2A9CEA5B00F9AAFB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		36EEE52C2A9CEADD00F9AAFB /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		36EEE52E2A9CECEE00F9AAFB /* PetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetData.swift; sourceTree = "<group>"; };
-		36EEE5552A9CF8BB00F9AAFB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		36EEE5552A9CF8BB00F9AAFB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,11 +249,11 @@
 		3619DF1929F8214B00D08641 /* MyPet */ = {
 			isa = PBXGroup;
 			children = (
-				36EEE5482A9CF5C700F9AAFB /* CoreData */,
 				3619DF1A29F8214B00D08641 /* AppDelegate.swift */,
 				3619DF1C29F8214B00D08641 /* SceneDelegate.swift */,
 				3619DF7B29FD654200D08641 /* TabBarCoordinator.swift */,
 				36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */,
+				36EEE5482A9CF5C700F9AAFB /* Database */,
 				3619DF3B29F995CF00D08641 /* Helpers */,
 				3619DF3029F98E6C00D08641 /* Welcome */,
 				3619DF5629FAC76500D08641 /* Entry */,
@@ -832,13 +830,12 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		36EEE5482A9CF5C700F9AAFB /* CoreData */ = {
+		36EEE5482A9CF5C700F9AAFB /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				36EEE5292A9CEA5B00F9AAFB /* CoreData.xcdatamodeld */,
-				36EEE5552A9CF8BB00F9AAFB /* CoreDataManager.swift */,
+				36EEE5552A9CF8BB00F9AAFB /* DataManager.swift */,
 			);
-			path = CoreData;
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -970,7 +967,7 @@
 				365040122A4B96E70099DC96 /* EditPetViewController.swift in Sources */,
 				3619DF8629FD682400D08641 /* HomeView.swift in Sources */,
 				3619DF8D29FD733200D08641 /* LikedFactory.swift in Sources */,
-				36EEE5562A9CF8BB00F9AAFB /* CoreDataManager.swift in Sources */,
+				36EEE5562A9CF8BB00F9AAFB /* DataManager.swift in Sources */,
 				3619DF8929FD686000D08641 /* HomeViewModel.swift in Sources */,
 				362C04722A33B7C200118971 /* PostView.swift in Sources */,
 				3619DFB12A0FB9D300D08641 /* PostData.swift in Sources */,
@@ -996,7 +993,6 @@
 				362C04742A33B7E200118971 /* PostViewController.swift in Sources */,
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
-				36EEE52B2A9CEA5B00F9AAFB /* CoreData.xcdatamodeld in Sources */,
 				3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */,
 				36EEE50B2A92684B00F9AAFB /* String.swift in Sources */,
 				3619DF2F29F98E1A00D08641 /* WelcomeView.swift in Sources */,
@@ -1318,19 +1314,6 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		36EEE5292A9CEA5B00F9AAFB /* CoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				36EEE52A2A9CEA5B00F9AAFB /* CoreData.xcdatamodel */,
-			);
-			currentVersion = 36EEE52A2A9CEA5B00F9AAFB /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3619DF0F29F8214B00D08641 /* Project object */;
 }

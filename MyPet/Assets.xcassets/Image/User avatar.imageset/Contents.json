@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Pet avatar.jpeg",
+      "filename" : "Edit Avatar1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Edit Avatar2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Edit Avatar3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
