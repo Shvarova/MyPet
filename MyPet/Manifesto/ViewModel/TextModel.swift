@@ -16,7 +16,7 @@ Our social network need to connects pet owners, vets, breeders, and clubs in a m
 
 We can't wait for you to share your experiences and connect with others who share your love! Please read our community guidelines carefully before posting or interacting with others. We're committed to maintaining a interesting and welcoming space for everyone. To ensure that everyone has a positive experience, we ask that you follow these guidelines:
 
-#Only the most important. Keep your thoughts short and concise — we have a limit of 50 characters for the title and 280 for the description.
+#Only the important. Keep your thoughts short and concise — we have a limit of 50 characters for the title and 280 for the description.
 
 #Be respectful. Treat others as you would like to be treated. Don't use language or images that are offensive, threatening, or discriminatory.
 
