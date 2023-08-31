@@ -1,6 +1,8 @@
 # Дипломная работа курса «iOS-разработчик»
 
-## Социальная сеть для владельцев питомцев
+## Социальная сеть для владельцев питомцев MyPet
+
+В приложении можно создавать пользователей и добавлять информацию о питомце, создавать короткие посты с фото, читать посты от других пользователей, искать посты. Можно редактировать свой профиль, информацию о питомце и добавлять посты в избранное.
 
 * Архитектура MVVM-C
 * Интерфейс приложения: UIKit
@@ -9,20 +11,41 @@
 * Хранение медиа — Firebase Storage
 * Локализация: английский и русский языки
 
-## Основные экраны приложения
-
-В приложении можно создавать пользователей и добавлять информацию о питомце, писать посты, читать посты от других пользователей. Можно редактировать свой профиль, добавлять посты в избранное.
-
 ### Регистрация и авторизация в приложении
-  ![image](https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FSimulator%20Screenshot%20-%20iPhone%2012%20mini%20-%202023-08-31%20at%2017.16.15.png?alt=media&token=5c7edd72-d6ed-406e-8a94-d69515f04918) ![image](https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FSimulator%20Screenshot%20-%20iPhone%2012%20mini%20-%202023-08-31%20at%2017.16.36.png?alt=media&token=51cbfb86-4267-456f-96d9-a6ac28703e8c)
+
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1946.PNG?alt=media&token=6bbb7d51-a5fb-41d9-a11d-37bd7b173f95)" width="350"> <img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1947.PNG?alt=media&token=dbe3b734-a38e-49b7-ab18-48d5f73c3943" width="350">
+</p>
 
 ### Лента постов от всех пользователей и поиск
-  
+
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1939.PNG?alt=media&token=f9e92657-f259-4b58-944a-772cd6050b68)" width="350"> 
+</p>
+    
 ### Профиль пользователя
 
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1948.PNG?alt=media&token=fb8d635f-c62b-407a-b4e0-f25a2db0cf84)" width="350"> 
+</p>
+
 ### Экран создания нового поста
+
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1945.PNG?alt=media&token=b6cbf181-183b-4ee0-b296-8afa27481ebe)" width="350"> 
+</p>
 
 ### Избранные посты
 
 ### Настройки
+
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1940.PNG?alt=media&token=02de4964-6434-4095-b552-602081228592)" width="350"> 
+</p>
+
+### Манифест
+
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1941.PNG?alt=media&token=f4b18306-7c2b-426a-82b5-008c9d484461)" width="350"> 
+</p>
 
