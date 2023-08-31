@@ -85,6 +85,17 @@ class EditPetView: UIView {
         self.petAvatar.image = image
     }
     
+    func setPetData(petData: PetData) {
+        let petAvatarURL = URL(string: petData.petAvatar)
+        if let petAvatarURL = petAvatarURL {
+            petAvatar.load(url: petAvatarURL)
+        } else {
+            petAvatar.image = UIImage(named: "Photo")
+        }
+        nameTextField.setText(text: petData.petName)
+        breedTextField.setText(text: petData.breed)
+    }
+    
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))
         petAvatar.addGestureRecognizer(tap)

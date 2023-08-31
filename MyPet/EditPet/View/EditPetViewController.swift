@@ -33,9 +33,17 @@ class EditPetViewController : UIViewController {
         addTapToHideKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let currentPet = viewModel?.currentPet {
+            mainView.setPetData(petData: currentPet)
+        }
+    }
+    
     func setViewModel (viewModel: EditPetViewModel) {
         self.viewModel = viewModel
-        mainView.saveAction = viewModel.save(photo:name:breed:)
+        mainView.setPetData(petData: viewModel.currentPet)
+        mainView.saveAction = viewModel.save
     }
     
     @objc func backButtonTouched() {

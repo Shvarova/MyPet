@@ -14,6 +14,7 @@ class ProfileView: UIView {
     var addPostAction: (() -> ())?
     
     private var user = UserData(id: "", userAvatar: "", userName: "", petID: "", email: "", role: "")
+    private var pet = PetData(id: "", petAvatar: "", petName: "", breed: "")
     private var posts: [PostData] = []
     private var cellsCount = 4
     
@@ -42,7 +43,7 @@ class ProfileView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -52,6 +53,11 @@ class ProfileView: UIView {
     
     func setUser (user: UserData) {
         self.user = user
+        collectionView.reloadData()
+    }
+    
+    func setPet (pet: PetData) {
+        self.pet = pet
         collectionView.reloadData()
     }
     
@@ -81,7 +87,7 @@ class ProfileView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        ])        
+        ])
     }
 }
 

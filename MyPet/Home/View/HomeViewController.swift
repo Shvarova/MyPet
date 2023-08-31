@@ -34,9 +34,14 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.setPosts(posts: viewModel?.posts ?? [])
+    }
+    
     func setViewModel (viewModel: HomeViewModel) {
         self.viewModel = viewModel
-        self.viewModel?.update = mainView.setPosts(posts:)
+        mainView.setPosts(posts: viewModel.posts)
         mainView.searchAction = {
             self.viewModel?.presentSearchController(delegate: self)
         }

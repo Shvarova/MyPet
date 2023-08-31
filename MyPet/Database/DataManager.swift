@@ -16,6 +16,9 @@ class DataManager {
     static let shared = DataManager()
     
     var currentUser = UserData(id: "", userAvatar: "", userName: "", petID: "", email: "", role: "")
+    
+    var currentPet = PetData(id: "", petAvatar: "", petName: "", breed: "")
+    
     private var countUserPosts = 0
     
     private var posts: [PostData]
@@ -25,8 +28,10 @@ class DataManager {
     private init() {
         posts = [PostData]()
         users = [UserData]()
-        pets = [PetData(id: "1", petAvatar: "Pet avatar", petName: "Java", breed: "cat")]
+        pets = [PetData]()
     }
+    
+    //MARK: — user
     
     func chekUser(userID: String, email: String) {
         databaseReference.child("users").child(userID).getData(completion: { error, snapshot in
@@ -65,11 +70,38 @@ class DataManager {
         currentUser = user
     }
     
+    //MARK: — pet
+    
+    func chekPet(petID: String) {
+        databaseReference.child("pets").child(petID).getData(completion: { error, snapshot in
+            guard error == nil else {
+                return
+            }
+            if let value = snapshot?.value as? NSDictionary {
+                let pet = PetData(
+                    id: petID,
+                    petAvatar: value["petAvatar"] as? String ?? "",
+                    petName: value["petName"] as? String ?? "",
+                    breed: value["breed"] as? String ?? ""
+                )
+                self.currentPet = pet
+            } else {
+                let pet = PetData(id: petID, petAvatar: "", petName: "", breed: "")
+                self.savePetData(pet: pet)
+            }
+        })
+    }
+    
     func savePetData(pet: PetData) {
         databaseReference.child("users").child(currentUser.id).child("petID").setValue(pet.id)
         databaseReference.child("pets").child(pet.id).child("petAvatar").setValue(pet.petAvatar)
         databaseReference.child("pets").child(pet.id).child("petName").setValue(pet.petName)
         databaseReference.child("pets").child(pet.id).child("breed").setValue(pet.breed)
+    }
+    
+    func updateCurrentPet(pet: PetData) {
+        savePetData(pet: pet)
+        currentPet = pet
     }
     
     //MARK: — post

@@ -27,7 +27,6 @@ class PetView: UIView {
     private let  petNameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
-        name.text = "Java"
         name.textColor = .white
         name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +37,6 @@ class PetView: UIView {
         let breed = UILabel ()
         breed.textAlignment = .left
         breed.textColor = .systemGray
-        breed.text = "Cat"
         breed.textColor = .lightGray
         breed.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         breed.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +48,6 @@ class PetView: UIView {
         button.clipsToBounds = true
         button.backgroundColor = .clear
         button.image = UIImage(named: "Edit")
-//        button.addTarget(self, action: #selector(editPetClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -66,6 +63,17 @@ class PetView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setPet (pet: PetData) {
+        let petAvatarURL = URL(string: pet.petAvatar)
+        if let petAvatarURL = petAvatarURL {
+            petAvatar.load(url: petAvatarURL)
+        } else {
+            petAvatar.image = UIImage(named: "Pet avatar")
+        }
+        petNameLabel.text = pet.petName
+        breedLabel.text = pet.breed
     }
     
     func setupView() {

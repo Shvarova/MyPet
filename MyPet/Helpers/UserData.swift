@@ -5,7 +5,7 @@
 //  Created by Дина Шварова on 28.08.2023.
 //
 
-import CoreData
+import UIKit
 
 struct UserData {
     let id: String

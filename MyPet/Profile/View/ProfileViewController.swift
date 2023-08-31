@@ -36,6 +36,9 @@ class ProfileViewController : UIViewController {
         if let currentUser = viewModel?.currentUser {
             mainView.setUser(user: currentUser)
         }
+        if let currentPet = viewModel?.currentPet {
+            mainView.setPet(pet: currentPet)
+        }
         navigationController?.navigationBar.isHidden = true
         navigationController?.tabBarController?.tabBar.isHidden = false
     }
@@ -47,5 +50,6 @@ class ProfileViewController : UIViewController {
         mainView.addPostAction = viewModel.addPost
         mainView.setPosts(posts: viewModel.posts)
         mainView.setUser(user: viewModel.currentUser)
+        mainView.setPet(pet: viewModel.currentPet)
     }
 }

@@ -111,7 +111,7 @@ class SettingsView: UIView {
         if let userAvatarURL = userAvatarURL {
             userAvatar.load(url: userAvatarURL)
         } else {
-            userAvatar.image = UIImage(named: "Photo")
+            userAvatar.image = UIImage(named: "User avatar")
         }
         nameLabel.text = userData.userName
         emailLabel.text = userData.email

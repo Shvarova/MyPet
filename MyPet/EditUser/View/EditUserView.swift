@@ -154,7 +154,7 @@ class EditUserView: UIView {
             userStackView.topAnchor.constraint(equalTo: userAvatar.bottomAnchor, constant: 32),
             userStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             userStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            userStackView.heightAnchor.constraint(equalToConstant: 360),
+            userStackView.heightAnchor.constraint(equalToConstant: 160),
             
             saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

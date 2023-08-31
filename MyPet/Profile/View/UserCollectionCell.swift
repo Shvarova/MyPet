@@ -28,21 +28,19 @@ class UserCollectionCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-//        name.text = ""
         name.textColor = .white
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let email = UILabel ()
-        email.textAlignment = .center
-        email.textColor = .CustomColor.neon
-//        email.text = ""
-        email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        email.translatesAutoresizingMaskIntoConstraints = false
-        return email
+    private lazy var roleLabel: UILabel = {
+        let role = UILabel ()
+        role.textAlignment = .center
+        role.textColor = .CustomColor.neon
+        role.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        role.translatesAutoresizingMaskIntoConstraints = false
+        return role
     }()
     
     override init(frame: CGRect) {
@@ -62,11 +60,11 @@ class UserCollectionCell: UICollectionViewCell {
             userAvatar.image = UIImage(named: "User avatar")
         }
         nameLabel.text = user.userName
-        emailLabel.text = user.email
+        roleLabel.text = user.role
     }
     
     private func setupView() {
-        addSubviews(userAvatar, nameLabel, emailLabel)
+        addSubviews(userAvatar, nameLabel, roleLabel)
         
         NSLayoutConstraint.activate([
             userAvatar.widthAnchor.constraint(equalToConstant: 140),
@@ -80,11 +78,11 @@ class UserCollectionCell: UICollectionViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            emailLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emailLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            emailLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            roleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            roleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            roleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            roleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            roleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }

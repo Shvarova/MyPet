@@ -17,6 +17,10 @@ class ProfileViewModel {
         DataManager.shared.currentUser
     }
     
+    var currentPet: PetData {
+        DataManager.shared.currentPet
+    }
+    
     var output: ProfileOutput?
     
     func editPet() {
