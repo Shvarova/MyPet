@@ -104,7 +104,12 @@ extension ProfileView: UICollectionViewDataSource {
         }
             cell.setUser(user: user)
             return cell
-        case 1: cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath)
+        case 1: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath) as?
+                        PetCollectionCell else {
+            return cell
+        }
+            cell.setPet(pet: pet)
+            return cell
         case 2: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPhotosCollectionCell.id, for: indexPath)
         case 3: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPostsCollectionCell.id, for: indexPath)
         default:

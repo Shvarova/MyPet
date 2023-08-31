@@ -21,6 +21,7 @@ class DataManager {
     
     private var countUserPosts = 0
     
+    var allPosts = [PostData]()
     private var posts: [PostData]
     private var users: [UserData]
     private var pets: [PetData]
@@ -33,7 +34,7 @@ class DataManager {
     
     //MARK: — user
     
-    func chekUser(userID: String, email: String) {
+    func chekUser(userID: String, email: String, completion: (() -> Void)?) {
         databaseReference.child("users").child(userID).getData(completion: { error, snapshot in
             guard error == nil else {
                 return
@@ -48,12 +49,18 @@ class DataManager {
                     role: value["role"] as? String ?? ""
                 )
                 self.currentUser = user
+                if !user.petID.isEmpty {
+                    self.chekPet(petID: user.petID)
+                }
+                self.updatePostID()
+                self.updateUserPosts()
             } else {
                 let user = UserData(id: userID, userAvatar: "", userName: "", petID: "", email: email, role: "")
                 self.saveUserData(user: user)
+                self.countUserPosts = 0
+                self.currentUser = user
             }
-            self.updatePostID()
-            self.updateUserPosts()
+            self.getAllPosts(completion)
         })
     }
     
@@ -87,6 +94,7 @@ class DataManager {
                 self.currentPet = pet
             } else {
                 let pet = PetData(id: petID, petAvatar: "", petName: "", breed: "")
+                self.currentPet = pet
                 self.savePetData(pet: pet)
             }
         })
@@ -136,14 +144,44 @@ class DataManager {
     }
     
     private func sendPost (title: String, description: String, image: String?) {
-     self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("title").setValue(title)
+        self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("title").setValue(title)
         self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("description").setValue(description)
         self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("image").setValue(image ?? "")
         self.posts.append(PostData(id: String(self.countUserPosts), userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: Date(), title: title, postDescription: description, image: image ?? "", like: 0, comment: 0))
     }
     
-    func getAllPosts() -> [PostData] {
-        posts
+    func getAllPosts(_ completion: (() -> Void)?) {
+        databaseReference.child("posts").getData { error, snapshot in
+            guard error == nil else {
+                return
+            }
+            if let value = snapshot?.value as? NSDictionary {
+               var count = 0
+                for item in value {
+                    if let userID = item.key as? String {
+                        self.databaseReference.child("users").child(userID).getData { error, snapshot in
+                            guard error == nil else {
+                                return
+                            }
+                            count += 1
+                            if let userData = snapshot?.value as? NSDictionary {
+                                let userAvatar = userData["userAvatar"] as? String ?? ""
+                                let userName = userData["userName"] as? String ?? ""
+                                if let arrayPost = item.value as? NSArray {
+                                    for dataPost in arrayPost {
+                                        if let dataPost = dataPost as? Dictionary <String,String> {
+                                            let post = PostData(id: "", userID: userID, authorAvatar: userAvatar, authorName: userName, date: Date(), title: dataPost["title"] ?? "", postDescription: dataPost["description"] ?? "", image: dataPost["image"] ?? "", like: 0, comment: 0)
+                                            self.allPosts.append(post)
+                                        }
+                                    }
+                                }
+                            }
+                            if count == value.count { completion?() }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func getAllPosts(userID: String) -> [PostData] {
@@ -153,6 +191,8 @@ class DataManager {
     func cleanData() {
         posts = []
         currentUser = UserData(id: "", userAvatar: "", userName: "", petID: "", email: "", role: "")
+        currentPet = PetData(id: "", petAvatar: "", petName: "", breed: "")
+        allPosts = []
     }
     
     private func updateUserPosts() {
@@ -171,3 +211,4 @@ class DataManager {
         })
     }
 }
+

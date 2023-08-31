@@ -23,7 +23,7 @@ class LikedViewController : UIViewController {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = .CustomColor.backgroundDark
     }
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class LikedViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        mainView.setPosts(posts: CoreDataService.shared.postEntities)
+//        mainView.setPosts(posts: DataManager.shared.getAllPosts())
     }
 }
 

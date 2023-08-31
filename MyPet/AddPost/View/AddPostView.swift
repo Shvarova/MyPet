@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddPostView: UIView {
+class AddPostView: UIView, UITextViewDelegate {
     
     var publishAction: ((UIImage?, String, String) ->())?
     var openGalleryAction: (() -> ())?
@@ -54,8 +54,17 @@ class AddPostView: UIView {
         text.layer.borderColor = UIColor.darkGray.cgColor
         text.layer.borderWidth = 1
         text.textContainerInset = UIEdgeInsets(top: 8, left: 4, bottom: 8, right: 4)
+        text.delegate = self
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
+    }()
+    
+    private lazy var descriptionCountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private lazy var publishButton: CustomButton = {
@@ -74,6 +83,7 @@ class AddPostView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     @objc func publish () {
         publishAction?(image.image, titleTextField.getText(), descriptionText.text ?? "")
     }
@@ -81,15 +91,34 @@ class AddPostView: UIView {
     @objc func openGallery () {
         openGalleryAction?()
     }
+
+    func textViewDidChange(_ textView: UITextView) {
+        self.updateCharacterCount()
+     }
     
     func setImage (image: UIImage) {
         self.image.image = image
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return self.textLimit(existingText: textView.text, newText: text, limit: 280)
+    }
+    
+    private func textLimit(existingText: String?, newText: String, limit: Int) -> Bool {
+        let text = existingText ?? ""
+        let isAtLimit = text.count + newText.count <= limit
+        return isAtLimit
+    }
+    
+    private func updateCharacterCount() {
+        let descriptionCount = self.descriptionText.text.count
+        self.descriptionCountLabel.text = "\((0) + descriptionCount)/280"
+     }
+    
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))
         image.addGestureRecognizer(tap)
-        addSubviews(image, titleLabel, titleTextField, descriptionLabel, descriptionText, publishButton)
+        addSubviews(image, titleLabel, titleTextField, descriptionLabel, descriptionText, descriptionCountLabel, publishButton)
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -114,7 +143,11 @@ class AddPostView: UIView {
             descriptionText.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             descriptionText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            descriptionText.bottomAnchor.constraint(equalTo: publishButton.topAnchor, constant: -16),
+            descriptionText.heightAnchor.constraint(equalToConstant: 150),
+            
+            descriptionCountLabel.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: 8),
+            descriptionCountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            descriptionCountLabel.heightAnchor.constraint(equalToConstant: 24),
             
             publishButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             publishButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

@@ -14,8 +14,7 @@
 В приложении можно создавать пользователей и добавлять информацию о питомце, писать посты, читать посты от других пользователей. Можно редактировать свой профиль, добавлять посты в избранное.
 
 ### Регистрация и авторизация в приложении
-  ![image](https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FSimulator%20Screenshot%20-%20iPhone%2012%20mini%20-%202023-08-31%20at%2017.16.15.png?alt=media&token=5c7edd72-d6ed-406e-8a94-d69515f04918)
-  ![image](https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FSimulator%20Screenshot%20-%20iPhone%2012%20mini%20-%202023-08-31%20at%2017.16.36.png?alt=media&token=51cbfb86-4267-456f-96d9-a6ac28703e8c)
+  ![image](https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FSimulator%20Screenshot%20-%20iPhone%2012%20mini%20-%202023-08-31%20at%2017.16.15.png?alt=media&token=5c7edd72-d6ed-406e-8a94-d69515f04918) ![image](https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FSimulator%20Screenshot%20-%20iPhone%2012%20mini%20-%202023-08-31%20at%2017.16.36.png?alt=media&token=51cbfb86-4267-456f-96d9-a6ac28703e8c)
 
 ### Лента постов от всех пользователей и поиск
   

@@ -39,6 +39,10 @@ class PetCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setPet(pet: PetData) {
+        petView.setPet(pet: pet)
+    }
+    
     private func setupView() {
         addSubviews(petLabel, petView)
         

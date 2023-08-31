@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomTextField: UIView {
+final class CustomTextField: UIView, UITextFieldDelegate {
     
     var text: String?
     
@@ -25,6 +25,7 @@ final class CustomTextField: UIView {
         textField.font = .systemFont(ofSize: 16)
         textField.autocapitalizationType = .none
         textField.adjustsFontSizeToFitWidth = true
+        textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -53,6 +54,16 @@ final class CustomTextField: UIView {
     
     func setText(text: String) {
         textField.text = text
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            return self.textLimit(existingText: textField.text, newText: string, limit: 50)
+        }
+    
+    private func textLimit(existingText: String?, newText: String, limit: Int) -> Bool {
+        let text = existingText ?? ""
+        let isAtLimit = text.count + newText.count <= limit
+        return isAtLimit
     }
     
     private func setupView() {

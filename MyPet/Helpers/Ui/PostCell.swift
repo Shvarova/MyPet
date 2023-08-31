@@ -48,7 +48,7 @@ class PostCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .white
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,7 +57,7 @@ class PostCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .white
-        label.numberOfLines = 3
+        label.numberOfLines = 8
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

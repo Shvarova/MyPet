@@ -3,4 +3,54 @@
    uuid = "FB5C845F-CB49-41FF-B1E6-37A610510891"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B721F40-BFF3-4AF7-A705-411F0BC31918"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPet/Home/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "getPosts(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5B721F40-BFF3-4AF7-A705-411F0BC31918 - b68e1b9c1ddc9c52"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MyPet.PostData) -&gt; Swift.Bool in MyPet.HomeViewModel.getPosts(with: Swift.String) -&gt; Swift.Array&lt;MyPet.PostData&gt;"
+                  moduleName = "MyPet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dina/Desktop/MyPet/MyPet/Home/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "5B721F40-BFF3-4AF7-A705-411F0BC31918 - 1503b2705ab62241"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyPet.HomeViewModel.getPosts(with: Swift.String) -&gt; Swift.Array&lt;MyPet.PostData&gt;"
+                  moduleName = "MyPet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dina/Desktop/MyPet/MyPet/Home/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

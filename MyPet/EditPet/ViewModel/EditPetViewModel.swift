@@ -19,8 +19,9 @@ class EditPetViewModel {
     }
     
     func save (photo: UIImage?, name: String, breed: String) {
+   let petID = DataManager.shared.currentUser.id + "_pet"
         if let petAvatar = photo {
-            ImageManager.uploadPetAvatar(id: DataManager.shared.currentPet.id, photo: petAvatar, completion: { result in
+            ImageManager.uploadPetAvatar(id: petID, photo: petAvatar, completion: { result in
                 var imageURL: URL?
                 switch result {
                 case .success(let url):
@@ -28,16 +29,17 @@ class EditPetViewModel {
                 case .failure(_):
                     imageURL = nil
                 }
-                self.savePetData(petAvatar: imageURL, name: name, breed: breed)
+                
+                self.savePetData(petID: petID, petAvatar: imageURL, name: name, breed: breed)
             })
         } else {
-            self.savePetData(petAvatar: nil, name: name, breed: breed)
+            self.savePetData(petID: petID, petAvatar: nil, name: name, breed: breed)
         }
     }
     
-    private func savePetData (petAvatar: URL?, name: String, breed: String) {
+    private func savePetData (petID: String, petAvatar: URL?, name: String, breed: String) {
         let imageURLString = petAvatar?.absoluteString ?? ""
-        let pet = PetData(id: DataManager.shared.currentPet.id, petAvatar: imageURLString, petName: name, breed: breed)
+        let pet = PetData(id: petID, petAvatar: imageURLString, petName: name, breed: breed)
         DataManager.shared.updateCurrentPet(pet: pet)
         nc.popViewController(animated: true)
     }

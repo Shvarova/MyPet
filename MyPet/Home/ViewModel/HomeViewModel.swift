@@ -17,7 +17,9 @@ class HomeViewModel {
     
     var update: (([PostData]) -> ())?
     
-    var posts = DataManager.shared.getAllPosts()
+    var posts: [PostData] {
+        DataManager.shared.allPosts
+    }
     
     func startUpdate (state: HomeState) {
         switch state {

@@ -118,7 +118,13 @@ class EditUserView: UIView {
     }
     
     @objc func save () {
-        saveAction?(userAvatar.image, nameTextField.getText(), roleTextField.getText())
+        let userImageAvatar: UIImage?
+        if userAvatar.image == UIImage(named: "Photo") {
+            userImageAvatar = nil
+        } else {
+            userImageAvatar = userAvatar.image
+        }
+        saveAction?(userImageAvatar, nameTextField.getText(), roleTextField.getText())
     }
     
     @objc func openGallery () {

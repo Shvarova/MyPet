@@ -8,12 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-protocol EntryViewModelProtocol {
-    func checkCredentionalsToLogIn(email: String, password: String)
-    func checkCredentionalsForRegistration(email: String, password: String)
-}
-
-class EntryViewModel: EntryViewModelProtocol {
+class EntryViewModel {
     
     let entryChoosen: EntryChoosen
     var updateView: ((String, @escaping (String, String) -> ()) -> ())?
@@ -33,27 +28,20 @@ class EntryViewModel: EntryViewModelProtocol {
             updateView?(NSLocalizedString("Sign Up", comment: ""), signUp)
         }
     }
-    
-    func checkCredentionalsToLogIn(email: String, password: String) {
-        credentionals.checkCredentials(withEmail: email, password: password, checkCredentionalsCompletion)
-    }
-        
-    func checkCredentionalsForRegistration(email: String, password: String) {
-        credentionals.signUp(withEmail: email, password: password, checkCredentionalsCompletion)
-    }
 
     private func logIn (email: String, password: String) {
         credentionals.checkCredentials(withEmail: email, password: password, checkCredentionalsCompletion)
     }
     
     private func signUp (email: String, password: String) {
-        checkCredentionalsForRegistration(email: email, password: password)
+        credentionals.signUp(withEmail: email, password: password, checkCredentionalsCompletion)
     }
     
     private func checkCredentionalsCompletion (authDataResult: AuthDataResult?, error: Error?) {
         if let authDataResult = authDataResult {
-            DataManager.shared.chekUser(userID: authDataResult.user.uid, email: authDataResult.user.email ?? "")
-            output?.goToHome()
+            DataManager.shared.chekUser(userID: authDataResult.user.uid, email: authDataResult.user.email ?? "", completion: {
+                self.output?.goToHome()
+            })
         } else {
             errorAction?("Error", error?.localizedDescription ?? "")
         }
