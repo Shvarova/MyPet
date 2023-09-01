@@ -69,7 +69,8 @@ class EntryView: UIView {
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.isHidden = true
+        activityIndicator.style = .large
+        activityIndicator.color = .gray
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activityIndicator
     }()
@@ -85,6 +86,8 @@ class EntryView: UIView {
     }
     
     @objc func credentials () {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         setCredentials?(emailTextField.getText(), passwordTextField.getText())
     }
     
@@ -98,7 +101,7 @@ class EntryView: UIView {
     }
     
     private func setupView() {
-        addSubviews(titleLabel, entryStackView, entryButton)
+        addSubviews(titleLabel, entryStackView, entryButton, activityIndicator)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
@@ -112,7 +115,10 @@ class EntryView: UIView {
             entryButton.heightAnchor.constraint(equalToConstant: 48),
             entryButton.topAnchor.constraint(equalTo: entryStackView.bottomAnchor, constant: 24),
             entryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
-            entryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48)
+            entryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

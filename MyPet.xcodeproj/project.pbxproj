@@ -110,6 +110,7 @@
 		36EEE5752A9F8F9E00F9AAFB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5742A9F8F9E00F9AAFB /* FirebaseStorageCombine-Community */; };
 		36EEE5772A9FA46200F9AAFB /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5762A9FA46200F9AAFB /* ImageManager.swift */; };
 		36EEE5792A9FB1DB00F9AAFB /* UIImageView+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */; };
+		36EEE57C2AA1F15A00F9AAFB /* UIViewController+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +210,7 @@
 		36EEE5762A9FA46200F9AAFB /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ex.swift"; sourceTree = "<group>"; };
 		36EEE57A2AA0DBBB00F9AAFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +355,7 @@
 				3619DFAC2A0E975A00D08641 /* PostButton.swift */,
 				3619DFC62A167B9300D08641 /* PhotoConstans.swift */,
 				36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */,
+				36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				3619DF3E29F9960200D08641 /* CustomButton.swift in Sources */,
 				365040102A4B94510099DC96 /* EditPetViewModel.swift in Sources */,
 				3619DF4129F9962A00D08641 /* View.swift in Sources */,
+				36EEE57C2AA1F15A00F9AAFB /* UIViewController+ex.swift in Sources */,
 				362C04742A33B7E200118971 /* PostViewController.swift in Sources */,
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,

@@ -15,6 +15,7 @@ class EntryViewModel {
     var output: EntryOutput?
     let credentionals = LoginInspector()
     var errorAction: ((String, String) -> ())?
+    var loader: UIView?
     
     init(entryChoosen: EntryChoosen) {
         self.entryChoosen = entryChoosen

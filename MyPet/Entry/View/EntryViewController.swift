@@ -8,6 +8,7 @@
 import UIKit
 
 class EntryViewController: UIViewController {
+    
     private let mainView: EntryView
     private var viewModel: EntryViewModel?
     

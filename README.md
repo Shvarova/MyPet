@@ -40,7 +40,7 @@
 ### Настройки
 
 <p align="left">
-<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1940.PNG?alt=media&token=02de4964-6434-4095-b552-602081228592)" width="350"> 
+<img src="https://firebasestorage.googleapis.com/v0/b/mypet-by-dina.appspot.com/o/README%2FIMG_1940.PNG?alt=media&token=ddc70cac-ff44-4757-a26a-2cc5e408c8da)" width="350"> 
 </p>
 
 ### Манифест
