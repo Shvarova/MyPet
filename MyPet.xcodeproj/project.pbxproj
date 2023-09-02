@@ -32,7 +32,6 @@
 		3619DF6129FACF5E00D08641 /* EntryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF6029FACF5E00D08641 /* EntryFactory.swift */; };
 		3619DF6829FAFB5A00D08641 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3619DF6A29FAFB5A00D08641 /* Localizable.strings */; };
 		3619DF6D29FBE28A00D08641 /* ManifestoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF6C29FBE28A00D08641 /* ManifestoViewController.swift */; };
-		3619DF7029FBE31300D08641 /* TextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF6F29FBE31300D08641 /* TextModel.swift */; };
 		3619DF7529FBFFB500D08641 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF7429FBFFB500D08641 /* LikedView.swift */; };
 		3619DF7729FC484200D08641 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF7629FC484200D08641 /* ProfileView.swift */; };
 		3619DF7A29FD5D1C00D08641 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DF7929FD5D1C00D08641 /* CustomTextField.swift */; };
@@ -61,16 +60,12 @@
 		3619DFC72A167B9300D08641 /* PhotoConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619DFC62A167B9300D08641 /* PhotoConstans.swift */; };
 		362C045A2A2E1CD800118971 /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04592A2E1CD800118971 /* UserCollectionCell.swift */; };
 		362C045C2A2E1DC000118971 /* PetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C045B2A2E1DC000118971 /* PetCollectionCell.swift */; };
-		362C045E2A2E281700118971 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C045D2A2E281700118971 /* Posts.swift */; };
 		362C04602A2E661E00118971 /* MyPostsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C045F2A2E661D00118971 /* MyPostsCollectionCell.swift */; };
 		362C04622A2E731600118971 /* MyPhotosCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04612A2E731600118971 /* MyPhotosCollectionCell.swift */; };
 		362C04642A2E7FE300118971 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04632A2E7FE300118971 /* Photos.swift */; };
 		362C04662A2E810600118971 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04652A2E810600118971 /* PhotosCell.swift */; };
-		362C046C2A3359EA00118971 /* PostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C046B2A3359EA00118971 /* PostCoordinator.swift */; };
 		362C046E2A335A0600118971 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C046D2A335A0600118971 /* AddPostViewController.swift */; };
 		362C04702A335A1600118971 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C046F2A335A1600118971 /* AddPostView.swift */; };
-		362C04722A33B7C200118971 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04712A33B7C200118971 /* PostView.swift */; };
-		362C04742A33B7E200118971 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04732A33B7E200118971 /* PostViewController.swift */; };
 		362C04792A33BC8000118971 /* AddPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C04782A33BC8000118971 /* AddPostViewModel.swift */; };
 		362C047C2A3CAD9E00118971 /* PhotoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C047B2A3CAD9E00118971 /* PhotoFactory.swift */; };
 		362C047F2A45ECBF00118971 /* AddPostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C047E2A45ECBF00118971 /* AddPostFactory.swift */; };
@@ -90,7 +85,6 @@
 		36EEE5032A923C5900F9AAFB /* ManifestoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5022A923C5900F9AAFB /* ManifestoCoordinator.swift */; };
 		36EEE5062A9255B600F9AAFB /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5052A9255B600F9AAFB /* LoginInspector.swift */; };
 		36EEE5092A92561400F9AAFB /* CheckerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5082A92561400F9AAFB /* CheckerService.swift */; };
-		36EEE50B2A92684B00F9AAFB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE50A2A92684B00F9AAFB /* String.swift */; };
 		36EEE5282A97AB3E00F9AAFB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */; };
 		36EEE52D2A9CEADD00F9AAFB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE52C2A9CEADD00F9AAFB /* UserData.swift */; };
 		36EEE52F2A9CECEE00F9AAFB /* PetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE52E2A9CECEE00F9AAFB /* PetData.swift */; };
@@ -111,6 +105,8 @@
 		36EEE5772A9FA46200F9AAFB /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5762A9FA46200F9AAFB /* ImageManager.swift */; };
 		36EEE5792A9FB1DB00F9AAFB /* UIImageView+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */; };
 		36EEE57C2AA1F15A00F9AAFB /* UIViewController+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */; };
+		36EEE57E2AA2767A00F9AAFB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57D2AA2767A00F9AAFB /* String.swift */; };
+		36EEE5802AA2789200F9AAFB /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57F2AA2789200F9AAFB /* Labels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,7 +139,6 @@
 		3619DF6929FAFB5A00D08641 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3619DF6B29FAFB6000D08641 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3619DF6C29FBE28A00D08641 /* ManifestoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestoViewController.swift; sourceTree = "<group>"; };
-		3619DF6F29FBE31300D08641 /* TextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModel.swift; sourceTree = "<group>"; };
 		3619DF7229FBF70000D08641 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3619DF7429FBFFB500D08641 /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
 		3619DF7629FC484200D08641 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -173,16 +168,12 @@
 		3619DFC62A167B9300D08641 /* PhotoConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConstans.swift; sourceTree = "<group>"; };
 		362C04592A2E1CD800118971 /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
 		362C045B2A2E1DC000118971 /* PetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCollectionCell.swift; sourceTree = "<group>"; };
-		362C045D2A2E281700118971 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		362C045F2A2E661D00118971 /* MyPostsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsCollectionCell.swift; sourceTree = "<group>"; };
 		362C04612A2E731600118971 /* MyPhotosCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotosCollectionCell.swift; sourceTree = "<group>"; };
 		362C04632A2E7FE300118971 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		362C04652A2E810600118971 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
-		362C046B2A3359EA00118971 /* PostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoordinator.swift; sourceTree = "<group>"; };
 		362C046D2A335A0600118971 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		362C046F2A335A1600118971 /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
-		362C04712A33B7C200118971 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		362C04732A33B7E200118971 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		362C04782A33BC8000118971 /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
 		362C047B2A3CAD9E00118971 /* PhotoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFactory.swift; sourceTree = "<group>"; };
 		362C047E2A45ECBF00118971 /* AddPostFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostFactory.swift; sourceTree = "<group>"; };
@@ -202,7 +193,6 @@
 		36EEE5022A923C5900F9AAFB /* ManifestoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestoCoordinator.swift; sourceTree = "<group>"; };
 		36EEE5052A9255B600F9AAFB /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		36EEE5082A92561400F9AAFB /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
-		36EEE50A2A92684B00F9AAFB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36EEE5272A97AB3E00F9AAFB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		36EEE52C2A9CEADD00F9AAFB /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		36EEE52E2A9CECEE00F9AAFB /* PetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetData.swift; sourceTree = "<group>"; };
@@ -211,6 +201,8 @@
 		36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ex.swift"; sourceTree = "<group>"; };
 		36EEE57A2AA0DBBB00F9AAFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ex.swift"; sourceTree = "<group>"; };
+		36EEE57D2AA2767A00F9AAFB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		36EEE57F2AA2789200F9AAFB /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +263,6 @@
 				365040182A66ED170099DC96 /* EditUser */,
 				3650400C2A4B8DCE0099DC96 /* EditPet */,
 				362C04752A33B93A00118971 /* AddPost */,
-				362C04672A33572800118971 /* Post */,
 				3619DF7329FBFF8900D08641 /* Liked */,
 				3619DF972A0D294400D08641 /* Settings */,
 				3619DF6E29FBE2F000D08641 /* Manifesto */,
@@ -280,8 +271,8 @@
 				3619DF2829F8214C00D08641 /* Info.plist */,
 				3619DF5129FAC16E00D08641 /* GoogleService-Info.plist */,
 				3619DF6A29FAFB5A00D08641 /* Localizable.strings */,
-				362C045D2A2E281700118971 /* Posts.swift */,
 				362C04632A2E7FE300118971 /* Photos.swift */,
+				36EEE57F2AA2789200F9AAFB /* Labels.swift */,
 			);
 			path = MyPet;
 			sourceTree = "<group>";
@@ -336,7 +327,7 @@
 				36EEE52C2A9CEADD00F9AAFB /* UserData.swift */,
 				36EEE52E2A9CECEE00F9AAFB /* PetData.swift */,
 				3619DFB02A0FB9D300D08641 /* PostData.swift */,
-				36EEE50A2A92684B00F9AAFB /* String.swift */,
+				36EEE57D2AA2767A00F9AAFB /* String.swift */,
 				3619DF3C29F995E600D08641 /* Ui */,
 			);
 			path = Helpers;
@@ -625,40 +616,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		362C04672A33572800118971 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				362C04682A33573900118971 /* Coordinator */,
-				362C046A2A33575500118971 /* ViewModel */,
-				362C04692A33574A00118971 /* View */,
-			);
-			path = Post;
-			sourceTree = "<group>";
-		};
-		362C04682A33573900118971 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				362C046B2A3359EA00118971 /* PostCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		362C04692A33574A00118971 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				362C04732A33B7E200118971 /* PostViewController.swift */,
-				362C04712A33B7C200118971 /* PostView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		362C046A2A33575500118971 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		362C04752A33B93A00118971 /* AddPost */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,7 +767,6 @@
 			isa = PBXGroup;
 			children = (
 				36EEE4FD2A92375F00F9AAFB /* ManifestoViewModel.swift */,
-				3619DF6F29FBE31300D08641 /* TextModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -947,9 +903,9 @@
 				3619DF3729F98EFD00D08641 /* WelcomeFactory.swift in Sources */,
 				3619DF9C2A0D29D400D08641 /* ProfileFactory.swift in Sources */,
 				365040152A4B98040099DC96 /* EditPetFactory.swift in Sources */,
-				3619DF7029FBE31300D08641 /* TextModel.swift in Sources */,
 				3619DF4529F9A82300D08641 /* StackView.swift in Sources */,
 				36EEE4FE2A92375F00F9AAFB /* ManifestoViewModel.swift in Sources */,
+				36EEE5802AA2789200F9AAFB /* Labels.swift in Sources */,
 				3619DF962A0D291500D08641 /* ProfileCoordinator.swift in Sources */,
 				3619DF4329F99FB200D08641 /* Colors.swift in Sources */,
 				3619DF9229FD73B000D08641 /* LikedViewModel.swift in Sources */,
@@ -967,7 +923,6 @@
 				3619DF6129FACF5E00D08641 /* EntryFactory.swift in Sources */,
 				3619DFB82A13828200D08641 /* PhotoViewController.swift in Sources */,
 				36EEE5092A92561400F9AAFB /* CheckerService.swift in Sources */,
-				362C045E2A2E281700118971 /* Posts.swift in Sources */,
 				362C045C2A2E1DC000118971 /* PetCollectionCell.swift in Sources */,
 				3619DFC72A167B9300D08641 /* PhotoConstans.swift in Sources */,
 				3619DFAF2A0F913200D08641 /* SearchViewController.swift in Sources */,
@@ -982,7 +937,6 @@
 				3619DF8D29FD733200D08641 /* LikedFactory.swift in Sources */,
 				36EEE5562A9CF8BB00F9AAFB /* DataManager.swift in Sources */,
 				3619DF8929FD686000D08641 /* HomeViewModel.swift in Sources */,
-				362C04722A33B7C200118971 /* PostView.swift in Sources */,
 				3619DFB12A0FB9D300D08641 /* PostData.swift in Sources */,
 				3619DF1F29F8214B00D08641 /* WelcomeViewController.swift in Sources */,
 				362C045A2A2E1CD800118971 /* UserCollectionCell.swift in Sources */,
@@ -1004,11 +958,9 @@
 				365040102A4B94510099DC96 /* EditPetViewModel.swift in Sources */,
 				3619DF4129F9962A00D08641 /* View.swift in Sources */,
 				36EEE57C2AA1F15A00F9AAFB /* UIViewController+ex.swift in Sources */,
-				362C04742A33B7E200118971 /* PostViewController.swift in Sources */,
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
 				3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */,
-				36EEE50B2A92684B00F9AAFB /* String.swift in Sources */,
 				3619DF2F29F98E1A00D08641 /* WelcomeView.swift in Sources */,
 				36EEE5032A923C5900F9AAFB /* ManifestoCoordinator.swift in Sources */,
 				362C046E2A335A0600118971 /* AddPostViewController.swift in Sources */,
@@ -1017,7 +969,7 @@
 				3619DF4A29F9D7A500D08641 /* HomeViewController.swift in Sources */,
 				3650400E2A4B92170099DC96 /* EditPetView.swift in Sources */,
 				3619DF9F2A0D2A3100D08641 /* ProfileViewModel.swift in Sources */,
-				362C046C2A3359EA00118971 /* PostCoordinator.swift in Sources */,
+				36EEE57E2AA2767A00F9AAFB /* String.swift in Sources */,
 				3619DFB32A12E87B00D08641 /* PetView.swift in Sources */,
 				36EEE52D2A9CEADD00F9AAFB /* UserData.swift in Sources */,
 				3619DF7529FBFFB500D08641 /* LikedView.swift in Sources */,

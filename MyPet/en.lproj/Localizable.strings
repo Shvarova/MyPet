@@ -12,6 +12,25 @@
 "Sign Up" = "Sign Up";
 "Your email" = "Your email";
 "Your password" = "Your password";
+"Home" = "Home";
+"Search" = "Search";
+"Profile" = "Profile";
+"My pet" = "My pet";
+"My post" = "My post";
+"My photos" = "My photos";
+"Title" = "Title";
+"Description" = "Description";
+"Publish" = "Publish";
+"Pet name" = "Pet name";
+"Breed" = "Breed";
+"Your name" = "Your name";
+"Role" = "Role";
+"Save" = "Save";
+"Liked" = "Liked";
+"Settings" = "Settings";
+"Edit profile" = "Edit profile";
+"Log Out" = "Log Out";
+"Read manifesto" = "Read manifesto";
 "Manifesto" = "Manifesto";
 "Our manifesto" = "Our manifesto";
 "We believe that pets are an integral part of our lives, and they deserve the best care and attention.
@@ -47,21 +66,3 @@ We can't wait for you to share your experiences and connect with others who shar
 #Report any issues. If you see something that violates our guidelines, please report it to the group administrator. We will investigate and take appropriate action.
 
 Remember to keep our community guidelines in mind as you post and interact with others! Following these guidelines will foster a respectful and safe environment for everyone. We reserve the right to remove сontent that violates our guidelines.";
-"Home" = "Home";
-"Search" = "Search";
-"Profile" = "Profile";
-"My pet" = "My pet";
-"My post" = "My post";
-"My photos" = "My photos";
-"Title" = "Title";
-"Description" = "Description";
-"Publish" = "Publish";
-"Pet name" = "Pet name";
-"Breed" = "Breed";
-"Save" = "Save";
-"Your name" = "Your name";
-"Role" = "Role";
-"Settings" = "Settings";
-"Edit profile" = "Edit profile";
-"Log Out" = "Log Out";
-"Read manifesto" = "Read manifesto";

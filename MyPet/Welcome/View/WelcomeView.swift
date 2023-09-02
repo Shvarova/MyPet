@@ -45,7 +45,7 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .CustomColor.emphasis
-        label.text = NSLocalizedString("love brings us together 🙌", comment: "")
+        label.text = Labels.Auth.welcomeLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -54,7 +54,7 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 32)
         label.textColor = .white
-        label.text = NSLocalizedString("social network for pet owners, vets, breeders and clubs", comment: "")
+        label.text = Labels.Auth.welcomeTextLabel
         label.numberOfLines = 4
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +62,7 @@ class WelcomeView: UIView {
     }()
     
     private lazy var logInButton: CustomButton = {
-        let button = CustomButton(title: NSLocalizedString("Log In", comment: ""), titleColor: .white, backgroundColor: .clear)
+        let button = CustomButton(title: (Labels.Auth.logIn), titleColor: .white, backgroundColor: .clear)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.CustomColor.buttonBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +70,7 @@ class WelcomeView: UIView {
     }()
     
     private lazy var signUpButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Sign Up", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Auth.signUp), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

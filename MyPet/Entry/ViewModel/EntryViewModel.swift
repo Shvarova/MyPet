@@ -24,9 +24,9 @@ class EntryViewModel {
     func updateModel () {
         switch entryChoosen {
         case .logIn:
-          updateView?(NSLocalizedString("Log In", comment: ""), logIn)
+            updateView?(Labels.Auth.logIn, logIn)
         case .signUp:
-            updateView?(NSLocalizedString("Sign Up", comment: ""), signUp)
+            updateView?(Labels.Auth.signUp, signUp)
         }
     }
 
@@ -44,7 +44,28 @@ class EntryViewModel {
                 self.output?.goToHome()
             })
         } else {
-            errorAction?("Error", error?.localizedDescription ?? "")
+            errorAction?(Labels.Auth.errorAction, error?.localizedDescription ?? "")
         }
     }
+    
+//    private func checkCredentionals(email: String, password: String)  {
+//      if !emailIsValid(email) {
+//            errorAction?("Invalid email format".localized, "Check your email spelling".localized)
+//        }
+//        if !passwordIsValid(password) {
+//            errorAction?("Weak password".localized, "Password must be 6 or more characters".localized)
+//        }
+//    }
+//
+//    private func emailIsValid(_ email: String) -> Bool {
+//        let emailRegEx = "([a-z0-9.]){1,64}@([a-z0-9]){1,64}\\.([a-z0-9]){2,64}"
+//
+//        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
+//        return emailTest.evaluate(with: email)
+//    }
+//
+//    private func passwordIsValid(_ password: String) -> Bool {
+//        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
+//        return passwordTest.evaluate(with: password)
+//    }
 }

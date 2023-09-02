@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewModel {
     
     var posts: [PostData] {
-        DataManager.shared.getAllPosts(userID: "2")
+        DataManager.shared.getAllPosts(userID: currentUser.id)
     }
     
     var currentUser: UserData {

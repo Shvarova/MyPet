@@ -26,7 +26,7 @@ class AddPostView: UIView, UITextViewDelegate {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("Title", comment: "")
+        label.text = Labels.Post.titleLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,7 +41,7 @@ class AddPostView: UIView, UITextViewDelegate {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("Description", comment: "")
+        label.text = Labels.Post.descriptionLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -68,7 +68,7 @@ class AddPostView: UIView, UITextViewDelegate {
     }()
     
     private lazy var publishButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Publish", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Post.publishButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.addTarget(self, action: #selector(publish), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

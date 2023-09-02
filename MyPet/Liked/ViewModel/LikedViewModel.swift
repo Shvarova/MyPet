@@ -9,5 +9,9 @@ import UIKit
 
 class LikedViewModel {
     
+    var posts: [PostData] {
+        DataManager.shared.allPosts
+    }
+    
 }
 

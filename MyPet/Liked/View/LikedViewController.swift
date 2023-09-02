@@ -36,7 +36,7 @@ class LikedViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        mainView.setPosts(posts: DataManager.shared.getAllPosts())
+        mainView.setPosts(posts: viewModel?.posts ?? [])
     }
 }
 

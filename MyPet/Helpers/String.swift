@@ -2,15 +2,13 @@
 //  String.swift
 //  MyPet
 //
-//  Created by Дина Шварова on 20.08.2023.
+//  Created by Дина Шварова on 01.09.2023.
 //
 
 import Foundation
 
 extension String {
-    
-    func passwordIsValid() -> Bool {
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        return passwordTest.evaluate(with: self)
+    var localized: String {
+        NSLocalizedString(self, comment: "")
     }
 }

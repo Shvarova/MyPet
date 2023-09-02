@@ -150,6 +150,10 @@ class DataManager {
         self.posts.append(PostData(id: String(self.countUserPosts), userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: Date(), title: title, postDescription: description, image: image ?? "", like: 0, comment: 0))
     }
     
+    func saveLikedPost (userID: String, postID: String) {
+        
+    }
+    
     func getAllPosts(_ completion: (() -> Void)?) {
         databaseReference.child("posts").getData { error, snapshot in
             guard error == nil else {

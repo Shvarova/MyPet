@@ -20,7 +20,7 @@ class ProfileView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Profile"
+        title.text = Labels.Profile.title
         title.font = .boldSystemFont(ofSize: 24)
         title.textColor = .white
         title.translatesAutoresizingMaskIntoConstraints = false

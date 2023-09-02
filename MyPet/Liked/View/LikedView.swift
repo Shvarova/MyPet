@@ -9,9 +9,11 @@ import UIKit
 
 class LikedView: UIView {
     
+    private var posts = [PostData]()
+    
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Liked"
+        title.text = Labels.Liked.titleLabel
         title.font = .boldSystemFont(ofSize: 24)
         title.textColor = .white
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +44,11 @@ class LikedView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setPosts (posts: [PostData]) {
+        self.posts = posts
+        collectionView.reloadData()
     }
     
     private func setupView() {

@@ -14,7 +14,7 @@ class PetCollectionCell: UICollectionViewCell {
     private let petLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
-        name.text = NSLocalizedString("My pet", comment: "")
+        name.text = Labels.Profile.petLabel
         name.textColor = .lightGray
         name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false

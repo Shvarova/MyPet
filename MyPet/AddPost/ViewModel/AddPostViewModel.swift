@@ -9,14 +9,14 @@ import UIKit
 
 class AddPostViewModel {
    private let nc: UINavigationController
-    let coreDataManager = DataManager.shared
+    let dataManager = DataManager.shared
     
     init(nc: UINavigationController) {
         self.nc = nc
     }
     
     func publish (image: UIImage?, title: String, description: String) {
-        coreDataManager.savePostData(title: title, description: description, image: image)
+        dataManager.savePostData(title: title, description: description, image: image)
         nc.popViewController(animated: true)
     }
 }

@@ -14,7 +14,7 @@ class MyPostsCollectionCell: UICollectionViewCell {
     private let postLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
-        name.text = NSLocalizedString("My post", comment: "")
+        name.text = Labels.Profile.postLabel
         name.textColor = .lightGray
         name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false

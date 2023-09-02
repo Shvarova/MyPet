@@ -29,7 +29,7 @@ class SettingsView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = NSLocalizedString("Settings", comment: "")
+        title.text = Labels.Settings.titleLabel
         title.font = .boldSystemFont(ofSize: 24)
         title.textColor = .white
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -69,13 +69,13 @@ class SettingsView: UIView {
     }()
     
     private lazy var editButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Edit profile", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Settings.editButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private lazy var exitButton: CustomButton = {
-        let button = CustomButton(title: NSLocalizedString("Log Out", comment: ""), titleColor: .white, backgroundColor: .clear)
+        let button = CustomButton(title: (Labels.Settings.exitButton), titleColor: .white, backgroundColor: .clear)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.CustomColor.buttonBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class SettingsView: UIView {
     }()
     
     private lazy var manifestoButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Read manifesto", comment: ""), titleColor: .white, backgroundColor: .CustomColor.backgroundLight)
+        let button = CustomButton (title: (Labels.Settings.manifestoButton), titleColor: .white, backgroundColor: .CustomColor.backgroundLight)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

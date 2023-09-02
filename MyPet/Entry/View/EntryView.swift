@@ -51,7 +51,7 @@ class EntryView: UIView {
     }()
     
     private lazy var entryButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: "".localized, titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.addTarget(self, action: #selector(credentials), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

@@ -31,7 +31,7 @@ class EditPetView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("Pet name", comment: "")
+        label.text = Labels.Edit.petNameLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,7 +46,7 @@ class EditPetView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("Breed", comment: "")
+        label.text = Labels.Edit.breed
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,7 +58,7 @@ class EditPetView: UIView {
     }()
         
     private lazy var saveButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Save", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Edit.saveButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.addTarget(self, action: #selector(save), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

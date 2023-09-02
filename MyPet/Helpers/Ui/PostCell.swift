@@ -11,6 +11,8 @@ class PostCell: UICollectionViewCell {
     
     static let id = "PostCell"
     
+    var doubleTapAction: (() -> ())?
+    
     lazy var authorAvatar: UIImageView = {
         let img = UIImageView()
         img.layer.cornerRadius = 16
@@ -114,6 +116,16 @@ class PostCell: UICollectionViewCell {
 //        commentButton.setTitle(title: String(post.comment))
     }
     
+    private func addDoubleTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTap))
+        tap.numberOfTapsRequired = 2
+        addGestureRecognizer(tap)
+    }
+    
+    @objc private func doubleTap() {
+        doubleTapAction?()
+    }
+    
     private func cleanData() {
         authorAvatar.image = nil
         name.text = ""
@@ -125,6 +137,7 @@ class PostCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        addDoubleTap()
         addSubviews(authorAvatar, name, date, titleLabel, descriptionLabel, image, likeButton)
         
         NSLayoutConstraint.activate([

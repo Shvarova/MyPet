@@ -38,7 +38,7 @@ class EntryViewController: UIViewController {
             self.mainView.addAction(action: action)
         }
         viewModel.updateModel()
-        viewModel.errorAction = showAlert(title:message:)
+        viewModel.errorAction = showAlert(title: message:)
     }
     
     @objc func backButtonTouched() {
@@ -56,7 +56,7 @@ class EntryViewController: UIViewController {
     
     private func showAlert (title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction (title: "ok", style: .cancel)
+        let action = UIAlertAction (title: Labels.Auth.alert, style: .cancel)
         alert.addAction(action)
         present(alert, animated: true)
     }

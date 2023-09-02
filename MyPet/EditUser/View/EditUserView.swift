@@ -31,7 +31,7 @@ class EditUserView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("Your name", comment: "")
+        label.text = Labels.Edit.nameLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -80,7 +80,7 @@ class EditUserView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
-        label.text = NSLocalizedString("Role", comment: "")
+        label.text = Labels.Edit.roleLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -92,7 +92,7 @@ class EditUserView: UIView {
     }()
     
     private lazy var saveButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Save", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Edit.saveButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.addTarget(self, action: #selector(save), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

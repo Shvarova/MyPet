@@ -35,7 +35,7 @@ class HomeView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Home"
+        title.text = Labels.Home.title
         title.font = .boldSystemFont(ofSize: 24)
         title.textColor = .white
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -129,6 +129,9 @@ extension HomeView: UICollectionViewDataSource {
             return cell
         }
         cell.setPost(post: posts[indexPath.row])
+        cell.doubleTapAction = {
+            
+        }
         return cell
     }
 }

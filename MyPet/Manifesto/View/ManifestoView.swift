@@ -9,8 +9,6 @@ import UIKit
 
 class ManifestoView: UIView {
     
-    let dataSourse = TextModel()
-    
     private lazy var topImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Logo"))
         imageView.clipsToBounds = true
@@ -50,8 +48,8 @@ class ManifestoView: UIView {
     }
     
     private func setupUI() {
-        titleLabel.text = NSLocalizedString("Our manifesto", comment: "")
-        textView.text = dataSourse.manifestoText
+        titleLabel.text = Labels.Manifesto.title
+        textView.text = Labels.Manifesto.text
     }
     
     private func setupView() {
