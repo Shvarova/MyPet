@@ -207,7 +207,7 @@ class DataManager {
             if let value = snapshot?.value as? NSArray {
                 for item in value {
                     if let item = item as? Dictionary <String,String> {
-                        let post = PostData(id: "", userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: Date(), title: item["title"] ?? "", postDescription: item["description"] ?? "", image: "", like: 0, comment: 0)
+                        let post = PostData(id: "", userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: Date(), title: item["title"] ?? "", postDescription: item["description"] ?? "", image: item["image"], like: 0, comment: 0)
                         self.posts.append(post)
                     }
                 }

@@ -17,7 +17,7 @@ class UserCollectionCell: UICollectionViewCell {
         avatar.clipsToBounds = true
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
         avatar.image = UIImage(named: "User avatar")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
@@ -28,7 +28,7 @@ class UserCollectionCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-        name.textColor = .white
+        name.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
@@ -37,7 +37,7 @@ class UserCollectionCell: UICollectionViewCell {
     private lazy var roleLabel: UILabel = {
         let role = UILabel ()
         role.textAlignment = .center
-        role.textColor = .CustomColor.neon
+        role.textColor = .CustomColor.emphasis
         role.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         role.translatesAutoresizingMaskIntoConstraints = false
         return role

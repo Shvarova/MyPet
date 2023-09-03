@@ -24,7 +24,7 @@ class PostButton: UIView {
     
     private lazy var title: UILabel = {
         let label = UILabel()
-        label.tintColor = .white
+        label.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.font = .systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,7 +63,7 @@ class PostButton: UIView {
         }
         
         layer.cornerRadius = 8
-        backgroundColor = .CustomColor.backgroundLight
+        backgroundColor = .createColor(lightMode: .systemGray5, darkMode: .CustomColor.backgroundLight) 
         clipsToBounds = true
         addSubview(postStackView)
         

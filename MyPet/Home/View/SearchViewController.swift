@@ -14,7 +14,7 @@ final class SearchViewController: UIViewController {
     private lazy var mainView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
-        view.backgroundColor = .CustomColor.backgroundLight
+        view.backgroundColor = .createColor(lightMode: .systemGray5, darkMode: .CustomColor.backgroundLight)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -24,7 +24,7 @@ final class SearchViewController: UIViewController {
         textField.leftViewMode = .always
         textField.leftView = UIView(frame: CGRect(x: 0, y: 10, width: 10, height: textField.frame.height))
         textField.layer.borderWidth = 0.5
-        textField.textColor = .white
+        textField.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.translatesAutoresizingMaskIntoConstraints = false

@@ -47,8 +47,8 @@ final class TabBarCoordinator {
     
     private func setUpTabBar () {
         controller.tabBar.backgroundColor = .CustomColor.backgroundLight
-        controller.tabBar.tintColor = .white
-        controller.tabBar.unselectedItemTintColor = .darkGray
+        controller.tabBar.tintColor = .CustomColor.emphasis
+        controller.tabBar.unselectedItemTintColor = .createColor(lightMode: .darkGray, darkMode: .darkGray)
 //        controller.hidesBottomBarWhenPushed = true
        controller.tabBar.isTranslucent = true
     }

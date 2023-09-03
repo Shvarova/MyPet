@@ -25,7 +25,7 @@ class PetCollectionCell: UICollectionViewCell {
         let pet = PetView()
         pet.layer.cornerRadius = 16
         pet.clipsToBounds = true
-        pet.backgroundColor = .CustomColor.backgroundLight
+        pet.backgroundColor = .createColor(lightMode: .systemGray5, darkMode: .CustomColor.backgroundLight) 
         pet.translatesAutoresizingMaskIntoConstraints = false
         return pet
     }()

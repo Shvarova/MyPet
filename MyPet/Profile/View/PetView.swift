@@ -18,7 +18,7 @@ class PetView: UIView {
         avatar.contentMode = .scaleAspectFill
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
         avatar.layer.masksToBounds = true
         avatar.translatesAutoresizingMaskIntoConstraints = false
         return avatar
@@ -27,7 +27,7 @@ class PetView: UIView {
     private let  petNameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
-        name.textColor = .white
+        name.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
@@ -36,7 +36,6 @@ class PetView: UIView {
     private lazy var breedLabel: UILabel = {
         let breed = UILabel ()
         breed.textAlignment = .left
-        breed.textColor = .systemGray
         breed.textColor = .lightGray
         breed.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         breed.translatesAutoresizingMaskIntoConstraints = false

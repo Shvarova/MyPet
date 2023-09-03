@@ -50,7 +50,7 @@ class MyPhotosCollectionCell: UICollectionViewCell {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PhotosCell.self, forCellWithReuseIdentifier: "PhotosCell")
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark) 
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.dataSource = self

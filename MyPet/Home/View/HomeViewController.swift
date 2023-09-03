@@ -27,7 +27,7 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .CustomColor.backgroundDark
+        mainView.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
     }
     
     override func viewDidLoad() {

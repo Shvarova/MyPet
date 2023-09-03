@@ -53,7 +53,7 @@ class WelcomeView: UIView {
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 32)
-        label.textColor = .white
+        label.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.text = Labels.Auth.welcomeTextLabel
         label.numberOfLines = 4
         label.adjustsFontSizeToFitWidth = true
@@ -62,7 +62,7 @@ class WelcomeView: UIView {
     }()
     
     private lazy var logInButton: CustomButton = {
-        let button = CustomButton(title: (Labels.Auth.logIn), titleColor: .white, backgroundColor: .clear)
+        let button = CustomButton(title: (Labels.Auth.logIn), titleColor: .CustomColor.buttonBlue, backgroundColor: .clear)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.CustomColor.buttonBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -86,7 +86,7 @@ class WelcomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .CustomColor.backgroundDark
+        backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         setupView()
     }
     

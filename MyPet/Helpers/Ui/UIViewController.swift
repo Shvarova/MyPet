@@ -1,5 +1,5 @@
 //
-//  UIViewController+ex.swift
+//  UIViewController.swift
 //  MyPet
 //
 //  Created by Дина Шварова on 01.09.2023.

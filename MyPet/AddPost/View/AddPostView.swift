@@ -25,7 +25,7 @@ class AddPostView: UIView, UITextViewDelegate {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.text = Labels.Post.titleLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +40,7 @@ class AddPostView: UIView, UITextViewDelegate {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.text = Labels.Post.descriptionLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +49,7 @@ class AddPostView: UIView, UITextViewDelegate {
     private lazy var descriptionText: UITextView = {
         let text = UITextView()
         text.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        text.textColor = .white
+        text.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         text.backgroundColor = .clear
         text.layer.borderColor = UIColor.darkGray.cgColor
         text.layer.borderWidth = 1
@@ -62,7 +62,7 @@ class AddPostView: UIView, UITextViewDelegate {
     private lazy var descriptionCountLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -81,8 +81,7 @@ class AddPostView: UIView, UITextViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
+    }    
     
     @objc func publish () {
         publishAction?(image.image, titleTextField.getText(), descriptionText.text ?? "")

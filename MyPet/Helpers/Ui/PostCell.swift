@@ -18,7 +18,7 @@ class PostCell: UICollectionViewCell {
         img.layer.cornerRadius = 16
         img.layer.borderWidth = 0.5
         img.layer.masksToBounds = true
-        img.layer.borderColor = UIColor.white.cgColor
+        img.layer.borderColor = UIColor.lightGray.cgColor
         img.clipsToBounds = true
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
@@ -26,7 +26,7 @@ class PostCell: UICollectionViewCell {
     
     lazy var name: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.font = .systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +49,7 @@ class PostCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = .white
+        label.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -58,7 +58,7 @@ class PostCell: UICollectionViewCell {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .white
+        label.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.numberOfLines = 8
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -141,12 +141,12 @@ class PostCell: UICollectionViewCell {
         addSubviews(authorAvatar, name, date, titleLabel, descriptionLabel, image, likeButton)
         
         NSLayoutConstraint.activate([
-            authorAvatar.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            authorAvatar.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             authorAvatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             authorAvatar.heightAnchor.constraint(equalToConstant: 32),
             authorAvatar.widthAnchor.constraint(equalToConstant: 32),
             
-            name.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            name.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             name.leadingAnchor.constraint(equalTo: authorAvatar.trailingAnchor, constant: 8),
             name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             

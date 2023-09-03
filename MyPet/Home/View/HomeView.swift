@@ -17,7 +17,7 @@ class HomeView: UIView {
     private lazy var searchButton: UIButton = {
         let button = UIButton ()
         button.setBackgroundImage(UIImage (systemName: "magnifyingglass"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         button.addTarget(self, action: #selector(presentSearchViewController), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -26,7 +26,7 @@ class HomeView: UIView {
     private lazy var resetButton: UIButton = {
         let button = UIButton ()
         button.setBackgroundImage(UIImage (systemName: "multiply"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         button.addTarget(self, action: #selector(reset), for: .touchUpInside)
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class HomeView: UIView {
         let title = UILabel ()
         title.text = Labels.Home.title
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -46,7 +46,7 @@ class HomeView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         view.dataSource = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

@@ -18,7 +18,7 @@ class EditUserView: UIView {
         avatar.clipsToBounds = true
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
         avatar.image = UIImage(named: "Photo")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
@@ -30,7 +30,7 @@ class EditUserView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.text = Labels.Edit.nameLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -79,7 +79,7 @@ class EditUserView: UIView {
     private lazy var roleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.text = Labels.Edit.roleLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

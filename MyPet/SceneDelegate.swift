@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
             navigationBarAppearance.shadowColor = nil
-            navigationBarAppearance.backgroundColor = .CustomColor.backgroundDark
+            navigationBarAppearance.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().compactAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithOpaqueBackground()
             tabBarAppearance.shadowColor = nil
-            tabBarAppearance.backgroundColor = .CustomColor.backgroundLight
+            tabBarAppearance.backgroundColor = .createColor(lightMode: .systemGray5, darkMode: .CustomColor.backgroundLight)
             UITabBar.appearance().standardAppearance = tabBarAppearance
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }

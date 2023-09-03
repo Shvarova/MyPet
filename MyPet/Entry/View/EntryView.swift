@@ -14,7 +14,7 @@ class EntryView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
-        label.textColor = .white
+        label.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -22,7 +22,7 @@ class EntryView: UIView {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.text = NSLocalizedString("Your email", comment: "")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -37,7 +37,7 @@ class EntryView: UIView {
     private lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         label.text = NSLocalizedString("Your password", comment: "")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -77,7 +77,7 @@ class EntryView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .CustomColor.backgroundDark
+        backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         setupView()
     }
     

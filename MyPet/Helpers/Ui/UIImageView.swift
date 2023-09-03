@@ -1,5 +1,5 @@
 //
-//  UIImageView+ex.swift
+//  UIImageView.swift
 //  MyPet
 //
 //  Created by Дина Шварова on 30.08.2023.

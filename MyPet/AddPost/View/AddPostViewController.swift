@@ -27,7 +27,7 @@ class AddPostViewController : UIViewController {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .CustomColor.backgroundDark
+        mainView.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         mainView.openGalleryAction = openGallery
     }
     
@@ -50,7 +50,7 @@ class AddPostViewController : UIViewController {
     
     private func setNavigationBar() {
         let backButton = UIBarButtonItem(image: UIImage(named: "Back button"), style: .plain, target: self, action: #selector(backButtonTouched))
-        backButton.tintColor = .white
+        backButton.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         navigationItem.leftBarButtonItem = backButton
     }
     

@@ -21,7 +21,7 @@ final class CustomTextField: UIView, UITextFieldDelegate {
         let textField = UITextField()
         textField.borderStyle = .none
         textField.backgroundColor = .clear
-        textField.textColor = .white
+        textField.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         textField.font = .systemFont(ofSize: 16)
         textField.autocapitalizationType = .none
         textField.adjustsFontSizeToFitWidth = true

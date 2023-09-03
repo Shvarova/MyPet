@@ -22,7 +22,7 @@ class ProfileView: UIView {
         let title = UILabel ()
         title.text = Labels.Profile.title
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -35,7 +35,7 @@ class ProfileView: UIView {
         view.register(MyPhotosCollectionCell.self, forCellWithReuseIdentifier: MyPhotosCollectionCell.id)
         view.register(MyPostsCollectionCell.self, forCellWithReuseIdentifier: MyPostsCollectionCell.id)
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.dataSource = self

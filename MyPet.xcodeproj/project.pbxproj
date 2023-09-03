@@ -103,10 +103,11 @@
 		36EEE5732A9F8F9E00F9AAFB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5722A9F8F9E00F9AAFB /* FirebaseStorage */; };
 		36EEE5752A9F8F9E00F9AAFB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 36EEE5742A9F8F9E00F9AAFB /* FirebaseStorageCombine-Community */; };
 		36EEE5772A9FA46200F9AAFB /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5762A9FA46200F9AAFB /* ImageManager.swift */; };
-		36EEE5792A9FB1DB00F9AAFB /* UIImageView+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */; };
-		36EEE57C2AA1F15A00F9AAFB /* UIViewController+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */; };
+		36EEE5792A9FB1DB00F9AAFB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5782A9FB1DB00F9AAFB /* UIImageView.swift */; };
+		36EEE57C2AA1F15A00F9AAFB /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57B2AA1F15A00F9AAFB /* UIViewController.swift */; };
 		36EEE57E2AA2767A00F9AAFB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57D2AA2767A00F9AAFB /* String.swift */; };
 		36EEE5802AA2789200F9AAFB /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE57F2AA2789200F9AAFB /* Labels.swift */; };
+		36EEE5842AA3CC8400F9AAFB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEE5832AA3CC8400F9AAFB /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,11 +199,12 @@
 		36EEE52E2A9CECEE00F9AAFB /* PetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetData.swift; sourceTree = "<group>"; };
 		36EEE5552A9CF8BB00F9AAFB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		36EEE5762A9FA46200F9AAFB /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ex.swift"; sourceTree = "<group>"; };
+		36EEE5782A9FB1DB00F9AAFB /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		36EEE57A2AA0DBBB00F9AAFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ex.swift"; sourceTree = "<group>"; };
+		36EEE57B2AA1F15A00F9AAFB /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		36EEE57D2AA2767A00F9AAFB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36EEE57F2AA2789200F9AAFB /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		36EEE5832AA3CC8400F9AAFB /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,8 +347,9 @@
 				362C04652A2E810600118971 /* PhotosCell.swift */,
 				3619DFAC2A0E975A00D08641 /* PostButton.swift */,
 				3619DFC62A167B9300D08641 /* PhotoConstans.swift */,
-				36EEE5782A9FB1DB00F9AAFB /* UIImageView+ex.swift */,
-				36EEE57B2AA1F15A00F9AAFB /* UIViewController+ex.swift */,
+				36EEE5782A9FB1DB00F9AAFB /* UIImageView.swift */,
+				36EEE57B2AA1F15A00F9AAFB /* UIViewController.swift */,
+				36EEE5832AA3CC8400F9AAFB /* UIColor.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3619DF5F29FACF4900D08641 /* EntryViewModel.swift in Sources */,
+				36EEE5842AA3CC8400F9AAFB /* UIColor.swift in Sources */,
 				36EEE5772A9FA46200F9AAFB /* ImageManager.swift in Sources */,
 				362C04602A2E661E00118971 /* MyPostsCollectionCell.swift in Sources */,
 				362C04662A2E810600118971 /* PhotosCell.swift in Sources */,
@@ -913,7 +917,7 @@
 				3619DFA32A0D2BBB00D08641 /* SettingsCoordinator.swift in Sources */,
 				3619DF3229F98E8F00D08641 /* WelcomeCoordinator.swift in Sources */,
 				3619DF4E29F9D83A00D08641 /* LikedViewController.swift in Sources */,
-				36EEE5792A9FB1DB00F9AAFB /* UIImageView+ex.swift in Sources */,
+				36EEE5792A9FB1DB00F9AAFB /* UIImageView.swift in Sources */,
 				36EEE4FB2A9236A000F9AAFB /* ManifestoFactory.swift in Sources */,
 				365040232A66F0850099DC96 /* EditUserView.swift in Sources */,
 				3619DF5D29FACF2400D08641 /* EntryViewController.swift in Sources */,
@@ -957,7 +961,7 @@
 				3619DF3E29F9960200D08641 /* CustomButton.swift in Sources */,
 				365040102A4B94510099DC96 /* EditPetViewModel.swift in Sources */,
 				3619DF4129F9962A00D08641 /* View.swift in Sources */,
-				36EEE57C2AA1F15A00F9AAFB /* UIViewController+ex.swift in Sources */,
+				36EEE57C2AA1F15A00F9AAFB /* UIViewController.swift in Sources */,
 				3619DF7729FC484200D08641 /* ProfileView.swift in Sources */,
 				3619DF1B29F8214B00D08641 /* AppDelegate.swift in Sources */,
 				3650401D2A66ED980099DC96 /* EditUserFactory.swift in Sources */,

@@ -15,7 +15,7 @@ class LikedView: UIView {
         let title = UILabel ()
         title.text = Labels.Liked.titleLabel
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -24,7 +24,7 @@ class LikedView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
