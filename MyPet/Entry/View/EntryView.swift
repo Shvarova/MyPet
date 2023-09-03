@@ -44,7 +44,7 @@ class EntryView: UIView {
     }()
     
     private lazy var passwordTextField: CustomTextField = {
-        let textField = CustomTextField(text: "", placeholder: "Password")
+        let textField = CustomTextField(text: "", placeholder: Labels.Auth.passwordPlaceholder)
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -86,9 +86,18 @@ class EntryView: UIView {
     }
     
     @objc func credentials () {
+        startAI()
+        setCredentials?(emailTextField.getText(), passwordTextField.getText())
+    }
+    
+    func startAI() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        setCredentials?(emailTextField.getText(), passwordTextField.getText())
+    }
+    
+    func stopAI() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
     }
     
     func setTitle (title: String) {

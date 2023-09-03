@@ -59,6 +59,7 @@ class EntryViewController: UIViewController {
         let action = UIAlertAction (title: Labels.Auth.alert, style: .cancel)
         alert.addAction(action)
         present(alert, animated: true)
+        mainView.stopAI()
     }
     
     private func setNavigationBar() {

@@ -127,8 +127,13 @@ class DataManager {
     
     func savePostData(title: String, description: String, image: UIImage?) {
         self.countUserPosts += 1
+        let postID = DataManager.shared.currentUser.id + "_" + String(countUserPosts)
         if let image = image {
-            ImageManager.uploadPostImage(userID: DataManager.shared.currentUser.id, postID: String(countUserPosts), image: image, completion: { result in
+            ImageManager.uploadPostImage(
+                userID: DataManager.shared.currentUser.id,
+                postID: postID,
+                image: image,
+                completion: { result in
                 var imageURL: URL?
                 switch result {
                 case .success(let url):
@@ -136,22 +141,35 @@ class DataManager {
                 case .failure(_):
                     imageURL = nil
                 }
-                self.sendPost(title: title, description: description, image: imageURL?.absoluteString)
+                    self.sendPost(id: postID, title: title, description: description, image: imageURL?.absoluteString)
             })
         } else {
-            sendPost(title: title, description: description, image: nil)
+            sendPost(id: postID, title: title, description: description, image: nil)
         }
     }
     
-    private func sendPost (title: String, description: String, image: String?) {
-        self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("title").setValue(title)
-        self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("description").setValue(description)
-        self.databaseReference.child("posts").child(self.currentUser.id).child(String(self.countUserPosts)).child("image").setValue(image ?? "")
-        self.posts.append(PostData(id: String(self.countUserPosts), userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: Date(), title: title, postDescription: description, image: image ?? "", like: 0, comment: 0))
+    private func sendPost (id: String, title: String, description: String, image: String?) {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        self.databaseReference.child("posts").child(self.currentUser.id).child(id).child("title").setValue(title)
+        self.databaseReference.child("posts").child(self.currentUser.id).child(id).child("description").setValue(description)
+        self.databaseReference.child("posts").child(self.currentUser.id).child(id).child("image").setValue(image ?? "")
+        self.databaseReference.child("posts").child(self.currentUser.id).child(id).child("date").setValue(dateFormatter.string (from: date))
+        self.databaseReference.child("posts").child(self.currentUser.id).child(id).child("likes").setValue(0)
+        self.posts.append(PostData(id: id, userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: dateFormatter.string (from: date), title: title, postDescription: description, image: image ?? "", like: 0, comment: 0))
     }
     
-    func saveLikedPost (userID: String, postID: String) {
-        
+    func saveLikedPost (postID: String, likesCount: Int) {
+        allPosts = allPosts.map({
+            if $0.id == postID {
+                let post = PostData(id: $0.id, userID: $0.userID, authorAvatar: $0.authorAvatar, authorName: $0.authorName, date: $0.date, title: $0.title, postDescription: $0.postDescription, image: $0.image, like: likesCount, comment: $0.comment)
+                return post
+            }
+            return $0
+        })
+        let postUsersID = postID.split(separator: "_")
+        databaseReference.child("posts").child(String(postUsersID[0])).child(postID).child("likes").setValue(likesCount)
     }
     
     func getAllPosts(_ completion: (() -> Void)?) {
@@ -171,16 +189,35 @@ class DataManager {
                             if let userData = snapshot?.value as? NSDictionary {
                                 let userAvatar = userData["userAvatar"] as? String ?? ""
                                 let userName = userData["userName"] as? String ?? ""
-                                if let arrayPost = item.value as? NSArray {
+                                if let arrayPost = item.value as? Dictionary <String,Any> {
                                     for dataPost in arrayPost {
-                                        if let dataPost = dataPost as? Dictionary <String,String> {
-                                            let post = PostData(id: "", userID: userID, authorAvatar: userAvatar, authorName: userName, date: Date(), title: dataPost["title"] ?? "", postDescription: dataPost["description"] ?? "", image: dataPost["image"] ?? "", like: 0, comment: 0)
+                                        if let dataPostValue = dataPost.value as? Dictionary <String,Any>,
+                                        let dataPostKey = dataPost.key as? String {
+                                            let post = PostData(
+                                                id: dataPostKey,
+                                                userID: userID,
+                                                authorAvatar: userAvatar,
+                                                authorName: userName,
+                                                date: dataPostValue["date"] as? String ?? "",
+                                                title: dataPostValue["title"] as? String ?? "",
+                                                postDescription: dataPostValue["description"] as? String ?? "",
+                                                image: dataPostValue["image"] as? String ?? "",
+                                                like: dataPostValue["likes"] as? Int ?? 0,
+                                                comment: 0
+                                            )
                                             self.allPosts.append(post)
                                         }
                                     }
                                 }
                             }
-                            if count == value.count { completion?() }
+                            if count == value.count {
+                                completion?()
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "dd.MM.yy"
+                                self.allPosts.sort(by: {
+                                    dateFormatter.date(from: $0.date)! > dateFormatter.date(from: $1.date)!
+                                })
+                            }
                         }
                     }
                 }
@@ -204,10 +241,10 @@ class DataManager {
             guard error == nil else {
                 return
             }
-            if let value = snapshot?.value as? NSArray {
+            if let value = snapshot?.value as? NSDictionary {
                 for item in value {
-                    if let item = item as? Dictionary <String,String> {
-                        let post = PostData(id: "", userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: Date(), title: item["title"] ?? "", postDescription: item["description"] ?? "", image: item["image"], like: 0, comment: 0)
+                    if let item = item.value as? Dictionary <String,Any> {
+                        let post = PostData(id: "", userID: self.currentUser.id, authorAvatar: self.currentUser.userAvatar, authorName: self.currentUser.userName, date: item["date"] as? String ?? "", title: item["title"] as? String ?? "", postDescription: item["description"] as? String ?? "", image: item["image"] as? String, like: item["likes"] as? Int ?? 0, comment: 0)
                         self.posts.append(post)
                     }
                 }

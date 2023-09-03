@@ -12,6 +12,11 @@ class PostCell: UICollectionViewCell {
     static let id = "PostCell"
     
     var doubleTapAction: (() -> ())?
+    private var likes: Int = 0 {
+        didSet {
+            likeButton.setTitle(title: "\(likes)")
+        }
+    }
     
     lazy var authorAvatar: UIImageView = {
         let img = UIImageView()
@@ -38,12 +43,6 @@ class PostCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    lazy var dateFormatter: DateFormatter = {
-        let date = DateFormatter()
-        date.dateFormat = "dd.MM.yy"
-        return date
     }()
     
     lazy var titleLabel: UILabel = {
@@ -74,6 +73,7 @@ class PostCell: UICollectionViewCell {
     
     lazy var likeButton: PostButton = {
         let button = PostButton(image: .like)
+//        button.addTarget(self, action: #selector(), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -105,14 +105,14 @@ class PostCell: UICollectionViewCell {
             authorAvatar.image = UIImage(named: "User avatar")
         }
         name.text = post.authorName
-        date.text = dateFormatter.string(from: post.date)
+        date.text = post.date
         titleLabel.text = post.title
         descriptionLabel.text = post.postDescription
         if let image = post.image,
            let imageURL = URL(string: image) {
             self.image.load(url: imageURL)
         }
-        likeButton.setTitle(title: String(post.like))
+        likes = post.like
 //        commentButton.setTitle(title: String(post.comment))
     }
     
@@ -124,6 +124,7 @@ class PostCell: UICollectionViewCell {
     
     @objc private func doubleTap() {
         doubleTapAction?()
+        likes += 1
     }
     
     private func cleanData() {

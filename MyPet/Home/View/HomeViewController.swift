@@ -39,6 +39,11 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
         mainView.setPosts(posts: viewModel?.posts ?? [])
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel?.updateLikes(posts: mainView.getPosts())
+    }
+    
     func setViewModel (viewModel: HomeViewModel) {
         self.viewModel = viewModel
         mainView.setPosts(posts: viewModel.posts)

@@ -28,6 +28,14 @@ class HomeViewModel {
         }
     }
     
+    func updateLikes(posts: [PostData]) {
+        for value in 0...(posts.count - 1) {
+            if self.posts[value].like != posts[value].like {
+                DataManager.shared.saveLikedPost(postID: posts[value].id, likesCount: posts[value].like)
+            }
+        }
+    }
+    
     func presentSearchController (delegate: HomeViewControllerDelegate) {
         output?.presentSearchController(delegate: delegate)
     }

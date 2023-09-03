@@ -106,6 +106,10 @@ class HomeView: UIView {
         collectionView.reloadData()
     }
     
+    func getPosts() -> [PostData] {
+        self.posts
+    }
+    
     func showResetButton() {
         searchButton.isHidden = true
         resetButton.isHidden = false
@@ -114,6 +118,10 @@ class HomeView: UIView {
     func showSearchButton() {
         searchButton.isHidden = false
         resetButton.isHidden = true
+    }
+    
+    func doubleTapAction() {
+        
     }
 }
 
@@ -130,7 +138,7 @@ extension HomeView: UICollectionViewDataSource {
         }
         cell.setPost(post: posts[indexPath.row])
         cell.doubleTapAction = {
-            
+            self.posts[indexPath.row].like += 1
         }
         return cell
     }
