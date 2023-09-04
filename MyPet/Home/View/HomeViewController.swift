@@ -46,6 +46,7 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
     
     func setViewModel (viewModel: HomeViewModel) {
         self.viewModel = viewModel
+        self.viewModel?.update = mainView.setPosts(posts:)
         mainView.setPosts(posts: viewModel.posts)
         mainView.searchAction = {
             self.viewModel?.presentSearchController(delegate: self)

@@ -33,6 +33,7 @@ class AddPostView: UIView, UITextViewDelegate {
     
     private lazy var titleTextField: CustomTextField = {
         let textField = CustomTextField(text: "", placeholder: "")
+        textField.isUserInteractionEnabled = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -55,6 +56,7 @@ class AddPostView: UIView, UITextViewDelegate {
         text.layer.borderWidth = 1
         text.textContainerInset = UIEdgeInsets(top: 8, left: 4, bottom: 8, right: 4)
         text.delegate = self
+        text.isUserInteractionEnabled = true
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
@@ -81,19 +83,25 @@ class AddPostView: UIView, UITextViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }    
+    }
     
     @objc func publish () {
-        publishAction?(image.image, titleTextField.getText(), descriptionText.text ?? "")
+        let postImage: UIImage?
+        if image.image == UIImage(named: "Image") {
+            postImage = UIImage(named: "Post image")
+        } else {
+            postImage = image.image
+        }
+        publishAction?(postImage, titleTextField.getText(), descriptionText.text ?? "")
     }
     
     @objc func openGallery () {
         openGalleryAction?()
     }
-
+    
     func textViewDidChange(_ textView: UITextView) {
         self.updateCharacterCount()
-     }
+    }
     
     func setImage (image: UIImage) {
         self.image.image = image
@@ -112,7 +120,7 @@ class AddPostView: UIView, UITextViewDelegate {
     private func updateCharacterCount() {
         let descriptionCount = self.descriptionText.text.count
         self.descriptionCountLabel.text = "\((0) + descriptionCount)/280"
-     }
+    }
     
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))
@@ -138,7 +146,7 @@ class AddPostView: UIView, UITextViewDelegate {
             descriptionLabel.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                        
+            
             descriptionText.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             descriptionText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -151,7 +159,7 @@ class AddPostView: UIView, UITextViewDelegate {
             publishButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             publishButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             publishButton.heightAnchor.constraint(equalToConstant: 48),
-            publishButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            publishButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32)
         ])
     }
 }

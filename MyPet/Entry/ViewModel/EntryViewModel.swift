@@ -36,7 +36,6 @@ class EntryViewModel {
     
     private func signUp (email: String, password: String) {
         checkCredentionals(email: email, password: password)
-        
     }
     
     private func checkCredentionalsCompletion (authDataResult: AuthDataResult?, error: Error?) {
@@ -82,7 +81,7 @@ class EntryViewModel {
         }
     
         private func passwordIsValid(_ password: String) -> Bool {
-            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{6,}")
+            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
             return passwordTest.evaluate(with: password)
         }
 }

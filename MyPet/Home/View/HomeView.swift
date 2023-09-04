@@ -85,7 +85,7 @@ class HomeView: UIView {
             searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             searchButton.widthAnchor.constraint(equalToConstant: 28),
             searchButton.heightAnchor.constraint(equalToConstant: 28),
-            
+
             resetButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             resetButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             resetButton.widthAnchor.constraint(equalToConstant: 28),
@@ -114,14 +114,10 @@ class HomeView: UIView {
         searchButton.isHidden = true
         resetButton.isHidden = false
     }
-    
+
     func showSearchButton() {
         searchButton.isHidden = false
         resetButton.isHidden = true
-    }
-    
-    func doubleTapAction() {
-        
     }
 }
 

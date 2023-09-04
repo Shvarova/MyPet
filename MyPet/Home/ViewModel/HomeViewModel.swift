@@ -43,7 +43,10 @@ class HomeViewModel {
     private func getPosts(with title: String) -> [PostData] {
         if title.isEmpty {return posts}
         return posts.filter { post in
-            return post.title.lowercased().contains(title.lowercased())
+            return post.title.lowercased().contains(title.lowercased()) ||
+            post.authorName.lowercased().contains(title.lowercased()) ||
+            post.postDescription.lowercased().contains(title.lowercased()) ||
+            post.date.lowercased().contains(title.lowercased())
         }
     }
 }

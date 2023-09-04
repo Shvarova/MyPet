@@ -127,7 +127,7 @@ class EntryView: UIView {
             entryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
             
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+            activityIndicator.topAnchor.constraint(equalTo: entryButton.bottomAnchor, constant: 24),
         ])
     }
 }
