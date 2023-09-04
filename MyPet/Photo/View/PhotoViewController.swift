@@ -31,7 +31,7 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         addViews()
         addConstraints()
         setNavigationBar()
@@ -39,11 +39,11 @@ class PhotoViewController: UIViewController {
     
     private func setNavigationBar() {
         let backButton = UIBarButtonItem(image: UIImage(named: "Back button"), style: .plain, target: self, action: #selector(back))
-        backButton.tintColor = .white
+        backButton.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         navigationItem.leftBarButtonItem = backButton
     }
     
-    @objc private func back () {
+    @objc private func back() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)

@@ -18,10 +18,11 @@ class EditPetView: UIView {
         avatar.clipsToBounds = true
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
         avatar.image = UIImage(named: "Photo")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
+        avatar.isUserInteractionEnabled = true
         avatar.translatesAutoresizingMaskIntoConstraints = false
         return avatar
     }()
@@ -29,8 +30,8 @@ class EditPetView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Pet name", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Edit.petNameLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,8 +45,8 @@ class EditPetView: UIView {
     private lazy var breedLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Breed", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Edit.breed
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,8 +58,8 @@ class EditPetView: UIView {
     }()
         
     private lazy var saveButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Save", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
-//        button.addTarget(self, action: #selector(save), for: .touchUpInside)
+        let button = CustomButton (title: (Labels.Edit.saveButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        button.addTarget(self, action: #selector(save), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -72,9 +73,9 @@ class EditPetView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    @objc func save () {
-//        saveAction?(petAvatar.image, nameTextField.text!, breedTextField.text!)
-//    }
+    @objc func save () {
+        saveAction?(petAvatar.image, nameTextField.getText(), breedTextField.getText())
+    }
     
     @objc func openGallery () {
         openGalleryAction?()
@@ -82,6 +83,17 @@ class EditPetView: UIView {
     
     func setImage (image: UIImage) {
         self.petAvatar.image = image
+    }
+    
+    func setPetData(petData: PetData) {
+        let petAvatarURL = URL(string: petData.petAvatar)
+        if let petAvatarURL = petAvatarURL {
+            petAvatar.load(url: petAvatarURL)
+        } else {
+            petAvatar.image = UIImage(named: "Photo")
+        }
+        nameTextField.setText(text: petData.petName)
+        breedTextField.setText(text: petData.breed)
     }
     
     private func setupView() {
@@ -113,7 +125,6 @@ class EditPetView: UIView {
             breedTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             breedTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             breedTextField.heightAnchor.constraint(equalToConstant: 32),
-//            breedTextField.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -16),
             
             saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

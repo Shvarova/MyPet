@@ -18,11 +18,11 @@ final class TabBarCoordinator {
 
         let homeNC = HomeCoordinator().getNavigationController()
         let profileNC = ProfileCoordinator().getNavigationController()
-        let likedNC = LikedCoordinator().getNavigationController()
+//        let likedNC = LikedCoordinator().getNavigationController()
         let settingsNC = SettingsCoordinator().getNavigationController()
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [homeNC, profileNC, likedNC, settingsNC]
+        tabBarController.viewControllers = [homeNC, profileNC, settingsNC]
         controller = tabBarController
         
         let homeItem = UITabBarItem(title: nil, image: UIImage(systemName: "square.grid.2x2.fill"), tag: 0)
@@ -31,8 +31,8 @@ final class TabBarCoordinator {
         let profileItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.crop.circle.fill"), tag: 1)
         profileNC.tabBarItem = profileItem
         
-        let likedItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart.fill"), tag: 2)
-        likedNC.tabBarItem = likedItem
+//        let likedItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart.fill"), tag: 2)
+//        likedNC.tabBarItem = likedItem
         
         let settingsItem = UITabBarItem(title: nil, image: UIImage(systemName: "gearshape.fill"), tag: 3)
         settingsNC.tabBarItem = settingsItem
@@ -47,8 +47,9 @@ final class TabBarCoordinator {
     
     private func setUpTabBar () {
         controller.tabBar.backgroundColor = .CustomColor.backgroundLight
-        controller.tabBar.tintColor = .white
-        controller.tabBar.unselectedItemTintColor = .darkGray
-        controller.tabBar.isTranslucent = false
+        controller.tabBar.tintColor = .CustomColor.emphasis
+        controller.tabBar.unselectedItemTintColor = .createColor(lightMode: .darkGray, darkMode: .darkGray)
+//        controller.hidesBottomBarWhenPushed = true
+       controller.tabBar.isTranslucent = true
     }
 }

@@ -13,14 +13,16 @@ class ProfileView: UIView {
     var openPhotoGalleryAction: (() -> ())?
     var addPostAction: (() -> ())?
     
-    private var posts: [Post] = []
+    private var user = UserData(id: "", userAvatar: "", userName: "", petID: "", email: "", role: "")
+    private var pet = PetData(id: "", petAvatar: "", petName: "", breed: "")
+    private var posts: [PostData] = []
     private var cellsCount = 4
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Profile"
+        title.text = Labels.Profile.title
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -33,7 +35,7 @@ class ProfileView: UIView {
         view.register(MyPhotosCollectionCell.self, forCellWithReuseIdentifier: MyPhotosCollectionCell.id)
         view.register(MyPostsCollectionCell.self, forCellWithReuseIdentifier: MyPostsCollectionCell.id)
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.dataSource = self
@@ -41,7 +43,7 @@ class ProfileView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -49,12 +51,22 @@ class ProfileView: UIView {
         return layout
     }()
     
-    func setPosts (posts: [Post]) {
+    func setUser (user: UserData) {
+        self.user = user
+        collectionView.reloadData()
+    }
+    
+    func setPet (pet: PetData) {
+        self.pet = pet
+        collectionView.reloadData()
+    }
+    
+    func setPosts (posts: [PostData]) {
         self.posts = posts
         cellsCount = 4 + posts.count
         collectionView.reloadData()
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -75,7 +87,7 @@ class ProfileView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        ])        
+        ])
     }
 }
 
@@ -87,8 +99,17 @@ extension ProfileView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
         switch indexPath.row {
-        case 0: cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.id, for: indexPath)
-        case 1: cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath)
+        case 0: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.id, for: indexPath) as? UserCollectionCell else {
+            return cell
+        }
+            cell.setUser(user: user)
+            return cell
+        case 1: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionCell.id, for: indexPath) as?
+                        PetCollectionCell else {
+            return cell
+        }
+            cell.setPet(pet: pet)
+            return cell
         case 2: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPhotosCollectionCell.id, for: indexPath)
         case 3: cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPostsCollectionCell.id, for: indexPath)
         default:

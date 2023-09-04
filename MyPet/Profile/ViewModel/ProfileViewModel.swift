@@ -9,8 +9,16 @@ import UIKit
 
 class ProfileViewModel {
     
-    var posts: [Post] {
-        Posts.shared.posts
+    var posts: [PostData] {
+        DataManager.shared.getAllPosts(userID: currentUser.id)
+    }
+    
+    var currentUser: UserData {
+        DataManager.shared.currentUser
+    }
+    
+    var currentPet: PetData {
+        DataManager.shared.currentPet
     }
     
     var output: ProfileOutput?

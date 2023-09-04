@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddPostView: UIView {
+class AddPostView: UIView, UITextViewDelegate {
     
     var publishAction: ((UIImage?, String, String) ->())?
     var openGalleryAction: (() -> ())?
@@ -25,21 +25,15 @@ class AddPostView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Title", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Post.titleLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var titleTextField: CustomTextField = {
         let textField = CustomTextField(text: "", placeholder: "")
-//        textField.leftView = UIView(frame: CGRect(x: 8, y: 0, width: 8, height: textField.frame.height))
-//        textField.leftViewMode = .always
-//        textField.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-//        textField.textColor = .white
-//        textField.autocapitalizationType = .none
-//        textField.layer.borderColor = UIColor.darkGray.cgColor
-//        textField.layer.borderWidth = 1
+        textField.isUserInteractionEnabled = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -47,8 +41,8 @@ class AddPostView: UIView {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Description", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Post.descriptionLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,17 +50,27 @@ class AddPostView: UIView {
     private lazy var descriptionText: UITextView = {
         let text = UITextView()
         text.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        text.textColor = .white
+        text.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         text.backgroundColor = .clear
         text.layer.borderColor = UIColor.darkGray.cgColor
         text.layer.borderWidth = 1
         text.textContainerInset = UIEdgeInsets(top: 8, left: 4, bottom: 8, right: 4)
+        text.delegate = self
+        text.isUserInteractionEnabled = true
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
+    private lazy var descriptionCountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var publishButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Publish", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Post.publishButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.addTarget(self, action: #selector(publish), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -82,21 +86,46 @@ class AddPostView: UIView {
     }
     
     @objc func publish () {
-        publishAction?(image.image, titleTextField.getText(), descriptionText.text ?? "")
+        let postImage: UIImage?
+        if image.image == UIImage(named: "Image") {
+            postImage = UIImage(named: "Post image")
+        } else {
+            postImage = image.image
+        }
+        publishAction?(postImage, titleTextField.getText(), descriptionText.text ?? "")
     }
     
     @objc func openGallery () {
         openGalleryAction?()
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        self.updateCharacterCount()
+    }
+    
     func setImage (image: UIImage) {
         self.image.image = image
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return self.textLimit(existingText: textView.text, newText: text, limit: 280)
+    }
+    
+    private func textLimit(existingText: String?, newText: String, limit: Int) -> Bool {
+        let text = existingText ?? ""
+        let isAtLimit = text.count + newText.count <= limit
+        return isAtLimit
+    }
+    
+    private func updateCharacterCount() {
+        let descriptionCount = self.descriptionText.text.count
+        self.descriptionCountLabel.text = "\((0) + descriptionCount)/280"
     }
     
     private func setupView() {
         let tap = UITapGestureRecognizer (target: self, action: #selector (openGallery))
         image.addGestureRecognizer(tap)
-        addSubviews(image, titleLabel, titleTextField, descriptionLabel, descriptionText, publishButton)
+        addSubviews(image, titleLabel, titleTextField, descriptionLabel, descriptionText, descriptionCountLabel, publishButton)
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -117,16 +146,20 @@ class AddPostView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                        
+            
             descriptionText.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             descriptionText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            descriptionText.bottomAnchor.constraint(equalTo: publishButton.topAnchor, constant: -16),
+            descriptionText.heightAnchor.constraint(equalToConstant: 150),
+            
+            descriptionCountLabel.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: 8),
+            descriptionCountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            descriptionCountLabel.heightAnchor.constraint(equalToConstant: 24),
             
             publishButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             publishButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             publishButton.heightAnchor.constraint(equalToConstant: 48),
-            publishButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            publishButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32)
         ])
     }
 }

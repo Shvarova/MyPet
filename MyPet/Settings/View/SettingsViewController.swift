@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .CustomColor.backgroundDark
+        mainView.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
     }
     
     override func viewDidLoad() {
@@ -32,10 +32,19 @@ class SettingsViewController: UIViewController {
     
     func setViewModel (viewModel: SettingsViewModel) {
         self.viewModel = viewModel
+        mainView.setUserData(userData: viewModel.currentUser)
+        mainView.editProfile = viewModel.edit
+        mainView.logOut = viewModel.logOut
+        mainView.readManifesto = viewModel.readManifesto
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let currentUser = viewModel?.currentUser {
+            mainView.setUserData(userData: currentUser)
+        }
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.tabBarController?.tabBar.isHidden = false
     }
 }
 

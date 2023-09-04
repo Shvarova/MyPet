@@ -15,8 +15,6 @@ class PhotoCoordinator {
     }
     
     func show() {
-        navigation.navigationBar.isHidden = false
-        navigation.tabBarController?.tabBar.isHidden = true
         let vc = PhotoFactory.getViewControlller(navigation: navigation)
         navigation.pushViewController(vc, animated: true)
     }    

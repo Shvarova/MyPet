@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 11x.png",
+      "filename" : "Group11x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 12x.png",
+      "filename" : "Group12x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 13x.png",
+      "filename" : "Group13x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -15,9 +15,11 @@ enum HomeState {
 class HomeViewModel {
     var output: HomeOutput?
     
-    var update: (([Post]) -> ())?
+    var update: (([PostData]) -> ())?
     
-    private var posts = Posts.shared.posts
+    var posts: [PostData] {
+        DataManager.shared.allPosts
+    }
     
     func startUpdate (state: HomeState) {
         switch state {
@@ -26,14 +28,25 @@ class HomeViewModel {
         }
     }
     
+    func updateLikes(posts: [PostData]) {
+        for value in 0...(posts.count - 1) {
+            if self.posts[value].like != posts[value].like {
+                DataManager.shared.saveLikedPost(postID: posts[value].id, likesCount: posts[value].like)
+            }
+        }
+    }
+    
     func presentSearchController (delegate: HomeViewControllerDelegate) {
         output?.presentSearchController(delegate: delegate)
     }
     
-    private func getPosts(with title: String) -> [Post] {
+    private func getPosts(with title: String) -> [PostData] {
         if title.isEmpty {return posts}
         return posts.filter { post in
-            return post.title.lowercased().contains(title.lowercased())
+            return post.title.lowercased().contains(title.lowercased()) ||
+            post.authorName.lowercased().contains(title.lowercased()) ||
+            post.postDescription.lowercased().contains(title.lowercased()) ||
+            post.date.lowercased().contains(title.lowercased())
         }
     }
 }

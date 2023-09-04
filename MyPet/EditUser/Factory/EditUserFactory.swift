@@ -13,6 +13,8 @@ enum EditUserFactory {
         let vc = EditUserViewController(mainView: mainView)
         let viewModel = EditUserViewModel(nc: navigation)
         vc.setViewModel(viewModel: viewModel)
+        navigation.navigationBar.isHidden = false
+        navigation.tabBarController?.tabBar.isHidden = true
         return vc
     }
 }

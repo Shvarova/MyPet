@@ -16,6 +16,7 @@ enum ProfileFactory {
         vc.setViewModel(viewModel: viewModel)
         let nc = UINavigationController(rootViewController: vc)
         nc.navigationBar.isHidden = true
+        nc.tabBarController?.tabBar.isHidden = false
         return nc
     }
 }

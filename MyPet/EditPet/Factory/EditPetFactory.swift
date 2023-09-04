@@ -13,6 +13,8 @@ enum EditPetFactory {
         let vc = EditPetViewController(mainView: mainView)
         let viewModel = EditPetViewModel(nc: navigation)
         vc.setViewModel(viewModel: viewModel)
+        navigation.navigationBar.isHidden = false
+        navigation.tabBarController?.tabBar.isHidden = true
         return vc
     }
 }

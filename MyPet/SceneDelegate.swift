@@ -7,25 +7,27 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseDatabase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
+    var coordinator: MainCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         FirebaseApp.configure()
-        window = UIWindow (windowScene: windowScene)
-        window?.rootViewController = WelcomeCoordinator().nc
-        window?.makeKeyAndVisible()
+        self.window = UIWindow (windowScene: windowScene)
+        coordinator = MainCoordinator.setMainCoordinator(window: window, navigationController: UINavigationController())
+        coordinator?.showWelcomeScreen()
+        
         
         if #available(iOS 15, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
             navigationBarAppearance.shadowColor = nil
-            navigationBarAppearance.backgroundColor = .CustomColor.backgroundDark
+            navigationBarAppearance.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().compactAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
@@ -33,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithOpaqueBackground()
             tabBarAppearance.shadowColor = nil
-            tabBarAppearance.backgroundColor = .CustomColor.backgroundLight
+            tabBarAppearance.backgroundColor = .createColor(lightMode: .systemGray5, darkMode: .CustomColor.backgroundLight)
             UITabBar.appearance().standardAppearance = tabBarAppearance
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }

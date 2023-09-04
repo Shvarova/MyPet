@@ -9,10 +9,12 @@ import UIKit
 
 class EntryView: UIView {
     
+    var setCredentials: ((String, String) ->())?
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
-        label.textColor = .white
+        label.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -20,14 +22,14 @@ class EntryView: UIView {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your email", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Auth.emailLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var emailTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin@mail.ru", placeholder: "example@mail.com")
+        let textField = CustomTextField(text: "test@test.ru", placeholder: "example@mail.com")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -35,21 +37,22 @@ class EntryView: UIView {
     private lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your password", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Auth.passwordLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var passwordTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin123", placeholder: "Password")
+        let textField = CustomTextField(text: "", placeholder: Labels.Auth.passwordPlaceholder)
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private lazy var entryButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: "".localized, titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        button.addTarget(self, action: #selector(credentials), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -64,9 +67,17 @@ class EntryView: UIView {
         return stackView
     }()
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.color = .gray
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .CustomColor.backgroundDark
+        backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         setupView()
     }
     
@@ -74,17 +85,32 @@ class EntryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func credentials () {
+        startAI()
+        setCredentials?(emailTextField.getText(), passwordTextField.getText())
+    }
+    
+    func startAI() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func stopAI() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+    }
+    
     func setTitle (title: String) {
         titleLabel.text = title
         entryButton.setTitle(title, for: .normal)
     }
     
-    func addAction (action: @escaping () -> ()) {
-        entryButton.action = action
+    func addAction (action: @escaping (String, String) -> ()) {
+        setCredentials = action
     }
     
     private func setupView() {
-        addSubviews(titleLabel, entryStackView, entryButton)
+        addSubviews(titleLabel, entryStackView, entryButton, activityIndicator)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
@@ -98,7 +124,10 @@ class EntryView: UIView {
             entryButton.heightAnchor.constraint(equalToConstant: 48),
             entryButton.topAnchor.constraint(equalTo: entryStackView.bottomAnchor, constant: 24),
             entryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
-            entryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48)
+            entryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.topAnchor.constraint(equalTo: entryButton.bottomAnchor, constant: 24),
         ])
     }
 }

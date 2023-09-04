@@ -18,10 +18,11 @@ class EditUserView: UIView {
         avatar.clipsToBounds = true
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
         avatar.image = UIImage(named: "Photo")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
+        avatar.isUserInteractionEnabled = true
         avatar.translatesAutoresizingMaskIntoConstraints = false
         return avatar
     }()
@@ -29,8 +30,8 @@ class EditUserView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your name", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Edit.nameLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,55 +42,58 @@ class EditUserView: UIView {
         return textField
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your email", comment: "")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    //MARK: пока не умею менять учетку пользователя в firebase
     
-    private lazy var emailTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin@mail.ru", placeholder: "example@mail.com")
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private lazy var passwordLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Your password", comment: "")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var passwordTextField: CustomTextField = {
-        let textField = CustomTextField(text: "admin123", placeholder: "Password")
-        textField.isSecureTextEntry = true
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
+//    private lazy var emailLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 16)
+//        label.textColor = .darkGray
+//        label.text = NSLocalizedString("Your email", comment: "")
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//    private lazy var emailTextField: CustomTextField = {
+//        let textField = CustomTextField(text: "", placeholder: "example@mail.com")
+//        textField.translatesAutoresizingMaskIntoConstraints = false
+//        return textField
+//    }()
+//
+//    private lazy var passwordLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 16)
+//        label.textColor = .darkGray
+//        label.text = NSLocalizedString("Your password", comment: "")
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//    private lazy var passwordTextField: CustomTextField = {
+//        let textField = CustomTextField(text: "", placeholder: "Password")
+//        textField.isSecureTextEntry = true
+//        textField.isUserInteractionEnabled = false
+//        textField.translatesAutoresizingMaskIntoConstraints = false
+//        return textField
+//    }()
     
     private lazy var roleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.text = NSLocalizedString("Role", comment: "")
+        label.textColor = .lightGray
+        label.text = Labels.Edit.roleLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var roleTextField: CustomTextField = {
-        let textField = CustomTextField(text: "pet owner", placeholder: "")
+        let textField = CustomTextField(text: "", placeholder: "")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private lazy var saveButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Save", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
-//        button.addTarget(self, action: #selector(save), for: .touchUpInside)
+        let button = CustomButton (title: (Labels.Edit.saveButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        button.addTarget(self, action: #selector(save), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -98,7 +102,7 @@ class EditUserView: UIView {
         let stackView = UIStackView()
         stackView.clipsToBounds = true
         stackView.axis = .vertical
-        stackView.addArrangedSubviews(nameLabel, nameTextField, emailLabel, emailTextField, passwordLabel, passwordTextField, roleLabel, roleTextField)
+        stackView.addArrangedSubviews(nameLabel, nameTextField, roleLabel, roleTextField)
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -113,9 +117,15 @@ class EditUserView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    @objc func save () {
-//        saveAction?(petAvatar.image, nameTextField.text!, breedTextField.text!)
-//    }
+    @objc func save () {
+        let userImageAvatar: UIImage?
+        if userAvatar.image == UIImage(named: "Photo") {
+            userImageAvatar = nil
+        } else {
+            userImageAvatar = userAvatar.image
+        }
+        saveAction?(userImageAvatar, nameTextField.getText(), roleTextField.getText())
+    }
     
     @objc func openGallery () {
         openGalleryAction?()
@@ -123,6 +133,17 @@ class EditUserView: UIView {
     
     func setImage (image: UIImage) {
         self.userAvatar.image = image
+    }
+    
+    func setUserData(userData: UserData) {
+        let userAvatarURL = URL(string: userData.userAvatar)
+        if let userAvatarURL = userAvatarURL {
+            userAvatar.load(url: userAvatarURL)
+        } else {
+            userAvatar.image = UIImage(named: "Photo")
+        }
+        nameTextField.setText(text: userData.userName)
+        roleTextField.setText(text: userData.role)
     }
     
     private func setupView() {
@@ -139,7 +160,7 @@ class EditUserView: UIView {
             userStackView.topAnchor.constraint(equalTo: userAvatar.bottomAnchor, constant: 32),
             userStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             userStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            userStackView.heightAnchor.constraint(equalToConstant: 360),
+            userStackView.heightAnchor.constraint(equalToConstant: 160),
             
             saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

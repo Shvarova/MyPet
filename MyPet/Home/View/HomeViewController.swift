@@ -27,16 +27,27 @@ class HomeViewController : UIViewController, UITabBarControllerDelegate {
     
     override func loadView() {
         view = mainView
-        mainView.backgroundColor = .CustomColor.backgroundDark
+        mainView.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.setPosts(posts: viewModel?.posts ?? [])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel?.updateLikes(posts: mainView.getPosts())
+    }
+    
     func setViewModel (viewModel: HomeViewModel) {
         self.viewModel = viewModel
         self.viewModel?.update = mainView.setPosts(posts:)
+        mainView.setPosts(posts: viewModel.posts)
         mainView.searchAction = {
             self.viewModel?.presentSearchController(delegate: self)
         }

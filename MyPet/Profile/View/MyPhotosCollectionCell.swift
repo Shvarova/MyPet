@@ -17,7 +17,7 @@ class MyPhotosCollectionCell: UICollectionViewCell {
     private let photoLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
-        name.text = NSLocalizedString("My photos", comment: "")
+        name.text = Labels.Profile.photoLabel
         name.textColor = .lightGray
         name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ class MyPhotosCollectionCell: UICollectionViewCell {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PhotosCell.self, forCellWithReuseIdentifier: "PhotosCell")
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark) 
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.dataSource = self

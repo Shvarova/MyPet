@@ -9,11 +9,29 @@ import UIKit
 
 class SettingsView: UIView {
     
+    var editProfile: (() -> ())? {
+        willSet (newValue) {
+            editButton.action = newValue
+        }
+    }
+    
+    var logOut: (() -> ())? {
+        willSet (newValue) {
+            exitButton.action = newValue
+        }
+    }
+    
+    var readManifesto: (() -> ())? {
+        willSet (newValue) {
+            manifestoButton.action = newValue
+        }
+    }
+    
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Settings"
+        title.text = Labels.Settings.titleLabel
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -24,8 +42,8 @@ class SettingsView: UIView {
         avatar.clipsToBounds = true
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
-        avatar.image = UIImage(named: "Admin avatar")
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
+        avatar.image = UIImage(named: "User avatar")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
         avatar.translatesAutoresizingMaskIntoConstraints = false
@@ -35,31 +53,38 @@ class SettingsView: UIView {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-        name.text = "Admin's very long name"
-        name.textColor = .white
+        name.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
+    }()
+    
+    private lazy var roleLabel: UILabel = {
+        let role = UILabel ()
+        role.textAlignment = .center
+        role.textColor = .CustomColor.emphasis
+        role.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        role.translatesAutoresizingMaskIntoConstraints = false
+        return role
     }()
     
     private lazy var emailLabel: UILabel = {
         let email = UILabel ()
         email.textAlignment = .center
         email.textColor = .CustomColor.neon
-        email.text = "admin@mail.com"
         email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         email.translatesAutoresizingMaskIntoConstraints = false
         return email
     }()
     
     private lazy var editButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Edit profile", comment: ""), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
+        let button = CustomButton (title: (Labels.Settings.editButton), titleColor: .white, backgroundColor: .CustomColor.buttonBlue)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private lazy var exitButton: CustomButton = {
-        let button = CustomButton(title: NSLocalizedString("Log Out", comment: ""), titleColor: .white, backgroundColor: .clear)
+        let button = CustomButton(title: (Labels.Settings.exitButton), titleColor: .CustomColor.buttonBlue, backgroundColor: .clear)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.CustomColor.buttonBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +92,9 @@ class SettingsView: UIView {
     }()
     
     private lazy var manifestoButton: CustomButton = {
-        let button = CustomButton (title: NSLocalizedString("Read manifesto", comment: ""), titleColor: .white, backgroundColor: .CustomColor.backgroundLight)
+        let button = CustomButton (title: (Labels.Settings.manifestoButton), titleColor: .CustomColor.emphasis, backgroundColor: .clear)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.CustomColor.emphasis.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -90,8 +117,20 @@ class SettingsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setUserData(userData: UserData) {
+        let userAvatarURL = URL(string: userData.userAvatar)
+        if let userAvatarURL = userAvatarURL {
+            userAvatar.load(url: userAvatarURL)
+        } else {
+            userAvatar.image = UIImage(named: "User avatar")
+        }
+        emailLabel.text = userData.email
+        nameLabel.text = userData.userName
+        roleLabel.text = userData.role
+    }
+    
     private func setupView() {
-        addSubviews(titleLabel, userAvatar, nameLabel, emailLabel, buttonsStackView)
+        addSubviews(titleLabel, userAvatar, nameLabel, roleLabel, emailLabel, buttonsStackView)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -103,25 +142,33 @@ class SettingsView: UIView {
             userAvatar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
             userAvatar.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            nameLabel.topAnchor.constraint(equalTo: userAvatar.bottomAnchor, constant: 16),
+            emailLabel.topAnchor.constraint(equalTo: userAvatar.bottomAnchor, constant: 16),
+            emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emailLabel.heightAnchor.constraint(equalToConstant: 24),
+            
+            nameLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             nameLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            nameLabel.heightAnchor.constraint(equalToConstant: 40),
             
-            emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emailLabel.heightAnchor.constraint(equalToConstant: 24),
+            roleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            roleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            roleLabel.heightAnchor.constraint(equalToConstant: 24),
             
             buttonsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
             buttonsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
-            buttonsStackView.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 40),
+            buttonsStackView.topAnchor.constraint(equalTo: roleLabel.bottomAnchor, constant: 40),
             
             editButton.heightAnchor.constraint(equalToConstant: 48),
             exitButton.heightAnchor.constraint(equalToConstant: 48),
             manifestoButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
+    
+    func addManifestoAction (action: @escaping () -> ()) {
+        manifestoButton.action = action
+    }
+    
 }
 

@@ -17,8 +17,8 @@ class UserCollectionCell: UICollectionViewCell {
         avatar.clipsToBounds = true
         avatar.layer.borderWidth = 0.5
         avatar.layer.masksToBounds = true
-        avatar.layer.borderColor = UIColor.white.cgColor
-        avatar.image = UIImage(named: "Admin avatar")
+        avatar.layer.borderColor = UIColor.lightGray.cgColor
+        avatar.image = UIImage(named: "User avatar")
         avatar.layer.masksToBounds = true
         avatar.contentMode = .scaleAspectFill
         avatar.translatesAutoresizingMaskIntoConstraints = false
@@ -28,21 +28,19 @@ class UserCollectionCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .center
-        name.text = "Admin's very long name"
-        name.textColor = .white
+        name.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         name.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let email = UILabel ()
-        email.textAlignment = .center
-        email.textColor = .CustomColor.neon
-        email.text = "admin@mail.com"
-        email.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        email.translatesAutoresizingMaskIntoConstraints = false
-        return email
+    private lazy var roleLabel: UILabel = {
+        let role = UILabel ()
+        role.textAlignment = .center
+        role.textColor = .CustomColor.emphasis
+        role.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        role.translatesAutoresizingMaskIntoConstraints = false
+        return role
     }()
     
     override init(frame: CGRect) {
@@ -54,8 +52,19 @@ class UserCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setUser (user: UserData) {
+        let userAvatarURL = URL(string: user.userAvatar)
+        if let userAvatarURL = userAvatarURL {
+            userAvatar.load(url: userAvatarURL)
+        } else {
+            userAvatar.image = UIImage(named: "User avatar")
+        }
+        nameLabel.text = user.userName
+        roleLabel.text = user.role
+    }
+    
     private func setupView() {
-        addSubviews(userAvatar, nameLabel, emailLabel)
+        addSubviews(userAvatar, nameLabel, roleLabel)
         
         NSLayoutConstraint.activate([
             userAvatar.widthAnchor.constraint(equalToConstant: 140),
@@ -69,11 +78,11 @@ class UserCollectionCell: UICollectionViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            emailLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emailLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            emailLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            roleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            roleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            roleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            roleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            roleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }

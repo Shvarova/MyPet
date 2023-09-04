@@ -12,12 +12,12 @@ class HomeView: UIView {
     var searchAction: (() -> ())?
     var resetAction: (() -> ())?
     
-    private var posts = [Post]()
+    private var posts = [PostData]()
     
     private lazy var searchButton: UIButton = {
         let button = UIButton ()
         button.setBackgroundImage(UIImage (systemName: "magnifyingglass"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         button.addTarget(self, action: #selector(presentSearchViewController), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -26,7 +26,7 @@ class HomeView: UIView {
     private lazy var resetButton: UIButton = {
         let button = UIButton ()
         button.setBackgroundImage(UIImage (systemName: "multiply"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         button.addTarget(self, action: #selector(reset), for: .touchUpInside)
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -35,9 +35,9 @@ class HomeView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Home"
+        title.text = Labels.Home.title
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -46,7 +46,7 @@ class HomeView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         view.dataSource = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -85,7 +85,7 @@ class HomeView: UIView {
             searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             searchButton.widthAnchor.constraint(equalToConstant: 28),
             searchButton.heightAnchor.constraint(equalToConstant: 28),
-            
+
             resetButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             resetButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             resetButton.widthAnchor.constraint(equalToConstant: 28),
@@ -101,16 +101,20 @@ class HomeView: UIView {
         ])
     }
     
-    func setPosts (posts: [Post]) {
+    func setPosts (posts: [PostData]) {
         self.posts = posts
         collectionView.reloadData()
+    }
+    
+    func getPosts() -> [PostData] {
+        self.posts
     }
     
     func showResetButton() {
         searchButton.isHidden = true
         resetButton.isHidden = false
     }
-    
+
     func showSearchButton() {
         searchButton.isHidden = false
         resetButton.isHidden = true
@@ -129,6 +133,9 @@ extension HomeView: UICollectionViewDataSource {
             return cell
         }
         cell.setPost(post: posts[indexPath.row])
+        cell.doubleTapAction = {
+            self.posts[indexPath.row].like += 1
+        }
         return cell
     }
 }

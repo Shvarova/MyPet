@@ -14,7 +14,7 @@ class PetCollectionCell: UICollectionViewCell {
     private let petLabel: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
-        name.text = NSLocalizedString("My pet", comment: "")
+        name.text = Labels.Profile.petLabel
         name.textColor = .lightGray
         name.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +25,7 @@ class PetCollectionCell: UICollectionViewCell {
         let pet = PetView()
         pet.layer.cornerRadius = 16
         pet.clipsToBounds = true
-        pet.backgroundColor = .CustomColor.backgroundLight
+        pet.backgroundColor = .createColor(lightMode: .systemGray5, darkMode: .CustomColor.backgroundLight) 
         pet.translatesAutoresizingMaskIntoConstraints = false
         return pet
     }()
@@ -37,6 +37,10 @@ class PetCollectionCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setPet(pet: PetData) {
+        petView.setPet(pet: pet)
     }
     
     private func setupView() {

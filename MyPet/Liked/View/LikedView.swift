@@ -9,11 +9,13 @@ import UIKit
 
 class LikedView: UIView {
     
+    private var posts = [PostData]()
+    
     private lazy var titleLabel: UILabel = {
         let title = UILabel ()
-        title.text = "Liked"
+        title.text = Labels.Liked.titleLabel
         title.font = .boldSystemFont(ofSize: 24)
-        title.textColor = .white
+        title.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -22,7 +24,7 @@ class LikedView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         view.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
         view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        view.backgroundColor = .CustomColor.backgroundDark
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -42,6 +44,11 @@ class LikedView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setPosts (posts: [PostData]) {
+        self.posts = posts
+        collectionView.reloadData()
     }
     
     private func setupView() {

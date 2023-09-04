@@ -13,6 +13,8 @@ enum AddPostFactory {
         let vc = AddPostViewController(mainView: mainView)
         let viewModel = AddPostViewModel(nc: navigation)
         vc.setViewModel(viewModel: viewModel)
+        navigation.navigationBar.isHidden = false
+        navigation.tabBarController?.tabBar.isHidden = true
         return vc
     }
 }
