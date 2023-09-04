@@ -45,16 +45,19 @@ class EntryViewModel {
                 self.output?.goToHome()
             })
         } else {
-            var errorText = "Unknown error"
+            var errorText = Labels.Auth.unknownError
             if let error = error as NSError? {
                 if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
                     switch errorCode {
                     case .emailAlreadyInUse, .credentialAlreadyInUse:
-                        errorText = "Email Already In Use"
+                        errorText = Labels.Auth.credentialError
+                    case .invalidCredential, .invalidEmail, .wrongPassword:
+                        errorText = Labels.Auth.invalidError
+                    case .userNotFound, .userDisabled:
+                        errorText = Labels.Auth.userNotFoundError
                     default:
-                        errorText = "???"
+                        errorText = Labels.Auth.unknownError
                     }
-                    
                 }
             }
             errorAction?(Labels.Auth.errorAction, errorText)
@@ -63,11 +66,11 @@ class EntryViewModel {
     
     private func checkCredentionals(email: String, password: String)  {
         if !emailIsValid(email) && !passwordIsValid(password) {
-            errorAction?("Invalid credentionals format".localized, "Check your email and password spelling".localized)
+            errorAction?(Labels.Auth.credentionalsFormatError, Labels.Auth.checkSpelling)
         } else if !emailIsValid(email) {
-            errorAction?("Invalid email format".localized, "Check your email spelling".localized)
+            errorAction?(Labels.Auth.emailFormatError, Labels.Auth.checkEmailFormat)
         } else if !passwordIsValid(password) {
-            errorAction?("Weak password".localized, "Password must be 6 or more characters".localized)
+            errorAction?(Labels.Auth.weakPasswordError, Labels.Auth.passwordRules)
         } else {
             credentionals.signUp(withEmail: email, password: password, checkCredentionalsCompletion)
         }
@@ -79,7 +82,7 @@ class EntryViewModel {
         }
     
         private func passwordIsValid(_ password: String) -> Bool {
-            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
+            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{6,}")
             return passwordTest.evaluate(with: password)
         }
 }

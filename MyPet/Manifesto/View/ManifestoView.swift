@@ -27,8 +27,8 @@ class ManifestoView: UIView {
     private lazy var textView: UITextView = {
         let text = UITextView(frame: .zero)
         text.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        text.backgroundColor = .CustomColor.backgroundDark
-        text.textColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
+        text.backgroundColor = .createColor(lightMode: .white, darkMode: .CustomColor.backgroundDark)
+        text.textColor = .createColor(lightMode: .CustomColor.backgroundDark, darkMode: .white)
         text.contentMode = .center
         text.showsVerticalScrollIndicator = false
         text.showsHorizontalScrollIndicator = false

@@ -13,11 +13,23 @@ enum Labels {
         static let welcomeTextLabel = "social network for pet owners, vets, breeders and clubs".localized
         static let logIn = "Log In".localized
         static let signUp = "Sign Up".localized
-        static let errorAction = "Error".localized
-        static let alert = "Ok".localized
         static let emailLabel = "Your email".localized
         static let passwordLabel = "Your password".localized
         static let passwordPlaceholder = "Password".localized
+        
+        //Errors
+        static let errorAction = "Error".localized
+        static let alert = "OK".localized
+        static let unknownError = "Unknown error. Please try again".localized
+        static let credentialError = "Email already in use".localized
+        static let invalidError = "The email or password is incorrect".localized
+        static let userNotFoundError = "We didn't recognize you. Check if you entered your email and password correctly"
+        static let credentionalsFormatError = "Invalid credentionals format".localized
+        static let checkSpelling = "Check your email and password spelling".localized
+        static let emailFormatError = "Invalid email format".localized
+        static let checkEmailFormat = "Check your email spelling".localized
+        static let weakPasswordError = "Weak password".localized
+        static let passwordRules = "Password must contain minimum 6 characters, at least one uppercase letter, one lowercase letter and one number".localized
     }
     enum Home {
         static let title = "Home".localized

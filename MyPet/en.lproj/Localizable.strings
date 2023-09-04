@@ -6,32 +6,61 @@
   
 */
 
+// Auth
 "love brings us together 🙌" = "love brings us together 🙌";
 "social network for pet owners, vets, breeders and clubs" = "social network for pet owners, vets, breeders and clubs";
 "Log In" = "Log In";
 "Sign Up" = "Sign Up";
 "Your email" = "Your email";
 "Your password" = "Your password";
+"Password" = "Password";
+
+// Errors
+"Error" = "Error";
+"OK" = "OK";
+"Unknown error. Please try again" = "Unknown error. Please try again";
+"Email already in use" = "Email already in use";
+"The email or password is incorrect" = "The email or password is incorrect";
+"We didn't recognize you. Check if you entered your email and password correctly" = "We didn't recognize you. Check if you entered your email and password correctly";
+"Invalid credentionals format" = "Invalid credentionals format";
+"Check your email and password spelling" = "Check your email and password spelling";
+"Invalid email format" = "Invalid email format";
+"Check your email spelling" = "Check your email spelling";
+"Weak password" = "Weak password";
+"Password must contain minimum 6 characters, at least one uppercase letter, one lowercase letter and one number" = "Password must contain minimum 6 characters, at least one uppercase letter, one lowercase letter and one number";
+
+// Home
 "Home" = "Home";
 "Search" = "Search";
+
+// Profile
 "Profile" = "Profile";
 "My pet" = "My pet";
-"My post" = "My post";
 "My photos" = "My photos";
+"My post" = "My post";
+
+// Edit
+"Your name" = "Your name";
+"Role" = "Role";
+"Pet name" = "Pet name";
+"Breed" = "Breed";
+"Save" = "Save";
+
+// Post
 "Title" = "Title";
 "Description" = "Description";
 "Publish" = "Publish";
-"Pet name" = "Pet name";
-"Breed" = "Breed";
-"Your name" = "Your name";
-"Role" = "Role";
-"Save" = "Save";
+
+// Liked
 "Liked" = "Liked";
+
+// Settings
 "Settings" = "Settings";
 "Edit profile" = "Edit profile";
 "Log Out" = "Log Out";
 "Read manifesto" = "Read manifesto";
-"Manifesto" = "Manifesto";
+
+// Manifesto
 "Our manifesto" = "Our manifesto";
 "We believe that pets are an integral part of our lives, and they deserve the best care and attention.
 
